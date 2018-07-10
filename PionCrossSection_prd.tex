@@ -26,6 +26,9 @@
 \usepackage{dcolumn}   % needed for some tables
 \usepackage{bm}        % for math
 \usepackage{amssymb}   % for math
+ \usepackage{comment} % for large comment sections
+\usepackage{color}
+
 
 % avoids incorrect hyphenation, added Nov/08 by SSR
 \hyphenation{ALPGEN}
@@ -55,43 +58,10 @@
 
 
 \begin{abstract}
-We present here the measurement of the negative pion total hadronic cross section on Argon in the 100-1050 MeV kinetic energy range as performed at the LArIAT experiment.   Deploying a Liquid Argon Time Projection Chamber (LArTPC) in a dedicated calibration test beam line at Fermilab, LArIAT (Liquid Argon In A Testbeam) aims to experimentally calibrate this technology in a controlled environment. We use LArIAT's beamline detectors to identify candidate pions and measure their momentum prior to entering the LArTPC. We then apply the ``thin slice method" technique, a new method to measure hadron-argon cross sections possible only due to the combination of the tracking and calorimetry capability of the LArTPC technology. 
-%Albeit never on argon, the hadronic cross section of pions has been extensively measured before on lighter and heavier different elements in thin target experiments, leading to solid predictions for measurements on argon. 
-Our measurement of the  ($\pi^-$-Ar) total hadronic cross section is in general agreement with the predictions by the Geant4 Bertini Cascade model which are based on data from thin target experiments on heavier and lighter nuclei.
+We present the measurement of the negative pion total hadronic cross section on Argon in the 100-1050 MeV kinetic energy range as performed at the LArIAT experiment.   Deploying a Liquid Argon Time Projection Chamber (LArTPC) in a dedicated calibration test beam line at Fermilab, LArIAT (Liquid Argon In A Testbeam) aims to experimentally calibrate this technology in a controlled environment. We use LArIAT's beamline detectors to identify candidate pions and measure their kinetic energy prior to entering the LArTPC. Once the pion candidate reaches the LAr active volume, we apply the ``thin slice method", a new technique to measure hadron-argon cross sections based on the combination of tracking and calorimetric capability of the LArTPC technology. 
+Albeit our measurement of the  ($\pi^-$-Ar) total hadronic cross section is in general agreement with the predictions by the Geant4 Bertini Cascade model derived from historic measurements on lighter and heavier nuclei, a hint to a shape difference is present.
 The ($\pi^-$, Ar) total cross-section has never been measured before; the outcome of this measurement will enable to quantify and reduce the systematic associated with the hadronic interaction models in neutrino-argon interactions in current ant future LAr experiments such as the Short Baseline Neutrino and DUNE.
  
-
-
-%in a controlled environment and to provide physics results key to the
-%neutrino oscillation physics 
-
-%\begin{itemize}
-%\item Thin slice method, new method
-%\item Importance of LArTPC for neutrino experiments
-%\item First time measurement
-%\end{itemize}
-
-%The Liquid Argon Time Projection Chamber (LArTPC) represents one of the
-%most advanced experimental technologies for physics at the Intensity
-%Frontier due to its full 3D-imaging, excellent particle identification
-%and precise calorimetric energy reconstruction. By deploying a LArTPC in
-%a dedicated calibration test beam line at Fermilab, LArIAT (Liquid
-%Argon In A Testbeam) aims to experimentally calibrate this technology
-%in a controlled environment and to provide physics results key to the
-%neutrino oscillation physics and proton decay searches of the Short
-%Baseline Neutrino (SBND, MicroBooNE, ICARUS) and Long Baseline Neutrino programs (DUNE).
-
-%LArIAT's physics program entails a vast set of topics with a
-%particular focus on the study of nuclear effects such as pion and
-%kaon characteristic interaction modes. 
-
-% The analyses devised for these measurements use both the core elements of LArIAT: beamline and LArTPC. The first step in each analysis is the development of an event selection based on  beamline and TPC information geared towards the identification of the hadron of interest. We then proceed to match the beamline candidate to a suitable TPC track. Finally,  we apply the ``thin slice method" technique and measure the cross section, correcting for background contamination and detector effects. The thin slice technique is a new method to measure hadron-argon cross sections possible only due to the combination of the tracking and calorimetry capability of the LArTPC technology. 
-%Albeit never on argon, the hadronic cross section of pions has been extensively measured before on lighter and heavier different elements in thin target experiments, leading to solid predictions for measurements on argon. Through the use of a different technique, our measurement of the  ($\pi^-$-Ar) total hadronic cross section is in general agreement with the predictions by the Geant4 Bertini Cascade model which are based on data from thin target experiments. On the contrary, cross section measurements for kaons are extremely scarce, thus more difficult to model. Our measurement of the  ($K^+$-Ar) total hadronic cross section is mostly in tension with the Geant4 prediction over the explored range of energies and provides new experimental data to properly compare existing interaction models.
-
-%This thesis also reports two  ancillary  detector physics measurements necessary for the cross section analyses: the measurements of the LArIAT electric field and calorimetry constants. We developed a technique to measure the LArIAT electric field using cathode-anode piercing tracks with cosmic data. We applied a new technique for the measurement of the calorimetry calibration constants based on the particles' momentum measurement.
-
-
-%The ($\pi^-$-Ar) and the ($K^+$-Ar) total hadronic cross measurements are the first physics results of the LArIAT experiment and will be the basis for the future LArIAT measurements of pion and kaon cross sections in the exclusive channels.
 
 
 
@@ -100,9 +70,97 @@ The ($\pi^-$, Ar) total cross-section has never been measured before; the outcom
 \pacs{13.15.+g Neutrino interactions, 14.40.-n	Mesons,  14.40.Be	Light mesons (S=C=B=0), 13.75.-n	Hadron-induced low- and intermediate-energy reactions and scattering (energy $le$ 10 GeV)}
 \maketitle
 
-%\section{\label{sec:level1}First-level heading}
-% sections are not used for PRL papers
+\section{\label{sec:Motivations}Motivations}
+Motivations
 
+\section{\label{sec:ExperimentalSetup}Experimental Setup}
+Setup
+\subsection{\label{sec:Beamline}Beamline} 
+Beamline
+\subsection{\label{sec:LArTPC}LArTPC}
+LArTPC
+\textcolor{red}{At this point, I should have explained how I get my pool of candidates.}
+
+\section{\label{sec:ThinSliceMethod}Thin Slice Method}
+Once we have selected the 40841 beamline pion candidates and we have identified the TPC corresponding track, we apply the thin slice method to measure the cross section. 
+
+Historic measurements of hadronic cross sections are performed on thin targets [\textcolor{red}{A CIT is needed here}]. These experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux, under the assumption that the target centers are uniformly distributed in the material and  that no center of interaction sits in front of another for what it concerns the process under investigation. In this thin target approximation, the ratio between the number of particles interacting in the target $N_{\text{Int}}$ and the number of incident particles $N_{\text{Inc}}$ on the target estimates the interaction probability $P_{\text{Int}}$, which is the complementary to one of the survival probability $P_{\text{Surv}}$. 
+Equation \ref{eq:thinTargetXS} 
+\begin{equation}
+P_{\text{Surv}} = 1- P_{\text{Int}}  = 1 - \frac{N_{\text{Int}}}{N_{\text{Inc}}} = e^{-\sigma_{\text{TOT}}\text{ } n \text{ }\delta X}
+\label{eq:thinTargetXS}
+\end{equation}
+describes the probability for a particle to survive the thin target; this formula relates  the interaction probability to the total hadronic cross section, $\sigma_{\text{TOT}}$, the density of the target centers, $n$,  and  the thickness of the target  along the incident hadron direction, $\delta X$.  Since the target is thin compared to the interaction length of the process considered,  a simple proportionality relationship between the cross section and the interaction probabily, $\frac{N_{\text{Int}}}{N_{\text{Inc}}}$, is found by Taylor expanding the exponential function:
+ \begin{equation}
+ \sigma_{\text{TOT}}  = \frac{1}{n \text{ }\delta X}\frac{N_{\text{Int}}}{N_{\text{Inc}}}.
+\label{eq:thinTargetXSSolved}
+\end{equation}
+
+Since the interaction length of pions in liquid argon is expected to be of the order of 50 cm [\textcolor{red}{A CIT is needed here}], the LArIAT TPC, with its 90 cm of length, is not a thin target. However, the granularity of the LArIAT LArTPC allows us to assess the presence of a pion and to measure its kinetic energy approximately every 4.7~mm along its trajectory in the detector's active volume. We can thus treat the argon volume as a sequence of many adjacent thin targets, recovering the thin target approximation in each slab of argon. 
+
+As described in Chapter \ref{sec:experimentDescription}, LArIAT induction and collection planes consist of 240 wires each at 4 mm spacing. The wires are oriented at +/- $60^{\circ}$ from the vertical direction, while the beam direction is oriented 3 degrees off the $z$ axis in the $XZ$ plane.  The collection wires collect signals proportional to the energy deposited by the hadron along its path in a  $\delta${\emph{X}} = 4 mm/(sin($60^{\circ}$)cos($3^{\circ}$)) $\approx$ 4.7~mm slab of liquid argon. Thus, one can think to slice the TPC into many thin targets of $\delta${\emph{X}} = 4.7~mm thickness along the direction of the incident particle, making a measurement at each wire along the path, as sketched in Figure \ref{fig:TPCGran}.
+
+\begin{figure}
+  \centering  
+%\includegraphics[width=0.8\textwidth]{Chapter-4/Images/LArSlice.png}
+\caption{Representation of sliced LAr Volume.}
+\label{fig:TPCGran}
+\end{figure}
+
+
+Considering each slice {\emph{j}}  a ``thin target",  we can apply the cross section calculation from Equation~\ref{eq:thinTargetXSSolved} iteratively, evaluating the kinetic energy of the hadron as it enters each slice, $E_{j}^{kin}$.  For each WC2TPC matched particle, the energy of the hadron entering the TPC is known thanks to the momentum and mass determination by the tertiary beamline, 
+
+\begin{equation}
+ E^{kin}_{Front Face}  = \sqrt{p^2_{Beam} - m^2_{Beam}} - m_{Beam} - E_{loss},
+\label{eq:enFF}
+\end{equation}
+where $E_{loss}$ is a correction for the kinetic energy loss in the uninstrumented material between the beamline and the TPC front face. While propagating through the target,  the kinetic energy of the hadron at each slab is determined by subtracting the energy deposited by the particle in the previous slabs. For example, at the $j^{th}$ slab of a track, the kinetic energy will be
+
+\begin{equation}
+ E_{j}^{kin} =  E^{kin}_{Front Face} - \sum_{i < j} E_{\text{Dep},i},
+\label{eq:KEj}
+\end{equation}
+where $E_{\text{Dep},i}$ is the energy deposited at each argon slice before the $j^{th}$ point as measured by the calorimetry associated with the tracking.
+
+
+If the particle enters a slice, it contributes to the $N_{\text{Inc}}( E^{kin})$ distribution in the energy bin corresponding to its kinetic energy in that slice.  Within the slice, the hadron may or may not interact. If it interacts in the slice, it  contributes also to the $N_{\text{Int}}(E^{kin})$ distribution in the appropriate energy bin; this occurrence corresponds to the end of the hadron tracking. If the hadron does not interact, it will enter the next slice and the interaction evaluation starts again.
+The process is applied to all the hadrons in the sample; the cross section as a function of kinetic energy, $\sigma_{TOT}( E^{kin})$ is then evaluated to be proportional to the ratio $\frac{N_{\text{Int}}( E^{kin})}{N_{\text{Inc}}( E^{kin})}$ -- bin by bin ratio. 
+
+
+Our goal is to measure the total interaction cross section, independently  from the topology of the interaction. Thus, we determine that a hadron interacted simply by requiring that the last point of the WC2TPC matched track lies in a slice within the fiducial volume, whose boundaries are defined in Table \ref{tab:FidVol}. If the TPC track ends within the fiducial volume, its last point will be the interaction point; if the track crosses the boundaries of the fiducial volume, the track will be considered ``through going" and no interaction point will be found. The only points of the hadronic candidate track considered to fill the  $N_{\text{Int}}$ and  $N_{\text{Inc}}$ distributions are the ones contained in the fiducial volume. 
+ 
+ A notable background pertinent only to the $N_{\text{Int}}$  distribution are cases in which the hadrons decays inside the TPC. In those cases in fact, the tracking ends inside the TPC but the interaction is not hadronic. The handling of decay background is treated in a slightly different way for the pion and kaon section, details can be found in sections \ref{ch:PionXSBkgSub} and \ref{ch:KaonXSRaw} respectively.
+
+
+
+\begin{table}[t]
+\centering
+\begin{tabular}{|l|r|r|}
+\hline
+& min   &  max  \\ \hline
+$X$ & 1 cm   & 46 cm  \\ \hline
+$Y$ & -15 cm   & 15  cm  \\ \hline
+$Z$ & 0 cm   & 86 cm  \\ \hline
+\end{tabular}
+\caption{Fiducial volume boundaries used to determine cross section interaction point. }
+\label{tab:FidVol}
+\end{table}
+
+
+\subsection{\label{sec:RawXS}Raw Cross Section}
+\subsection{\label{sec:Corrections}Corrections}
+
+\section{\label{sec:Results}Results}
+% sections are not used for PRL papers
+Results shown in Fig.~\ref{fig:epsart}.
+
+\begin{figure}
+\includegraphics[width =0.4\textwidth ]{TheRealMoneyPlot}
+\caption{\label{fig:epsart} Top: ($\pi^-$-Ar) total hadronic cross section for  scattering angles greater than 5$^\circ$ measured in the combined sample, statistical uncertainty and systematic uncertainty in black. The Geant4 prediction for the total hadronic cross section for angle scattering greater than 5$^\circ$ is displayed in green. Bottom: Relative difference between the measured cross section and the Geant4 prediction. }
+\end{figure}
+
+
+\begin{comment}
 This sample document demonstrates proper use of REV\TeX~4 (and
 \LaTeXe) in mansucripts prepared for submission to APS
 journals. Further information can be found in the REV\TeX~4
@@ -225,7 +283,7 @@ environment which provides both the caption and the imports the figure
 file.
 
 \begin{figure}
-%\includegraphics[scale=0.8]{fig_1.ps}
+\includegraphics[scale=0.8]{TheRealMoneyPlot.ps}
 \caption{\label{fig:epsart} A figure caption. The figure captions are
 automatically numbered.}
 \end{figure}
@@ -389,6 +447,8 @@ figures or tables be in numerical order in text, so don't cite
 Fig.~\ref{fig:wide} until Fig.~\ref{fig:epsart} has been cited.
 
 
+
+\end{comment}
 
 \input acknowledgement.tex   % input acknowledgement
 

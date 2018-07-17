@@ -28,6 +28,7 @@
 \usepackage{amssymb}   % for math
  \usepackage{comment} % for large comment sections
 \usepackage{color}
+\usepackage[percent]{overpic}
 
 
 % avoids incorrect hyphenation, added Nov/08 by SSR
@@ -71,41 +72,111 @@ The ($\pi^-$, Ar) total cross-section has never been measured before; the outcom
 \maketitle
 
 \section{\label{sec:Motivations}Motivations}
-Motivations
+Motivations: existing measurements + interpolation between heavier and lighter nuclei
+Methods used in other measurements (concise)
 
 \section{\label{sec:ExperimentalSetup}Experimental Setup}
-Setup
+We briefly describe here the features and use of the LArIAT beamline detectors and LArTPC  relevant to the pion cross section measurement; we refer the reader to [\textcolor{red}{cit detector paper}] for a detailed description of LArIAT's experimental setup.
+
 \subsection{\label{sec:Beamline}Beamline} 
-Beamline
+\begin{figure*}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Tertiary.png}
+ \put (-500,185) {\huge \textcolor{red}{Needs WORK}}
+\caption{Bird's eye view of the LArIAT tertiary beamline. In grey: upstream and downstream collimators; in yellow: bending magnets; in red: multi wire proportional chambers; in blue: time of flight; in green: liquid argon TPC volume; in maroon: muon range statck.}
+\label{fig:beamlinebird}
+\end{figure*}
+
+
+%\begin{overpic}[width=0.5\textwidth,grid,tics=10]{momentumPiMuE.png}
+% \put (20,85) {\huge$\displaystyle\gamma$}
+%\end{overpic}
+
+
+Scope of the LArIAT beamline instrumentation is to identify the particle type and measure the momentum of the particles entering the LArIAT TPC. Figure \ref{fig:beamlinebird} shows a bird's eye view of the LArIAT tertiary beamline where we highlighted the key components for the cross section measurement:  two bending magnets (yellow), a set of four wire chambers (red) and two time-of-flight scintillating paddles (blue).  The magnets' polarity determines the charge of the particles selected in the tertiary beam: running the magnets in negative polarity selects negatively charged particles. The combination of magnets and wire chambers forms the LArIAT spectrometer which determines the particles' momentum at the fourth wire chamber, $p_{\text{Beam}}$, with a relative uncertainty of 2\%. Figure \ref{fig:momentum} shows the distribution of  $p_{\text{Beam}}$ for the Run II negative polarity data used in this work. 
+%\begin{comment}     
+\begin{figure}
+  \centering  
+\includegraphics[width =0.4\textwidth]{momentumPiMuE.png}
+\caption{Momentum spectrum in the LArIAT beamline  for Run II negative polarity data.}
+\label{fig:momentum}
+\end{figure}
+
+
+
+We leverage the measurement of the momentum in conjunction with the measurement of the time of flight to calculate the particle's invariant mass $m_{\text{Beam}}$ as 
+\begin{equation}
+m_{\text{Beam}} = \frac{p_{\text{Beam}}}{c}\sqrt{\biggl(\frac{TOF*c}{l}\biggr)^2 -1},
+\label{eq:mass}
+\end{equation}
+ where $c$ is the speed of light and $l$ is the length of the particle's trajectory between the time of flight paddles. 
+
+
+
+
+
+Figure \ref{fig:mass} shows the distribution of the invariant mass for the Run II negative polarity runs. We classify beamline events into the different categories as follows:
+
+\begin{itemize}
+\item[-] $\pi/\mu/e$:  $m_{\text{Beam}}<$ 350~MeV/c$^2$
+\item[-] kaon: 350~MeV $< m_{\text{Beam}} <$ 650~MeV/c$^2$
+\item[-] antiproton: 650~MeV $<m_{\text{Beam}}<$ 3000~MeV/c$^2$.
+\end{itemize}
+
+
+
+%\begin{comment}     
+\begin{figure}
+  \centering  
+\includegraphics[width =0.4\textwidth]{massRunII.png}
+\caption{Distribution of the beamline mass as calculated according to equation \ref{eq:mass} for the Run-II events reconstructed in the beamline, negative polarity runs. The classification of the events into $\pi^-/ \mu^-/e^-$, K$^-$, or antiproton is based on these distributions, whose selection values are represented by the vertical colored lines.}
+\label{fig:mass}
+\end{figure}
+
+
 \subsection{\label{sec:LArTPC}LArTPC}
-LArTPC
+
+LArTPC to detector paper (concise)
+
+LArIAT induction and collection planes consist of 240 wires each at 4 mm spacing. The wires are oriented at +/- $60^{\circ}$ from the vertical direction, while the beam direction is oriented 3 degrees off the $z$ axis in the $XZ$ plane.  The collection wires collect signals proportional to the energy deposited by the hadrons along their path in a  $\delta${\emph{X}} = 4 mm/(sin($60^{\circ}$)cos($3^{\circ}$)) $\approx$ 4.7~mm portion of the liquid argon. We combine the measurement of the beamline momentum with the calorimetry measurement within the TPC to obtain the kinetic energy of an incoming particle every argon slice.
+
+
+
+Thus, one can think to slice the TPC into many thin targets of $\delta${\emph{X}} = 4.7~mm thickness along the direction of the incident particle, making a measurement at each wire along the path, as sketched in Figure \ref{fig:TPCGran}.
+
+
+\subsection{\label{sec:Simulation}Simulation}
+\subsection{\label{sec:EventSelection}Event Selection}
+In data, the negative polarity Run II events classified as $\pi/\mu/e$ that are matched to a TPC track and that survive the shower filter form the pool of beamline events for the negative pion cross section analysis. This pool is made of 40841 beamline pion candidates, which we feed to the thin slice method described in the next section in order to measure the negative pion total hadronic cross section. 
+
+
 \textcolor{red}{At this point, I should have explained how I get my pool of candidates.}
 
 \section{\label{sec:ThinSliceMethod}Thin Slice Method}
-Once we have selected the 40841 beamline pion candidates and we have identified the TPC corresponding track, we apply the thin slice method to measure the cross section. 
+Historic measurements of hadronic cross sections are performed on thin targets [\textcolor{red}{A CIT is needed here}]. These experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux, under the assumption that the target centers are uniformly distributed in the material and that no center of interaction sits in front of another. The thin target approximation is valid if the interaction length of the considered process is significantly longer than the width of the target, i.e $\lambda_{\text{Int}} \gg \delta X$.
 
-Historic measurements of hadronic cross sections are performed on thin targets [\textcolor{red}{A CIT is needed here}]. These experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux, under the assumption that the target centers are uniformly distributed in the material and  that no center of interaction sits in front of another for what it concerns the process under investigation. In this thin target approximation, the ratio between the number of particles interacting in the target $N_{\text{Int}}$ and the number of incident particles $N_{\text{Inc}}$ on the target estimates the interaction probability $P_{\text{Int}}$, which is the complementary to one of the survival probability $P_{\text{Surv}}$. 
-Equation \ref{eq:thinTargetXS} 
+Equation \ref{eq:thinTargetXS} relates the probability that a particle survives a target to the total hadronic cross section, $\sigma_{\text{TOT}}$, the density of the target centers, $n$,  and  the thickness of the target  along the incident hadron direction, $\delta X$. The survival probability can be expressed in terms of the interaction probability $P_{\text{Int}}$, represented by ratio between the number of particles interacting in the thin target $N_{\text{Int}}$ and the number of incident particles $N_{\text{Inc}}$.
+
 \begin{equation}
-P_{\text{Surv}} = 1- P_{\text{Int}}  = 1 - \frac{N_{\text{Int}}}{N_{\text{Inc}}} = e^{-\sigma_{\text{TOT}}\text{ } n \text{ }\delta X}
+P_{\text{Surv}} = e^{-\sigma_{\text{TOT}}\text{ } n \text{ }\delta X} = 1- P_{\text{Int}}  = 1 - \frac{N_{\text{Int}}}{N_{\text{Inc}}} 
 \label{eq:thinTargetXS}
 \end{equation}
-describes the probability for a particle to survive the thin target; this formula relates  the interaction probability to the total hadronic cross section, $\sigma_{\text{TOT}}$, the density of the target centers, $n$,  and  the thickness of the target  along the incident hadron direction, $\delta X$.  Since the target is thin compared to the interaction length of the process considered,  a simple proportionality relationship between the cross section and the interaction probabily, $\frac{N_{\text{Int}}}{N_{\text{Inc}}}$, is found by Taylor expanding the exponential function:
+
+In the thin target approximation,  a simple proportionality relationship between the cross section and the interaction probability is found by Taylor expanding the exponential function:
  \begin{equation}
  \sigma_{\text{TOT}}  = \frac{1}{n \text{ }\delta X}\frac{N_{\text{Int}}}{N_{\text{Inc}}}.
 \label{eq:thinTargetXSSolved}
 \end{equation}
 
-Since the interaction length of pions in liquid argon is expected to be of the order of 50 cm [\textcolor{red}{A CIT is needed here}], the LArIAT TPC, with its 90 cm of length, is not a thin target. However, the granularity of the LArIAT LArTPC allows us to assess the presence of a pion and to measure its kinetic energy approximately every 4.7~mm along its trajectory in the detector's active volume. We can thus treat the argon volume as a sequence of many adjacent thin targets, recovering the thin target approximation in each slab of argon. 
+Since the expected interaction length of pions in liquid argon is of the order of $\lambda_{\text{Int}} \sim 50$ cm [\textcolor{red}{A CIT is needed here}], we cannot treat the LArIAT TPC, with its 90 cm of length,  as a thin target. However, the granularity of the LArIAT LArTPC allows us to assess the presence of a pion and to measure its kinetic energy approximately every 4.7~mm along its trajectory in the detector's active volume. We can thus treat the argon volume as a sequence of many adjacent thin targets, recovering the thin target approximation in each slice of argon. 
 
-As described in Chapter \ref{sec:experimentDescription}, LArIAT induction and collection planes consist of 240 wires each at 4 mm spacing. The wires are oriented at +/- $60^{\circ}$ from the vertical direction, while the beam direction is oriented 3 degrees off the $z$ axis in the $XZ$ plane.  The collection wires collect signals proportional to the energy deposited by the hadron along its path in a  $\delta${\emph{X}} = 4 mm/(sin($60^{\circ}$)cos($3^{\circ}$)) $\approx$ 4.7~mm slab of liquid argon. Thus, one can think to slice the TPC into many thin targets of $\delta${\emph{X}} = 4.7~mm thickness along the direction of the incident particle, making a measurement at each wire along the path, as sketched in Figure \ref{fig:TPCGran}.
 
-\begin{figure}
-  \centering  
+
+%\begin{figure}
+%  \centering  
 %\includegraphics[width=0.8\textwidth]{Chapter-4/Images/LArSlice.png}
-\caption{Representation of sliced LAr Volume.}
-\label{fig:TPCGran}
-\end{figure}
+%\caption{Representation of sliced LAr Volume.}
+%\label{fig:TPCGran}
+%\end{figure}
 
 
 Considering each slice {\emph{j}}  a ``thin target",  we can apply the cross section calculation from Equation~\ref{eq:thinTargetXSSolved} iteratively, evaluating the kinetic energy of the hadron as it enters each slice, $E_{j}^{kin}$.  For each WC2TPC matched particle, the energy of the hadron entering the TPC is known thanks to the momentum and mass determination by the tertiary beamline, 

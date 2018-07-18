@@ -156,42 +156,54 @@ The event reconstruction chain uses collection of hits to form more complex obje
 
 \textbf{2D Clustering Reconstruction.} 
 The LArIAT reconstruction of track-like objects starts by clustering hits on the collection and induction planes separately with the use of the TrajCluster clustering package\cite{Baller2016}. 
-TrajCluster looks for a collection of hits in the wire-time 2D space which can be described with a line-like 2D trajectory. TrajCluster reconstructs trajectories by adding trajectory points to the leading edge of the trajectory while stepping through the 2D space of hits. Several factors determine whether a hit is added to the trajectory, including but not limited to
-\begin{enumerate}
-\item the goodness of the fit of the single hit,
-\item the charge of the hit compared to the average charge and RMS of the hits already forming the trajectory,
-\item the goodness of trajectory fit with and without the hit addition,
-\item the angle between the two lines formed by the collection of hits before and after the considered hit in the trajectory.
-\end{enumerate}
-The final product of this reconstruction stage is the collection of bidimensional clusters on each wire plane, see Figure \ref{fig:SignalProc} panel d).
+TrajCluster looks for a collection of hits in the wire-time 2D space which can be described with a line-like 2D trajectory. TrajCluster reconstructs trajectories by adding trajectory points to the leading edge of the trajectory while stepping through the 2D space of hits. Several factors determine whether a hit is added to the trajectory, including but not limited to the goodness of the fit of the single hit, the charge of the hit compared to the average charge and RMS of the hits already forming the trajectory, the goodness of trajectory fit with and without the hit addition, the angle between the two lines formed by the collection of hits before and after the considered hit in the trajectory.
+The final product of this reconstruction stage is the collection of bidimensional clusters on each wire plane, see Figure \ref{fig:SignalProc} panel d).\\
 
 \textbf{3D Tracking.} The 3D tracking set of algorithms uses clusters close in time on the induction and collection planes as starting point to form a 3D track. Firstly, it constructs a tentative 3D trajectory using the edges of the clusters. Then, it  projects back the tentative trajectory on to the planes and adjusts the parameters of the 3D track fit such that they minimize the distance between the fit projections and the track hits in all wire planes simultaneously.  Tridimensional tracking can use multiple clusters in one plane, but it can never break them into smaller groups of hits. This algorithm was first developed for the ICARUS collaboration\cite{Antonello2013}. The final product of this reconstruction stage is the formation of  tridimensional objects in the TPC active volume, see Figure \ref{fig:SignalProc} panel e).\\
 
-\textbf{Calorimetry.} The last step in the event reconstruction chain is to assign calorimetric information to the track (or shower) objects. Calorimetry is performed separately on the different planes. A multi-step procedure is needed to retrieve the energy deposited in the TPC  from the charge seen by the wires.
-For each hit associated with the track object, the calorimetry algorithms calculate the charge seen on every wire using the area underneath the gaussian fit; then, they correct this raw charge by the electron life time, the electronic noise on the considered wire and the recombination effect. Lastly an overall calibration of the energy, explained in detail in section \ref{ch:energyCalibration}, is applied and the calorimetric information for the given track is assigned.
-Even if calorimetry is done in 2D, it benefits from the 3D tracking information; typical objects available after the calorimetric reconstruction are the total energy deposited by the particle and its stopping power $dE/dx$ at each ``track pitch", i.e. at each segment between two 3D points projected on the wire plane.
+\textbf{Calorimetry.} The last step in the event reconstruction chain is to assign calorimetric information to the track objects. Calorimetry is performed separately on the different planes. A multi-step procedure is needed to retrieve the energy deposited in the TPC  from the charge seen by the wires.
+For each hit associated with the track object, the calorimetry set of algorithms calculates the charge seen on every wire integrating the area underneath the gaussian fit; then, it corrects this raw charge by the electron life time, the electronic noise on the considered wire and the recombination effect. Lastly an overall calibration of the energy is applied and the calorimetric information for the given track is assigned. \\
 
+Signal processing and event reconstruction provide the collection of TPC tracks per event and their associated tracking and calorimetric information. We use the reconstructed track direction and position at the front face of the TPC to match one TPC track to the beamline candidate. We reject events with either zero or multiple matches. In an effort to reduce electron contamination, we filter events based on their topology in the TPC: if more than 5 short tracks (track length $<$ 10 cm) are present in the proximity of the matched TPC track, the event is classified as electron and rejected. The calorimetry information entails a measurement of the energy deposited $E_{\text{Dep},i}$ along the pion's path every ``track pitch", i.e. at every segment between two 3D points of the trajectory. The track pitch distribution is shown in Figure \ref{fig:pitch}; for both data and simulation, the track pitch averages at $\delta {\emph{X}}$ = 4 mm/(sin($60^{\circ}$)cos($3^{\circ}$)) $\approx$ 4.7~mm. 
+The energy deposited is obtained from the signals on the collection plane at each point of the pion trajectory.  This information is leveraged together with the measurement of the beamline momentum to assess the kinetic energy of the matched pion candidate at each point of the tracking. We start by estimating the kinetic energy at the TPC front face, $ E^{kin}_{\text{Front Face}}$, as 
+\begin{equation}
+ E^{kin}_{\text{Front Face}}  = \sqrt{p^2_{\text{Beam}} - m^2_{\text{Beam}}} - m_{\text{Beam}} - E_{\text{Loss}},
+\label{eq:enFF}
+\end{equation}
+where $E_{\text{Loss}}$ is a correction for the kinetic energy lost in the un-instrumented material between the beamline and the TPC front face. We then iteratively subtract the measurement of the energy deposited $E_{\text{Dep},i}$ from $ E^{kin}_{\text{Front Face}}$ and obtain the kinetic energy at each point of the tracking. In formula, the kinetic energy at the $j^{th}$ point of the track  $E_{j}^{kin}$ is given by
+\begin{equation}
+ E_{j}^{kin} =  E^{kin}_{Front Face} - \sum_{i < j} E_{\text{Dep},i}.
+\label{eq:KEj}
+\end{equation}
 
+This finely grained measurement of the kinetic energy \\
 
+\begin{figure}
+\includegraphics[width =0.4\textwidth ]{PitchPi}
+\caption{\label{fig:pitch}  }
+\end{figure}
 
-TRACKING
-
-
-The collection wires collect signals proportional to the energy deposited by the hadrons along their path in a  $\delta${\emph{X}} = 4 mm/(sin($60^{\circ}$)cos($3^{\circ}$)) $\approx$ 4.7~mm portion of the liquid argon. The measurement of the energy deposited along
-
-\begin{itemize}
-\item[-] Calorimetry
-\item[-] Topology
-\item[-] WC2TPC match
-\end{itemize}
-
-We combine the measurement of the beamline momentum with the calorimetry measurement within the TPC to obtain the kinetic energy of an incoming particle every argon slice.
-Thus, one can think to slice the TPC into many thin targets of $\delta${\emph{X}} = 4.7~mm thickness along the direction of the incident particle, making a measurement at each wire along the path, as sketched in Figure \ref{fig:TPCGran}.
 
 
 \subsection{\label{sec:Simulation}Simulation}
 \subsection{\label{sec:EventSelection}Event Selection}
 In data, the negative polarity Run II events classified as $\pi/\mu/e$ that are matched to a TPC track and that survive the shower filter form the pool of beamline events for the negative pion cross section analysis. This pool is made of 40841 beamline pion candidates, which we feed to the thin slice method described in the next section in order to measure the negative pion total hadronic cross section. 
+
+
+\begin{table}
+\caption{\label{tab:beamlineDataSelection}Selection flow on the number of data events for Run-II Negative polarity towards the definition of beamline events for the pion cross section measurement.}
+\begin{ruledtabular}
+\begin{tabular}{l|r}
+                                                        & Surviving Events     \\ \hline
+Events Reconstructed in Beamline        &  158396     \\ \hline
+Events with Plausible Trajectory            &   147468    \\ \hline
+Beamline $\pi^-/\mu^-/e^-$  Candidate  &   138481    \\ \hline
+Events Surviving Pile Up Filter              &   108929    \\ \hline
+Events with TPC Match                         &    41757     \\ \hline
+Events Surviving Shower Filter             &    40841     \\ 
+\end{tabular}
+\end{ruledtabular}
+\end{table}
 
 
 \textcolor{red}{At this point, I should have explained how I get my pool of candidates.}
@@ -218,25 +230,16 @@ Since the expected interaction length of pions in liquid argon is of the order o
 
 %\begin{figure}
 %  \centering  
-%\includegraphics[width=0.8\textwidth]{Chapter-4/Images/LArSlice.png}
+%\includegraphics[width=0.8\textwidth]{PitchPi}
 %\caption{Representation of sliced LAr Volume.}
 %\label{fig:TPCGran}
 %\end{figure}
 
 
-Considering each slice {\emph{j}}  a ``thin target",  we can apply the cross section calculation from Equation~\ref{eq:thinTargetXSSolved} iteratively, evaluating the kinetic energy of the hadron as it enters each slice, $E_{j}^{kin}$.  For each WC2TPC matched particle, the energy of the hadron entering the TPC is known thanks to the momentum and mass determination by the tertiary beamline, 
+Considering each slice {\emph{j}}  a ``thin target",  we can apply the cross section calculation from Equation~\ref{eq:thinTargetXSSolved} iteratively, evaluating the kinetic energy of the hadron as it enters each slice, $E_{j}^{kin}$.  
 
-\begin{equation}
- E^{kin}_{Front Face}  = \sqrt{p^2_{Beam} - m^2_{Beam}} - m_{Beam} - E_{loss},
-\label{eq:enFF}
-\end{equation}
-where $E_{loss}$ is a correction for the kinetic energy loss in the uninstrumented material between the beamline and the TPC front face. While propagating through the target,  the kinetic energy of the hadron at each slab is determined by subtracting the energy deposited by the particle in the previous slabs. For example, at the $j^{th}$ slab of a track, the kinetic energy will be
 
-\begin{equation}
- E_{j}^{kin} =  E^{kin}_{Front Face} - \sum_{i < j} E_{\text{Dep},i},
-\label{eq:KEj}
-\end{equation}
-where $E_{\text{Dep},i}$ is the energy deposited at each argon slice before the $j^{th}$ point as measured by the calorimetry associated with the tracking.
+
 
 
 If the particle enters a slice, it contributes to the $N_{\text{Inc}}( E^{kin})$ distribution in the energy bin corresponding to its kinetic energy in that slice.  Within the slice, the hadron may or may not interact. If it interacts in the slice, it  contributes also to the $N_{\text{Int}}(E^{kin})$ distribution in the appropriate energy bin; this occurrence corresponds to the end of the hadron tracking. If the hadron does not interact, it will enter the next slice and the interaction evaluation starts again.
@@ -269,6 +272,7 @@ $Z$ & 0 cm   & 86 cm  \\ \hline
 \section{\label{sec:Results}Results}
 % sections are not used for PRL papers
 Results shown in Fig.~\ref{fig:epsart}.
+
 
 \begin{figure}
 \includegraphics[width =0.4\textwidth ]{TheRealMoneyPlot}

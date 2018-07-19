@@ -164,41 +164,41 @@ The final product of this reconstruction stage is the collection of bidimensiona
 \textbf{Calorimetry.} The last step in the event reconstruction chain is to assign calorimetric information to the track objects. Calorimetry is performed separately on the different planes. A multi-step procedure is needed to retrieve the energy deposited in the TPC  from the charge seen by the wires.
 For each hit associated with the track object, the calorimetry set of algorithms calculates the charge seen on every wire integrating the area underneath the gaussian fit; then, it corrects this raw charge by the electron life time, the electronic noise on the considered wire and the recombination effect. Lastly an overall calibration of the energy is applied and the calorimetric information for the given track is assigned. \\
 
-Signal processing and event reconstruction provide the collection of TPC tracks per event and their associated tracking and calorimetric information. We use the reconstructed track direction and position at the front face of the TPC to match one TPC track to the beamline candidate. We reject events with either zero or multiple matches. In an effort to reduce electron contamination, we filter events based on their topology in the TPC: if more than 5 short tracks (track length $<$ 10 cm) are present in the proximity of the matched TPC track, the event is classified as electron and rejected. The calorimetry information entails a measurement of the energy deposited $E_{\text{Dep},i}$ along the pion's path every ``track pitch", i.e. at every segment between two 3D points of the trajectory. The track pitch distribution is shown in Figure \ref{fig:pitch}; for both data and simulation, the track pitch averages at $\delta {\emph{X}}$ = 4 mm/(sin($60^{\circ}$)cos($3^{\circ}$)) $\approx$ 4.7~mm. 
-The energy deposited is obtained from the signals on the collection plane at each point of the pion trajectory.  This information is leveraged together with the measurement of the beamline momentum to assess the kinetic energy of the matched pion candidate at each point of the tracking. We start by estimating the kinetic energy at the TPC front face, $ E^{kin}_{\text{Front Face}}$, as 
+Signal processing and event reconstruction provide the collection of TPC tracks per event and their associated tracking and calorimetric information. We use the reconstructed track direction and position at the front face of the TPC to match one TPC track to the beamline candidate. We reject events with either zero or multiple matches. In an effort to reduce electron contamination, we filter events based on their topology in the TPC: if more than 5 short tracks (track length $<$ 10 cm) are present in the proximity of the matched TPC track, the event is classified as electron and rejected. The calorimetry information entails the measurement of the energy deposited $E_{\text{Dep},i}$ along the pion's path at every ``track pitch", i.e. at every segment between two 3D points of the trajectory. The track pitch distribution is shown in Figure \ref{fig:pitch}; for both data and simulation, the track pitch averages at $\delta {\emph{X}}$ = 4 mm/(sin($60^{\circ}$)cos($3^{\circ}$)) $\approx$ 4.7~mm. 
+The energy deposited $E_{\text{Dep},i}$, whose distribution is shown in \ref{fig:enDep}, is obtained from the signals on the collection plane.  This information is leveraged together with the measurement of the beamline momentum to assess the kinetic energy of the matched pion candidate at each point of the tracking. We start by estimating the pion's  kinetic energy at the TPC front face, $ E^{kin}_{\text{Front Face}}$, as 
 \begin{equation}
  E^{kin}_{\text{Front Face}}  = \sqrt{p^2_{\text{Beam}} - m^2_{\text{Beam}}} - m_{\text{Beam}} - E_{\text{Loss}},
 \label{eq:enFF}
 \end{equation}
-where $E_{\text{Loss}}$ is a correction for the kinetic energy lost in the un-instrumented material between the beamline and the TPC front face. We then iteratively subtract the measurement of the energy deposited $E_{\text{Dep},i}$ from $ E^{kin}_{\text{Front Face}}$ and obtain the kinetic energy at each point of the tracking. In formula, the kinetic energy at the $j^{th}$ point of the track  $E_{j}^{kin}$ is given by
+where $p_{\text{Beam}}$ is the momentum measured by the LArIAT spectrometer, $m_{\text{Beam}} = 139.57018\pm0.00035$ MeV is the pion mass [\textcolor{red}{cite pdg}], $E_{\text{Loss}}$ is a correction for the kinetic energy lost in the un-instrumented material between the beamline and the TPC front face. We then iteratively subtract the measurement of the energy deposited $E_{\text{Dep},i}$ from $ E^{kin}_{\text{Front Face}}$ and obtain the kinetic energy at each point of the tracking; thus, the kinetic energy at the $j^{th}$ point of the track  $E_{j}^{kin}$ is given by
 \begin{equation}
  E_{j}^{kin} =  E^{kin}_{Front Face} - \sum_{i < j} E_{\text{Dep},i}.
 \label{eq:KEj}
 \end{equation}
 
-This finely grained measurement of the kinetic energy \\
+The finely grained measurement of the kinetic energy, possible only thanks to the combination of tracking and calorimetry of the LArTPC, represents foundation of the thin slice method.\\
 
 \begin{figure}
 \includegraphics[width =0.4\textwidth ]{PitchPi}
-\caption{\label{fig:pitch}  Pitch distribution for data displayed in black, MC in red.}
+\caption{\label{fig:pitch}  Pitch distribution for the Run II negative polarity data displayed in black, MC in red.}
 \end{figure}
-
 \begin{figure}
 \includegraphics[width =0.4\textwidth ]{DepEnergy_Fit_v4100A.png}
-\caption{\label{fig:pitch}  Energy deposition distribution for data displayed in black, MC in red.}
+\caption{\label{fig:enDep}  Energy deposition distribution for Run II negative polarity data at -100A magnet configuration displayed in black, MC in red.}
 \end{figure}
 
 
 \subsection{\label{sec:Simulation}Simulation}
 \subsection{\label{sec:EventSelection}Event Selection}
-In data, the negative polarity Run II events classified as $\pi/\mu/e$ that are matched to a TPC track and that survive the shower filter form the pool of beamline events for the negative pion cross section analysis. This pool is made of 40841 beamline pion candidates, which we feed to the thin slice method described in the next section in order to measure the negative pion total hadronic cross section. 
+In data, the selection of beamline events to be fed into the thin slice method machinery proceeds as follows; we first reconstruct the beamline event, checking that the particle trajectory is plausible, which means rejecting events whose trajectory crosses impenetrable material in the beamline, such that the magnets' steel.  For each the negative polarity Run II events classified as $\pi/\mu/e$, we check the number of TPC tracks in the front portion of the TPC: in case more than four tracks are present we reject the event,  since the pile up of beam particles would affect the track precise reconstruction.
+The surviving events that are matched to a TPC track and that survive the shower filter form the pool of beamline events for the negative pion cross section analysis. This pool is made of 40841 beamline pion candidates, which we feed to the thin slice method described in the next section in order to measure the negative pion total hadronic cross section. 
 
 
 \begin{table}
 \caption{\label{tab:beamlineDataSelection}Selection flow on the number of data events for Run-II Negative polarity towards the definition of beamline events for the pion cross section measurement.}
 \begin{ruledtabular}
 \begin{tabular}{l|r}
-                                                        & Surviving Events     \\ \hline
+                                                        & Surviving Beamline Evts     \\ \hline
 Events Reconstructed in Beamline        &  158396     \\ \hline
 Events with Plausible Trajectory            &   147468    \\ \hline
 Beamline $\pi^-/\mu^-/e^-$  Candidate  &   138481    \\ \hline

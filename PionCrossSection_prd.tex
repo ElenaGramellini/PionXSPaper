@@ -207,12 +207,12 @@ The finely grained measurement of the kinetic energy, possible only thanks to th
 
 
 \subsection{\label{sec:Simulation}Simulation}
-The LArIAT simulation toolkit used in this work is a combination of two Monte Carlo simulations: the G4Beamline Monte Carlo  [\textcolor{red}{cit needed}] and the Data Driven single particle Monte Carlo (DDMC).  G4Beamline simulates the beam collision at the LArIAT target, the energy deposited by the particles in the beamline detectors, and the action of the magnets, effectively accounting for particle transportation through the beamline from the LArIAT target until the LArTPC. G4Beamline accounts for the beamline trigger and simulates the particle's composition in the beam. G4Beamline provides the relative percentages of particle species which the DDMC simulates downstream from the fourth wire chamber into the cryostat and into the LArTPC.  The measurement of the beamline particles' momentum and position at the fourth wire chamber performed on data serves as a basis for the DDMC event generation: the DDMC simulation samples from the joint distribution of the data momentum and position using a 5-dimensional hit-or-miss sampling procedure. This sampling generates MC events  with the same momentum and position distributions as data, with the additional benefit of accounting for the correlations between the initial conditions. A LArSoft simulation module then launches single particle MC from z = -100 cm (the location of the fourth wire chamber) using the generated events. The particles are free to decay and interact in their path to the TPC according to the Geant4 simulation. We use the DDMC samples in several occasions: to propagate the estimated beamline background to the pion cross section, to calibrate the energy loss upstream of the TPC,  and to study the tracking and the calorimetric performance  in the LArTPC. 
+The LArIAT simulation toolkit used in this work is a combination of two Monte Carlo simulations: the G4Beamline Monte Carlo  [\textcolor{red}{cit needed}] and the Data Driven single particle Monte Carlo (DDMC).  G4Beamline simulates the beam collision at the LArIAT target, the energy deposited by the particles in the beamline detectors, and the action of the magnets, effectively accounting for particle transportation through the beamline from the LArIAT target until the LArTPC. G4Beamline accounts for the beamline trigger and simulates the particle's composition in the beam. G4Beamline provides the relative percentages of particle species which the DDMC simulates downstream from the fourth wire chamber into the cryostat and into the LArTPC.  The measurement of the beamline particles' momentum and position at the fourth wire chamber performed on data serves as a basis for the DDMC event generation: the DDMC simulation samples from the joint distribution of the data momentum and position using a 5-dimensional hit-or-miss sampling procedure. This sampling generates MC events  with the same momentum and position distributions as data, with the additional benefit of accounting for the correlations between them. A LArSoft simulation module launches single particle MC from the location of the fourth wire chamber (100 cm upstream to the LArTPC) using the generated events. The particles are free to decay and interact in their path to the LArTPC according to the Geant4 simulation. We use the DDMC samples in several occasions: to propagate the estimated beamline background to the pion cross section, to calibrate the energy loss upstream of the LArTPC,  and to study the tracking and the calorimetric performance  in the LArTPC. 
 
 
-
+\subsection{\label{sec:EventSelection}Beamline Event Selection}
 \begin{table}
-\caption{\label{tab:MCafterCutContaminants}MC selection flow per particle species}
+\caption{\label{tab:MCafterCutContaminants}Expected beamline composition for events selected in.}
 \begin{ruledtabular}
 \begin{tabular}{ l | l | l | l | l | l | l  |}
  &  \multicolumn{3}{c|}{I$_{\text{Magnets}} =$ -60A} & \multicolumn{3}{c|}{I$_{\text{Magnets}} =$ -100 A }\\
@@ -227,14 +227,10 @@ in XS sample               &                      &                       &     
 \end{ruledtabular}
 \end{table}
 
-
-
-
-
-
-\subsection{\label{sec:EventSelection}Beamline Event Selection}
 In data, the selection of beamline events proceeds as follows; we first reconstruct the beamline event, checking that the particle trajectory is plausible, which means rejecting events whose trajectory crosses impenetrable material in the beamline, such that the magnets' steel. We select beamline events whose beamline momentum is greater than 420 MeV/c, so to minimize the occurrence of a pion capturing or decaying inside the chamber.  For each the negative polarity Run II events classified as $\pi/\mu/e$, we check the number of TPC tracks in the front portion of the TPC: in case more than four tracks are present in the first 14 cm we reject the event,  since the pile up of beam particles would affect the precision of the track reconstruction.
-The events that are matched to a TPC track and that survive the shower filter form the pool of beamline events for the cross section analysis. This pool is made of 40841 beamline pion candidates, which we feed to the ``thin slice method" machinery in order to measure the negative pion total hadronic cross section. 
+The events that are matched to a TPC track and that survive the shower filter form the pool of beamline events for the cross section analysis. This pool is made of 40841 beamline pion candidates in data. 
+
+In simulation, G4Beamline estimates the beam composition at the fourth wire chamber used to weight the number of electrons, muons and pions simulated with the DDMC. The simulated beamline events undergo the same selection flow as data: Table \ref{tab:MCafterCutContaminants} shows the predicted percentage of pion, muons and electrons in the pion beamline candidates selection. We feed beamline candidates the ``thin slice method" machinery in order to measure the negative pion total hadronic cross section. 
 
 
 

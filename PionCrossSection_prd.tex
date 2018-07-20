@@ -207,18 +207,45 @@ The finely grained measurement of the kinetic energy, possible only thanks to th
 
 
 \subsection{\label{sec:Simulation}Simulation}
-\subsection{\label{sec:EventSelection}Event Selection}
-In data, the selection of beamline events proceeds as follows; we first reconstruct the beamline event, checking that the particle trajectory is plausible, which means rejecting events whose trajectory crosses impenetrable material in the beamline, such that the magnets' steel.  For each the negative polarity Run II events classified as $\pi/\mu/e$, we check the number of TPC tracks in the front portion of the TPC: in case more than four tracks are present in the first 14 cm we reject the event,  since the pile up of beam particles would affect the precision of the track reconstruction.
+The LArIAT simulation toolkit used in this work is a combination of two Monte Carlo simulations: the G4Beamline Monte Carlo  [\textcolor{red}{cit needed}] and the Data Driven single particle Monte Carlo (DDMC).  G4Beamline simulates the beam collision at the LArIAT target, the energy deposited by the particles in the beamline detectors, and the action of the magnets, effectively accounting for particle transportation through the beamline from the LArIAT target until the LArTPC. G4Beamline accounts for the beamline trigger and simulates the particle's composition in the beam. G4Beamline informs the relative percentages of particle species which the DDMC simulates in the downstream portion of the beamline: we use the DDMC  to simulate the particles downstream from the fourth wire chamber into the cryostat and the LArTPC.  As the basis for the event generation, the DDMC simulation samples from the joint distribution of the momentum and position of particles at the fourth wire chamber as measured in data using a 5-dimensional hit-or-miss sampling procedure. This sampling generates MC events  with the same momentum and position distributions as data, with the additional benefit of accounting for the correlations between these variables. A LArSoft simulation module then launches single particle MC from z = -100 cm (the location of the WC4) using the generated events. The particles are free to decay and interact in their path from WC4 to the TPC according to the Geant4 simulation. Using the DDMC technique ensures that the MC and data particles have very similar momentum, position and angular distributions at WC4 and allows us to use the MC sample in several occasions: to propagate the estimated beamline background to the pion cross section, to calibrate the energy loss upstream of the TPC,  and to study the tracking and the calorimetric performance  in the LArTPC. 
+
+
+
+\begin{table}
+\caption{\label{tab:MCafterCutContaminants}MC selection flow per particle species}
+\begin{ruledtabular}
+\begin{tabular}{ l | l | l | l | l | l | l  |}
+ &  \multicolumn{3}{c|}{I$_{\text{Magnets}} =$ -60A} & \multicolumn{3}{c|}{I$_{\text{Magnets}} =$ -100 A }\\
+& MC $\pi$   & MC  $ \mu$ & MC  $e$ & MC  $\pi$ & MC  $\mu$ & MC  $e$  \\
+\hline
+&  &  &  & & &\\  
+Expected &  &  &  & & &\\  
+Composition&  88.5\%   & 8.2\%   & 3.3 \%   & 94.0\%	& 5.3\% & 0.7\%\\
+in XS sample               &                      &                       &                   &                       &                        &\\  
+&                      &                       &                   &                       &                        &\\  
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+
+
+
+
+
+\subsection{\label{sec:EventSelection}Beamline Event Selection}
+In data, the selection of beamline events proceeds as follows; we first reconstruct the beamline event, checking that the particle trajectory is plausible, which means rejecting events whose trajectory crosses impenetrable material in the beamline, such that the magnets' steel. We select beamline events whose beamline momentum is greater than 420 MeV/c, so to minimize the occurrence of a pion capturing or decaying inside the chamber.  For each the negative polarity Run II events classified as $\pi/\mu/e$, we check the number of TPC tracks in the front portion of the TPC: in case more than four tracks are present in the first 14 cm we reject the event,  since the pile up of beam particles would affect the precision of the track reconstruction.
 The events that are matched to a TPC track and that survive the shower filter form the pool of beamline events for the cross section analysis. This pool is made of 40841 beamline pion candidates, which we feed to the ``thin slice method" machinery in order to measure the negative pion total hadronic cross section. 
+
+
 
 
 \begin{table}
 \caption{\label{tab:beamlineDataSelection}Selection flow on the number of data events for Run-II Negative polarity towards the definition of beamline events for the pion cross section measurement.}
 \begin{ruledtabular}
 \begin{tabular}{l|r}
-                                                        & Surviving Beamline Evts     \\ \hline
+                                                        &  N Beamline Events     \\ \hline
 Events Reconstructed in Beamline        &  158396     \\ \hline
-Events with Plausible Trajectory            &   147468    \\ \hline
+Plausible Trajectory \& $p_{\text{Beam}}$ selection       &   147468    \\ \hline
 Beamline $\pi^-/\mu^-/e^-$  Candidate  &   138481    \\ \hline
 Events Surviving Pile Up Filter              &   108929    \\ \hline
 Events with TPC Match                         &    41757     \\ \hline

@@ -277,13 +277,9 @@ We consider each slice of argon {\emph{j}} an independent thin target experiment
 
 Since our goal is to measure the total interaction cross section independently  from the topology of the interaction, we determine that a pion interacted simply by requiring that the last point TPC track lies within the fiducial volume (FV), i.e. the volume contained within 1 cm from the TPC walls in the drift and vertical directions, 1 cm from the TPC front face and 4 cm from the TPC back face.
 If the TPC track crosses the boundaries of the FV, the track is considered ``through going", no interaction point is found and no point external to the FV is consider for the fluxes evaluation. 
-Our evaluation of the in
 
-We rely on the capacity of the tracking algorithm to stop the pion tracking at the interaction point, evaluating whether or not the pion interacted. It is thus clear how the interacting flux depends on the efficiency the tracking. It should be noted that the evaluation of the incident flux also depends on the efficiency of the tracking algorithms
 
-The tracking efficiency is a function of the scattering angle; we evaluate 
-
-\textcolor{red}{inefficiency and background}
+%\textcolor{red}{inefficiency and background}
 
 %The only slices traversed by the pion beamline candidate track considered to fill the  $N_{\text{Int}}$ and  $N_{\text{Inc}}$ distributions are the ones contained in the fiducial volume. 
  
@@ -292,7 +288,27 @@ The tracking efficiency is a function of the scattering angle; we evaluate
 
 %\subsection{\label{sec:RawXS}Raw Cross Section}
 \subsection{\label{sec:Corrections}Fluxes Corrections}
-In the evaluation of the interacting and incident fluxes as a function of the pion kinetic energy, we need to highlight two aspects: a) residual muons and electrons are present in the beamline pion sample, b) the tracking algorithm has a in finding the interaction point.
+In the evaluation of the interacting and incident fluxes as a function of the pion kinetic energy,  two caveats are in place: a) residual muons and electrons are present in the beamline pion sample, b) TPC event reconstruction affects the evaluation of  $N_{\text{Int}}$ and $N_{\text{Inc}}$.
+We then need to repackage Equation~\ref{eq:thinTargetXSSolved} at kinetic energy $E^{kin}_i$, as a function of the measured fluxes in data $N^{\text{Data}}_{\text{Int}}$ and $N^{\text{Data}}_{\text{Inc}}$, the corresponding beamline background $B^{ \text{Int}}$ and $B^{ \text{Inc}}$ and corrections for reconstruction effects $\epsilon^{\text{Int}}$ and $\epsilon^{\text{Inc}}$ as follows
+
+\begin{equation}
+ \sigma^{\pi^-}_{TOT}(E^{kin}_i) = \frac{1}{n \text{ }\delta X}\frac{ \epsilon^{\text{Inc}}_i [ N^{ \text{Data}}_{ \text{Int,i}} - B^{ \text{Int}}_i] }{   \epsilon^{\text{Int}}_i [N^{ \text{Data}}_{ \text{Inc,i}} - B^{ \text{Inc}} _i]},
+\label{eq:True}
+\end{equation}
+where the subscript $i$ highlights that the quantities are evaluated separately in each kinetic energy bin.\\
+
+
+
+\textbf{Corrections for Reconstruction Effects.}
+We rely on the capacity of the tracking algorithm to identify the incoming pion in the TPC and to stop the tracking at the interaction point, evaluating whether or not the pion interacted.  Thus, the interacting flux depends on the efficiency of the tracking of finding the pion in the TPC and of finding the interaction point. It should be noted that the incident flux also depends on the same tracking efficiencies, albeit in a different way; if a scattering is missed (inefficiency for the interaction flux), several extra slices are counted for the incident flux (background for the incident flux); if the tracking stops before the interaction point (background for the interaction flux), several slices are missing the incident flux (inefficiency for the incident flux).
+
+
+
+
+
+Among other quantities such as the track length, the tracking efficiency is a function of the scattering angle; we evaluate 
+
+\subsection{\label{sec:Corrections}Treatment of the uncertainties}
 
 \section{\label{sec:Results}Results}
 % sections are not used for PRL papers

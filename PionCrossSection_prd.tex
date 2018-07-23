@@ -72,8 +72,11 @@ The ($\pi^-$, Ar) total cross-section has never been measured before; the outcom
 \maketitle
 
 \section{\label{sec:Motivations}Motivations}
+\textcolor{red}{Need to define signal}
 Motivations: existing measurements + interpolation between heavier and lighter nuclei
 Methods used in other measurements (concise)
+Historic measurements of hadronic cross sections are performed on thin targets [\textcolor{red}{A CIT is needed here}]. At their core, these experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux, under the assumption that the target centers are uniformly distributed in the material and that no center of interaction sits in front of another. 
+
 
 \section{\label{sec:ExperimentalSetup}Experimental Setup}
 We briefly describe here the features and use of the LArIAT beamline detectors and LArTPC  relevant to the cross section measurement; we refer the reader to [\textcolor{red}{cit detector paper}] for a detailed description of LArIAT's experimental setup.
@@ -253,65 +256,43 @@ Events Surviving Shower Filter             &    40841     \\
 
 
 \section{\label{sec:ThinSliceMethod}Thin Slice Method}
-Historic measurements of hadronic cross sections are performed on thin targets [\textcolor{red}{A CIT is needed here}]. These experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux, under the assumption that the target centers are uniformly distributed in the material and that no center of interaction sits in front of another. The thin target approximation is valid if the interaction length of the considered process is significantly longer than the width of the target, i.e $\lambda_{\text{Int}} \gg \delta X$.
-
-Equation \ref{eq:thinTargetXS} relates the probability that a particle survives a target to the total hadronic cross section, $\sigma_{\text{TOT}}$, the density of the target centers, $n$,  and  the thickness of the target  along the incident hadron direction, $\delta X$. The survival probability can be expressed in terms of the interaction probability $P_{\text{Int}}$, represented by ratio between the number of particles interacting in the thin target $N_{\text{Int}}$ and the number of incident particles $N_{\text{Inc}}$.
-
+The pion interaction probability $P_{\text{Int}}$ in an argon target of thickness $\delta X$  is related to the cross section $\sigma_{\text{TOT}}$ by the following equation, 
 \begin{equation}
-P_{\text{Surv}} = e^{-\sigma_{\text{TOT}}\text{ } n \text{ }\delta X} = 1- P_{\text{Int}}  = 1 - \frac{N_{\text{Int}}}{N_{\text{Inc}}} 
+P_{\text{Int}} = 1- e^{-\sigma_{\text{TOT}}\text{ } n \text{ }\delta X}
 \label{eq:thinTargetXS}
 \end{equation}
-
-In the thin target approximation,  a simple proportionality relationship between the cross section and the interaction probability is found by Taylor expanding the exponential function:
+where $n$ is the density of the target centers, $n$. In an experiment where a beam of pions is incident on the target, the interaction probability $P_{\text{Int}}$ can be statistically estimated as the ratio between the number of pions interacting in the thin target $N_{\text{Int}}$ (interacting flux) and the number of incident pions $N_{\text{Inc}}$ (incident flux). 
+If the interaction length is significantly longer than the width of the target, i.e $\lambda_{\text{Int}} \gg \delta X$, we can assume that the target centers are uniformly distributed in the material and that no center of interaction sits in front of another -- the thin target approximation. In this case, it is possible to find a simple proportionality relationship between the cross section and the interaction probability by a Taylor expansion of the exponential function:
  \begin{equation}
  \sigma_{\text{TOT}}  = \frac{1}{n \text{ }\delta X}\frac{N_{\text{Int}}}{N_{\text{Inc}}}.
 \label{eq:thinTargetXSSolved}
 \end{equation}
 
-Since the expected interaction length of pions in liquid argon is of the order of $\lambda_{\text{Int}} \sim 50$ cm [\textcolor{red}{A CIT is needed here}], we cannot treat the LArIAT TPC, with its 90 cm of length,  as a thin target. However, the granularity of the LArIAT LArTPC allows us to assess the presence of a pion and to measure its kinetic energy approximately every 4.7~mm along its trajectory in the detector's active volume. We can thus treat the argon volume as a sequence of many adjacent thin targets, recovering the thin target approximation in each slice of argon. 
 
 
-
-%\begin{figure}
-%  \centering  
-%\includegraphics[width=0.8\textwidth]{PitchPi}
-%\caption{Representation of sliced LAr Volume.}
-%\label{fig:TPCGran}
-%\end{figure}
+Since the expected interaction length of pions in liquid argon is of the order of $\lambda_{\text{Int}} \sim 50$ cm [\textcolor{red}{A CIT is needed here}], the LArIAT TPC and its 90 cm of depth are not a thin target. However, the granularity of the LArIAT LArTPC allows us to assess the presence of a pion and to measure its kinetic energy approximately every 4.7~mm along its trajectory in the detector's active volume. We can thus treat the argon volume as a sequence of many adjacent thin targets, recovering the thin target approximation in each slice of argon. 
 
 
-Considering each slice {\emph{j}}  a ``thin target",  we can apply the cross section calculation from Equation~\ref{eq:thinTargetXSSolved} iteratively, evaluating the kinetic energy of the hadron as it enters each slice, $E_{j}^{kin}$.  
+We consider each slice of argon {\emph{j}} an independent thin target experiment for which the incoming pion has a kinetic energy of  $E^{kin}_j$, measured according to equation \ref{eq:KEj}. It should be noticed that each beamline pion candidate is likely to traverse multiple slices, thus participating in multiple independent thin target experiments.   We apply the cross section calculation from Equation~\ref{eq:thinTargetXSSolved} in bins of kinetic energy: if a pion of kinetic energy $E^{kin}_j$ enters a slice, it contributes to the incident flux at the energy bin corresponding to $E^{kin}_j$.  Within the slice, the pion may or may not interact. If it does, it also contributes to the interacting flux at the same energy bin. If the pion does not interact,  it will enter the next slice and the evaluation of the fluxes is repeated for the new kinetic energy $E^{kin}_{j+1}$. The pion decreases its kinetic energy in its path within the TPC due to ionization and excitation of the argon; thus, for the same beamline pion candidate, slices close to the TPC front face correspond to higher $E^{kin}_j$ compared to slices close to the TPC back face. We evaluate the incident and interacting fluxes for all the beamline pion candidates in the selected sample.  %The cross section as a function of kinetic energy, $\sigma_{TOT}( E^{kin})$ is then evaluated to be proportional to the ratio $\frac{N_{\text{Int}}( E^{kin})}{N_{\text{Inc}}( E^{kin})}$ -- bin by bin ratio. 
 
+Since our goal is to measure the total interaction cross section independently  from the topology of the interaction, we determine that a pion interacted simply by requiring that the last point TPC track lies within the fiducial volume (FV), i.e. the volume contained within 1 cm from the TPC walls in the drift and vertical directions, 1 cm from the TPC front face and 4 cm from the TPC back face.
+If the TPC track crosses the boundaries of the FV, the track is considered ``through going", no interaction point is found and no point external to the FV is consider for the fluxes evaluation. 
+Our evaluation of the in
 
+We rely on the capacity of the tracking algorithm to stop the pion tracking at the interaction point, evaluating whether or not the pion interacted. It is thus clear how the interacting flux depends on the efficiency the tracking. It should be noted that the evaluation of the incident flux also depends on the efficiency of the tracking algorithms
 
+The tracking efficiency is a function of the scattering angle; we evaluate 
 
+\textcolor{red}{inefficiency and background}
 
-If the particle enters a slice, it contributes to the $N_{\text{Inc}}( E^{kin})$ distribution in the energy bin corresponding to its kinetic energy in that slice.  Within the slice, the hadron may or may not interact. If it interacts in the slice, it  contributes also to the $N_{\text{Int}}(E^{kin})$ distribution in the appropriate energy bin; this occurrence corresponds to the end of the hadron tracking. If the hadron does not interact, it will enter the next slice and the interaction evaluation starts again.
-The process is applied to all the hadrons in the sample; the cross section as a function of kinetic energy, $\sigma_{TOT}( E^{kin})$ is then evaluated to be proportional to the ratio $\frac{N_{\text{Int}}( E^{kin})}{N_{\text{Inc}}( E^{kin})}$ -- bin by bin ratio. 
-
-
-Our goal is to measure the total interaction cross section, independently  from the topology of the interaction. Thus, we determine that a hadron interacted simply by requiring that the last point of the WC2TPC matched track lies in a slice within the fiducial volume, whose boundaries are defined in Table \ref{tab:FidVol}. If the TPC track ends within the fiducial volume, its last point will be the interaction point; if the track crosses the boundaries of the fiducial volume, the track will be considered ``through going" and no interaction point will be found. The only points of the hadronic candidate track considered to fill the  $N_{\text{Int}}$ and  $N_{\text{Inc}}$ distributions are the ones contained in the fiducial volume. 
+%The only slices traversed by the pion beamline candidate track considered to fill the  $N_{\text{Int}}$ and  $N_{\text{Inc}}$ distributions are the ones contained in the fiducial volume. 
  
- A notable background pertinent only to the $N_{\text{Int}}$  distribution are cases in which the hadrons decays inside the TPC. In those cases in fact, the tracking ends inside the TPC but the interaction is not hadronic. The handling of decay background is treated in a slightly different way for the pion and kaon section, details can be found in sections \ref{ch:PionXSBkgSub} and \ref{ch:KaonXSRaw} respectively.
+% A notable background pertinent only to the $N_{\text{Int}}$  distribution are cases in which the hadrons decays inside the TPC. In those cases in fact, the tracking ends inside the TPC but the interaction is not hadronic. The handling of decay background is treated in a slightly different way for the pion and kaon section, details can be found in sections \ref{ch:PionXSBkgSub} and \ref{ch:KaonXSRaw} respectively.
 
 
-
-\begin{table}[t]
-\centering
-\begin{tabular}{|l|r|r|}
-\hline
-& min   &  max  \\ \hline
-$X$ & 1 cm   & 46 cm  \\ \hline
-$Y$ & -15 cm   & 15  cm  \\ \hline
-$Z$ & 0 cm   & 86 cm  \\ \hline
-\end{tabular}
-\caption{Fiducial volume boundaries used to determine cross section interaction point. }
-\label{tab:FidVol}
-\end{table}
-
-
-\subsection{\label{sec:RawXS}Raw Cross Section}
-\subsection{\label{sec:Corrections}Corrections}
+%\subsection{\label{sec:RawXS}Raw Cross Section}
+\subsection{\label{sec:Corrections}Fluxes Corrections}
+In the evaluation of the interacting and incident fluxes as a function of the pion kinetic energy, we need to highlight two aspects: a) residual muons and electrons are present in the beamline pion sample, b) the tracking algorithm has a in finding the interaction point.
 
 \section{\label{sec:Results}Results}
 % sections are not used for PRL papers
@@ -610,6 +591,34 @@ C\footnote{Some tables require footnotes.}
 figures or tables be in numerical order in text, so don't cite
 Fig.~\ref{fig:wide} until Fig.~\ref{fig:epsart} has been cited.
 
+%%%%%%%%%%%%%%
+
+
+%Historic measurements of hadronic cross sections are performed on thin targets [\textcolor{red}{A CIT is needed here}]. At their core, these experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux, under the assumption that the target centers are uniformly distributed in the material and that no center of interaction sits in front of another. 
+
+
+%The thin target approximation is valid if the interaction length of the considered process is significantly longer than the width of the target, i.e $\lambda_{\text{Int}} \gg \delta X$.
+
+%Equation \ref{eq:thinTargetXS},
+%\begin{equation}
+%P_{\text{Surv}} = e^{-\sigma_{\text{TOT}}\text{ } n \text{ }\delta X} = 1- P_{\text{Int}}  = 1 - \frac{N_{\text{Int}}}{N_{\text{Inc}}} 
+%\label{eq:thinTargetXS}
+%\end{equation}
+% relates the probability that a particle survives a target to the total hadronic cross section, $\sigma_{\text{TOT}}$, the density of the target centers, $n$,  and  the thickness of the target  along the incident hadron direction, $\delta X$. The survival probability can be expressed in terms of the interaction probability $P_{\text{Int}}$, represented by ratio between the number of particles interacting in the thin target $N_{\text{Int}}$ and the number of incident particles $N_{\text{Inc}}$. In the thin target approximation,  a simple proportionality relationship between the cross section and the interaction probability is found by Taylor expanding the exponential function:
+% \begin{equation}
+% \sigma_{\text{TOT}}  = \frac{1}{n \text{ }\delta X}\frac{N_{\text{Int}}}{N_{\text{Inc}}}.
+%\label{eq:thinTargetXSSolved}
+%\end{equation}
+
+%Since the expected interaction length of pions in liquid argon is of the order of $\lambda_{\text{Int}} \sim 50$ cm [\textcolor{red}{A CIT is needed here}], we cannot treat the LArIAT TPC, with its 90 cm of length,  as a thin target. However, the granularity of the LArIAT LArTPC allows us to assess the presence of a pion and to measure its kinetic energy approximately every 4.7~mm along its trajectory in the detector's active volume. We can thus treat the argon volume as a sequence of many adjacent thin targets, recovering the thin target approximation in each slice of argon. 
+
+
+%\begin{figure}
+%  \centering  
+%\includegraphics[width=0.8\textwidth]{PitchPi}
+%\caption{Representation of sliced LAr Volume.}
+%\label{fig:TPCGran}
+%\end{figure}
 
 
 \end{comment}

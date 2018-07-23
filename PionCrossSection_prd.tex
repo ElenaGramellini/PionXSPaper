@@ -300,19 +300,30 @@ where the subscript $i$ highlights that the quantities are evaluated separately 
 
 
 \textbf{Corrections for Reconstruction Effects.}
-We rely on the capacity of the tracking algorithm to identify the incoming pion in the TPC and to stop the tracking at the interaction point, evaluating whether or not the pion interacted.  Thus, the interacting flux depends on the efficiency of the tracking of finding the pion in the TPC and of finding the interaction point. It should be noted that the incident flux also depends on the same tracking efficiencies, albeit in a different way; if a scattering is missed (inefficiency for the interaction flux), several extra slices are counted for the incident flux (background for the incident flux); if the tracking stops before the interaction point (background for the interaction flux), several slices are missing the incident flux (inefficiency for the incident flux).
+We rely on the capacity of the tracking algorithm to identify the incoming pion in the TPC and to stop the tracking at the interaction point, evaluating whether or not the pion interacted.  The tracking algorithm has an intrinsic limitation in resolving shallow scattering angles, effectively determining a selection on the distribution of the scattering angle of hadronic interaction entering the cross section measurement.  Since we assess interaction angles smaller than 5 deg to be indistinguishable for the reconstruction, we limit our ability to measure the cross section for interaction angles greater than 5.0 deg. 
+
+The interacting flux depends on the efficiency of the tracking of finding the pion in the TPC and of finding the interaction point. It should be noted that the incident flux also depends on the same tracking efficiencies, albeit in a different way. If the tracking does not stop at an interaction point but keeps adding subsequent points to the pion trajectory, the missed interaction constitutes an inefficiency for the interaction flux and the slices corresponding to the extra trajectory points result in a background for the incident flux. On the contrary, if the tracking stops before an interaction point,  that flagged interaction point constitues a background for the interaction flux and the missed subsequent slices represent an inefficiency for the incident flux. We encode both the inefficiency and background due to the reconstruction of the pion track in the flux corrections $\epsilon^{\text{Int}}_i$ and $\epsilon^{\text{Inc}}_i$. We use a sample of DDMC pions to evaluate the flux corrections as follows,
+
+\begin{equation}
+ \epsilon^{\text{Int}}_i  =  \frac{N^{\text{ Reco MC $\pi$}}_{\text{Int,i}}}{ N^{\text{ True MC  $\pi$}}_{\text{Int,i}}  } \hspace{0.5cm}\text{and}\hspace{0.5cm}  \epsilon^{\text{Inc}}_i  =  \frac{N^{\text{ Reco MC $\pi$}}_{\text{Inc,i}}}{ N^{\text{ True MC  $\pi$}}_{\text{Inc,i}}  },
+\end{equation}
+
+where $N^{\text{ True MC  $\pi$}}_{\text{Int,i}}$ is the expected number of interacting pions at the kinetic energy $E^{kin}_i$ according to the \textcolor{red}{ cross check these} Geant4 10.03.p1 FTFP\_BERT interaction model and  $N^{\text{ Reco MC $\pi$}}_{\text{Int,i}}$ is the number of reconstructed interacting pions at the same kinetic energy; analogous definitions apply to the correction on the incident flux. \\
 
 
 
 
+\textbf{Corrections for Beamline Background.}
 
-Among other quantities such as the track length, the tracking efficiency is a function of the scattering angle; we evaluate 
 
 \subsection{\label{sec:Corrections}Treatment of the uncertainties}
 
-\section{\label{sec:Results}Results}
+\section{\label{sec:Results}Result}
 % sections are not used for PRL papers
-Results shown in Fig.~\ref{fig:epsart}.
+The top plot of Figure \ref{fig:epsart} shows the measurement of the ($\pi^-$-Ar) total hadronic cross section,  for  scattering angles greater than 5$^\circ$, as the result of the fluxes' corrections and combination of the 60A and 100A data sets. The statistical uncertainty and the sum in quadrature of statistical and systematic uncertainty are shown in black;  the FTFP\_BERT Geant4 prediction for the total hadronic cross section for angle scattering greater than 5$^\circ$ is displayed in green. 
+With the exception of the highest energy bins (energy greater than 800 MeV), the systematic uncertainties are the dominant uncertainties; the lion's share of the systematic uncertainty results from our uncertainty on the beam composition. The bottom panel of Figure  \ref{fig:epsart} shows the relative deviation between the measured cross section and the FTFP\_BERT  Geant4 predicted cross section.
+\textcolor{red}{Considerations about agreement and disagreements}
+\\
 
 
 \begin{figure}

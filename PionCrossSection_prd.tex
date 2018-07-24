@@ -30,6 +30,8 @@
 \usepackage{color}
 \usepackage[percent]{overpic}
 
+\usepackage{amsmath}
+
 
 % avoids incorrect hyphenation, added Nov/08 by SSR
 \hyphenation{ALPGEN}
@@ -314,21 +316,19 @@ where $N^{\text{ True MC  $\pi$}}_{\text{Int,i}}$ is the expected number of inte
 
 
 \textbf{Corrections for Beamline Background.}
-Even if pions are by far the biggest beam component in selected beamline candidates, residual muons and electrons are present in the sample. We estimate the muon and electron contribution to the incident and interacting flux via MC. Our goal is to estimate  $B^{ \text{Int}}_i$ and  $B^{ \text{Inc}}_i$ , i.e. the number of non-pion entries in the interacting and incident flux at the kinetic energy bin $E^{kin}_i$, respectively. The estimated percentages of muons, $w_\mu$,  and electrons, $w_e$,  in the sample of pion beamline candidates are reported in Table \ref{tab:MCafterCutContaminants}. Thus, we estimate 
+Even if pions are by far the biggest beam component in selected beamline candidates, residual muons and electrons are present in the sample. We estimate the muon and electron contributions to the incident and interacting flux vin data ia MC. Our goal is to estimate  $B^{ \text{Int}}_i$ and  $B^{ \text{Inc}}_i$ , i.e. the number of non-pion entries in the interacting and incident flux at each kinetic energy bin $E^{kin}_i$ in the range of the cross section measurement. The estimated percentages of muons, $w_\mu$,  and electrons, $w_e$,  in the sample of pion beamline candidates are reported in Table \ref{tab:MCafterCutContaminants}. We estimate 
 $B^{ \text{Int}}_i$ to be
-\begin{equation}
-B^{ \text{Int}}_i = M^{ \text{Int}}_i + E^{ \text{Int}}_i =  \frac{w_\mu P^{Data}}{P^{MC}} M^{MC}_{ \text{Int,i}} + E^{ \text{Int}}_i
+
+\begin{equation} \label{eq:Contaminants}
+\begin{split}
+B^{ \text{Int}}_i & = M^{ \text{Int}}_i + E^{ \text{Int}}_i \\
+                         & =  \frac{w_\mu P^{Data}}{P^{MC}_\mu} M^{MC}_{ \text{Int,i}} + \frac{w_e P^{Data}}{P^{MC}_e}E^{MC}_{ \text{Int,i}},
+\end{split}
 \end{equation}
 
-where $M^{ \text{Int}}_i$ and $E^{ \text{Int}}_i$ are the estimated muon and electron contribution, $P^{Data}$ the total number of beamline pion candidates in data .
-We estimate the percentage of muons and electrons at the TPC front face is shown in Table \ref{tab:beamline}.  
 
-
-
-We simulate the muon and electron component in the TPC, we apply the tracking algorithm and obtain the interacting and incident fluxes for the electrons and muons in each. 
-
-We simulate the muons and electrons in the TPC evaluate their contribution to the cross section. We scale their contribution to the interacting and incident flux to the number of . 
-
+where $M^{ \text{Int}}_i$ and $E^{ \text{Int}}_i$ are the estimated muon and electron contributions to the the interacting flux at the kinetic energy bin $E^{kin}_i$ for data, $P^{Data}$ is the total number of beamline pion candidates in data, $P^{MC}_\mu$ and $P^{MC}_e$ are the number of MC beamline muons and electrons, $M^{MC}_{ \text{Int,i}}$ and $E^{MC}_{ \text{Int,i}} $ are  the MC muons and electrons contributions to the interacting flux in MC at kinetic energy bin $E^{kin}_i$.\\
+Analogous definition hold true for the incident flux. We estimate $M^{MC}_{ \text{Int,i}}$, $M^{MC}_{ \text{Inc,i}}$  $E^{MC}_{ \text{Int,i}} $, and $E^{MC}_{ \text{Inc,i}} $ by shooting  DDMC samples of muons and electrons in the TPC and applying the thin slice method to the selected MC beamline candidates.
 
 
 \subsection{\label{sec:Corrections}Treatment of the uncertainties}

@@ -314,6 +314,21 @@ where $N^{\text{ True MC  $\pi$}}_{\text{Int,i}}$ is the expected number of inte
 
 
 \textbf{Corrections for Beamline Background.}
+Even if pions are by far the biggest beam component in selected beamline candidates, residual muons and electrons are present in the sample. We estimate the muon and electron contribution to the incident and interacting flux via MC. Our goal is to estimate  $B^{ \text{Int}}_i$ and  $B^{ \text{Inc}}_i$ , i.e. the number of non-pion entries in the interacting and incident flux at the kinetic energy bin $E^{kin}_i$, respectively. The estimated percentages of muons, $w_\mu$,  and electrons, $w_e$,  in the sample of pion beamline candidates are reported in Table \ref{tab:MCafterCutContaminants}. Thus, we estimate 
+$B^{ \text{Int}}_i$ to be
+\begin{equation}
+B^{ \text{Int}}_i = M^{ \text{Int}}_i + E^{ \text{Int}}_i =  \frac{w_\mu P^{Data}}{P^{MC}} M^{MC}_{ \text{Int,i}} + E^{ \text{Int}}_i
+\end{equation}
+
+where $M^{ \text{Int}}_i$ and $E^{ \text{Int}}_i$ are the estimated muon and electron contribution, $P^{Data}$ the total number of beamline pion candidates in data .
+We estimate the percentage of muons and electrons at the TPC front face is shown in Table \ref{tab:beamline}.  
+
+
+
+We simulate the muon and electron component in the TPC, we apply the tracking algorithm and obtain the interacting and incident fluxes for the electrons and muons in each. 
+
+We simulate the muons and electrons in the TPC evaluate their contribution to the cross section. We scale their contribution to the interacting and incident flux to the number of . 
+
 
 
 \subsection{\label{sec:Corrections}Treatment of the uncertainties}
@@ -323,13 +338,28 @@ where $N^{\text{ True MC  $\pi$}}_{\text{Int,i}}$ is the expected number of inte
 The top plot of Figure \ref{fig:epsart} shows the measurement of the ($\pi^-$-Ar) total hadronic cross section,  for  scattering angles greater than 5$^\circ$, as the result of the fluxes' corrections and combination of the 60A and 100A data sets. The statistical uncertainty and the sum in quadrature of statistical and systematic uncertainty are shown in black;  the FTFP\_BERT Geant4 prediction for the total hadronic cross section for angle scattering greater than 5$^\circ$ is displayed in green. 
 With the exception of the highest energy bins (energy greater than 800 MeV), the systematic uncertainties are the dominant uncertainties; the lion's share of the systematic uncertainty results from our uncertainty on the beam composition. The bottom panel of Figure  \ref{fig:epsart} shows the relative deviation between the measured cross section and the FTFP\_BERT  Geant4 predicted cross section.
 \textcolor{red}{Considerations about agreement and disagreements}
-\\
+
+Table \ref{tab:XSsummary} summarizes the cross section as a function of kinetic energy and  the associated total uncertainty; it also reports the fluxes corrected by the beamline background for the 60A and 100A sample and the corresponding corrections due to the reconstruction of the pion track.\\
 
 
 \begin{figure}
 \includegraphics[width =0.4\textwidth ]{TheRealMoneyPlot}
 \caption{\label{fig:epsart} Top: ($\pi^-$-Ar) total hadronic cross section for  scattering angles greater than 5$^\circ$ measured in the combined sample, statistical uncertainty and systematic uncertainty in black. The Geant4 prediction for the total hadronic cross section for angle scattering greater than 5$^\circ$ is displayed in green. Bottom: Relative difference between the measured cross section and the Geant4 prediction. }
 \end{figure}
+
+\begin{table*}
+\caption{\label{tab:XSsummary} Results summary. }
+\begin{ruledtabular}
+\begin{tabular}{ccccccc}
+$[E^{kin}_{\text{MIN}}, E^{kin}_{\text{MAX}}]$ & $\sigma_{\text{TOT}}$ & Stat $\bigoplus$ Syst  & $N^{ \text{Data}}_{ \text{Int}} - B^{ \text{Int}}$
+& $N^{ \text{Data}}_{ \text{Inc}} - B^{ \text{Inc}}$ & $ \epsilon^{\text{Int}} $ & $\epsilon^{\text{Inc}}$ \\ 
+(MeV)& (Barn)& Uncertainty (Barn) & & & \\\hline
+& & & & & \\
+ $[100,150]$ &1&+20/-10 & & & & \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
 
 
 \begin{comment}

@@ -1,0 +1,47 @@
+\begin{thebibliography}{6}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Collaboration}(2018)}]{LArIATDet}
+\bibinfo{author}{\bibfnamefont{T.~L.} \bibnamefont{Collaboration}},
+  \bibinfo{type}{Tech. Rep.} (\bibinfo{year}{2018}).
+
+\bibitem[{\citenamefont{Church}(2013)}]{LArSoft}
+\bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Church}}
+  (\bibinfo{year}{2013}), \eprint{physics.ins-de/1311.6774}.
+
+\bibitem[{\citenamefont{Barker}(2011)}]{Barker2011}
+\bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Barker}},
+  \bibinfo{journal}{Journal of Physics: Conference Series}
+  \textbf{\bibinfo{volume}{308}}, \bibinfo{pages}{012015}
+  (\bibinfo{year}{2011}),
+  \urlprefix\url{https://doi.org/10.1088/1742-6596/308/1/012015}.
+
+\bibitem[{\citenamefont{et~al}(2017)}]{1748-0221-12-03-P03011}
+\bibinfo{author}{\bibfnamefont{R.~A.} \bibnamefont{et~al}},
+  \bibinfo{journal}{Journal of Instrumentation} \textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{P03011} (\bibinfo{year}{2017}),
+  \urlprefix\url{http://stacks.iop.org/1748-0221/12/i=03/a=P03011}.
+
+\bibitem[{\citenamefont{Baller}(2016)}]{Baller2016}
+\bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Baller}}, \bibinfo{type}{Tech.
+  Rep.} (\bibinfo{year}{2016}),
+  \urlprefix\url{https://cdcvs.fnal.gov/redmine/documents/1026}.
+
+\bibitem[{\citenamefont{et~al.}(2013)}]{Antonello2013}
+\bibinfo{author}{\bibfnamefont{M.~A.} \bibnamefont{et~al.}},
+  \bibinfo{journal}{Advances in High Energy Physics}
+  \textbf{\bibinfo{volume}{2013}}, \bibinfo{pages}{1} (\bibinfo{year}{2013}),
+  \urlprefix\url{https://doi.org/10.1155/2013/260820}.
+
+\end{thebibliography}

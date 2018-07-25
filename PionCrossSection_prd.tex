@@ -85,7 +85,7 @@ Historic measurements of hadronic cross sections are performed on thin targets. 
 
 
 \section{\label{sec:ExperimentalSetup}Experimental Setup}
-We briefly describe here the features and use of the LArIAT beamline detectors and LArTPC  relevant to the cross section measurement; we refer the reader to [\textcolor{red}{cit detector paper}] for a detailed description of LArIAT's experimental setup.
+We briefly describe here the features and use of the LArIAT beamline detectors and LArTPC  relevant to the cross section measurement; we refer the reader to \cite{LArIATDet} for a detailed description of LArIAT's experimental setup.
 
 \subsection{\label{sec:Beamline}Beamline} 
 \begin{figure*}
@@ -153,7 +153,7 @@ It should be noted that pions are the main component of the LArIAT beam of charg
 
 \subsection{\label{sec:LArTPC}LArTPC}
 
-The LArIAT LArTPC is a box of dimensions 47 cm (drift) by 40 cm (height) by 90 cm (depth) equipped with an  electric field of 490 V/cm. LArIAT induction and collection planes consist of 240 wires each at 4 mm spacing. The wires are oriented at +/- $60^{\circ}$ from the vertical direction, while the beam direction is oriented 3 degrees off the $z$ axis in the $XZ$ plane.   Beamline particles enter the TPC roughly at the center of the front face leaving traces of ionization the in TPC. The ionization signals on the wires are then recorded by the LArIAT DAQ, stored and processed offline. LArIAT makes use of the LArSoft toolkit \cite{EricFChurck} for data acquisition, signal processing, event reconstruction and TPC simulation. 
+The LArIAT LArTPC is a box of dimensions 47 cm (drift) by 40 cm (height) by 90 cm (depth) equipped with an  electric field of 490 V/cm. LArIAT induction and collection planes consist of 240 wires each at 4 mm spacing. The wires are oriented at +/- $60^{\circ}$ from the vertical direction, while the beam direction is oriented 3 degrees off the $z$ axis in the $XZ$ plane.   Beamline particles enter the TPC roughly at the center of the front face leaving traces of ionization the in TPC. The ionization signals on the wires are then recorded by the LArIAT DAQ, stored and processed offline. LArIAT makes use of the LArSoft toolkit \cite{LArSoft} for data acquisition, signal processing, event reconstruction and TPC simulation. 
 
 The processing and reconstruction chain of the TPC signals, from the pulses on the sense wire to the construction of three dimensional objects with associated calorimetry can be summarized in the following categories: \emph{Deconvolution}, \emph{Hit Reconstruction}, \emph{2D Clustering}, \emph{3D Tracking}, \emph{Calorimetry Reconstruction}. \\ %A visualization of the signal processing workflow is shown in figure \ref{fig:SignalProc}.\\
 
@@ -429,15 +429,20 @@ $[E^{kin}_{\text{MIN}}, E^{kin}_{\text{MAX}}]$ & $\sigma_{\text{TOT}}$ & Stat $\
 
 
 \input acknowledgement.tex   % input acknowledgement
+\bibliography{bib.bib}
 
-\begin{thebibliography}{99}
+%\begin{thebibliography}{99}
 
-  \bibitem{LArIATDet}
-    Standard LArIAT detector reference:  \\
-R. Acciarri {\sl et al.} (LArIAT Collaboration),
-hopefully we'll have one soon.
+%  \bibitem{LArIATDet}
+%    Standard LArIAT detector reference:  \\
+%R. Acciarri {\sl et al.} (LArIAT Collaboration),
+%hopefully we'll have one soon.
 
- \end{thebibliography}
+%  \bibitem{LArSoft}
+%    Standard LArSoft reference:  \\
+%hopefully we'll have one soon.
+
+% \end{thebibliography}
 
 \end{document}
 %

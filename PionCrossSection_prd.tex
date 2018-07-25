@@ -183,12 +183,14 @@ For each hit associated with the track object, the calorimetry set of algorithms
 Signal processing and event reconstruction provide the collection of TPC tracks per event and their associated tracking and calorimetric information. We use the reconstructed track direction and position at the front face of the TPC to match one TPC track to the beamline candidate. We reject events with either zero or multiple matches. In an effort to reduce electron contamination, we filter events based on their topology in the TPC: if more than 5 short tracks (track length $<$ 10 cm) are present in the proximity of the matched TPC track, the event is classified as electron and rejected. The calorimetry information entails the measurement of the energy deposited $E_{\text{Dep},i}$ along the pion's path at every ``track pitch", i.e. at every segment between two 3D points of the trajectory. The track pitch distribution is shown in Figure \ref{fig:pitch}; for both data and simulation, the track pitch averages at $\delta {\emph{X}}$ = 4 mm/(sin($60^{\circ}$)cos($3^{\circ}$)) $\approx$ 4.7~mm. 
 The energy deposited $E_{\text{Dep},i}$, whose distribution is shown in \ref{fig:enDep}, is obtained from the signals on the collection plane.  This information is leveraged together with the measurement of the beamline momentum to assess the kinetic energy of the matched pion candidate at each point of the pion reconstructed track. We start by estimating the pion's  kinetic energy at the TPC front face, $ E^{kin}_{\text{Front Face}}$, as 
 \begin{equation}
- E^{kin}_{\text{Front Face}}  = \sqrt{p^2_{\text{Beam}} - m^2_{\text{Beam}}} - m_{\text{Beam}} - E_{\text{Loss}},
+ E^{kin}_{\text{Front Face}}  =  \sqrt{p^2_{\text{Beam}} - m^2_{\text{Beam}}} - m_{\text{Beam}} - E_{\text{Loss}},
 \label{eq:enFF}
 \end{equation}
 where $p_{\text{Beam}}$ is the momentum measured by the LArIAT spectrometer, $m_{\text{Beam}} = 139.57018\pm0.00035$ MeV is the pion mass [\textcolor{red}{cite pdg}], $E_{\text{Loss}}$ is a correction for the kinetic energy lost in the un-instrumented material between the beamline and the TPC front face. Figure \ref{fig:ELoss100A} shows the $E_{\text{Loss}}$ distribution for the simulation of the -100A Run II data. To obtain the kinetic energy at each point of the pion reconstructed track, we iteratively subtract the measurement of the energy deposited $E_{\text{Dep},i}$ from $ E^{kin}_{\text{Front Face}}$; in formulae, the kinetic energy at the $j^{th}$ point of the track  $E_{j}^{kin}$ is given by
 \begin{equation}
- E_{j}^{kin} =  E^{kin}_{Front Face} - \sum_{i < j} E_{\text{Dep},i}.
+\begin{split}
+ E_{j}^{kin}  & = E^{kin}_{Front Face} -  \sum_{i < j} E_{\text{Dep},i}.
+\end{split}
 \label{eq:KEj}
 \end{equation}
 
@@ -200,7 +202,7 @@ The finely grained measurement of the kinetic energy, possible only thanks to th
 \end{figure}
 \begin{figure}
 \includegraphics[width =0.4\textwidth ]{DepEnergy_Fit_v4100A.png}
-\caption{\label{fig:enDep}  Energy deposition distribution for Run II negative polarity data at -100A magnet configuration displayed in black, MC in red.}
+\caption{\label{fig:enDep}  Energy deposition distribution in a single slice for Run II negative polarity data at -100A magnet configuration displayed in black, MC in red.}
 \end{figure}
 
 \begin{figure}
@@ -340,11 +342,9 @@ On the other hand, $N_{\text{Int,i}}$ follows a binomial distribution: a particl
 \label{eq:binVar}
 \end{equation}
 
-where  $P_{\text{Int,i}}$ is estimated by $\frac{ N_{\text{Int,i}}}{N_{\text{Inc,i}}}$ and the number of tries corresponds to $N_{\text{Inc,i}}$.
-
-$N_{\text{Inc,i}}$ and $N_{\text{Int,i}}$ are not independent. In fact, populating a given bin for the interacting flux always implies at least populating the same bin in the incident flux  (and possibly other incidents bins at higher energies). Thus, we conservatively calculate the statistical uncertainty on the cross section as 
+where  $P_{\text{Int,i}}$ is estimated by $\frac{ N_{\text{Int,i}}}{N_{\text{Inc,i}}}$ and the number of tries corresponds to $N_{\text{Inc,i}}$. $N_{\text{Inc,i}}$ and $N_{\text{Int,i}}$ are not independent. In fact, populating a given bin for the interacting flux always implies at least populating the same bin in the incident flux  (and possibly other incidents bins at higher energies). Thus, we conservatively calculate the statistical uncertainty on the cross section as 
 \begin{equation}
-\frac{\delta\sigma^{Stat}_{TOT}(E^{kin}_i)}{\sigma^{Stat}_{TOT}(E^{kin}_i)} =  \Big(\frac{\delta N_{\text{Int,i}}}{N_{\text{Int,i}}}+\frac{\delta N_{\text{Inc,i}}}{N_{\text{Inc,i}}}\Big) 
+\frac{\delta\sigma^{Stat}_{TOT}(E^{kin}_i)}{\sigma^{Stat}_{TOT}(E^{kin}_i)} =  \frac{\delta N_{\text{Int,i}}}{N_{\text{Int,i}}}+\frac{\delta N_{\text{Inc,i}}}{N_{\text{Inc,i}}}
 \end{equation}
 where:
 \begin{eqnarray}
@@ -353,18 +353,17 @@ where:
 \end{eqnarray} \\
 
 
-The evaluation of the systematic uncertainty results from the uncertainty on the track pitch  ($\delta X = 0.47 \pm 0.03 $ cm, shown in Figure \ref{fig:pitch}),  from the propagation to the cross section of the uncertainty associated with the measured kinetic energy at each argon slab,  the  beam composition and the correction for reconstruction effects. 
-
-\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\% 
+The evaluation of the systematic uncertainty results from the propagation to the cross section of the uncertainty associated with  the track pitch  ($\delta X = 0.47 \pm 0.03 $ cm, shown in Figure \ref{fig:pitch}),  the measured kinetic energy at each argon slab,  the  beam composition and the correction for reconstruction effects. 
 
 The uncertainty on the kinetic energy of a pion candidate at the j$^{th}$ slab of argon  is given by
 
 \begin{eqnarray}
-\delta E^{kin}_{j} &=& \sqrt{\delta p_{Beam}^2 + \delta E_{Loss}^2 +  \delta  E_{\text{dep FF-j}}^2}\\
-&=& \sqrt{(2\% \text{ }p_{Beam})^2 +  ( 6 \text{ [MeV]})^2 +  (j-1)^2 (\sim0.08\text{ [MeV]})^2}.
+\delta E^{kin}_{j} &=& \sqrt{\delta p_{\text{Beam}}^2 + \delta E_{\text{Loss}}^2 +  \delta \Big(\sum_{i < j} E_{\text{Dep},i}\Big)^2}, 
+%&=& \sqrt{(2\% \text{ }p_{Beam})^2 +  ( 6 \text{ [MeV]})^2 +  (j-1)^2 (\sim0.08\text{ [MeV]})^2}.
 \end{eqnarray}
 
-We propagate this uncertainty  by varying the energy measurement $KE_{j}$ at each argon slab. We measure $N^{\text{TOT}}_{\text{Inc}}$,  $N^{\text{TOT}}_{\text{Int}}$ and the cross section  in three cases: first assigning the measured $KE_{j}$ at each kinetic energy sampling, then assigning $KE_{j} + \delta KE_{j}$, and finally assigning $KE_{j} - \delta KE_{j}$. The difference between the values obtained using the $KE_{j}$ sampling and the maximum and minimum values in each kinetic energy bin determines the systematic uncertainty.
+where $\delta p_{\text{Beam}} = 2\%$ $p_{\text{Beam}}$, $\delta E_{\text{Loss}}$ is the width of the distribution in Figure \ref{fig:ELoss100A}, $\delta \Big(\sum_{i < j} E_{\text{Dep},i}\Big)$  is the uncertainty associated to energy deposited by the pion from the TPC front face to the $j^{th}$ slice; we calculate this last uncertainty as  the sum of $\delta E_{\text{Dep},i}$, that is the width  of the  distribution of energy deposited in a single slice, see Figure \ref{fig:enDep}. We propagate the uncertainty on the kinetic energy to the cross section by varying the energy measurement $E^{kin}_{j}$ at each argon slab. We measure $N_{\text{Inc,i}}$,  $N_{\text{Int,i}}$, hence the cross section  in three cases: first assigning the measured $E^{kin}_{j}$ at each kinetic energy sampling, then assigning $E^{kin}_{j} + \delta E^{kin}_{j}$, and finally assigning $E^{kin}_{j} - \delta E^{kin}_{j}$. The difference between the cross section values obtained using the $E^{kin}_{j}$ sampling and the maximum and minimum values in each kinetic energy bin determines the systematic uncertainty.
+In absence of additional data constraints,  we take a 100\% systematic uncertainty on the muon and electron content, $w_\mu$ and $w_e$.  We propagate this uncertainty  to the cross section by varying the beam composition (+/- 100\% on $w_\mu$ and $w_e$) and evaluating the variation of the obtained  data cross sections in each bin.  The systematics on the correction for reconstruction is estimated by varying the value of $\alpha_{res}$ between 0 deg and 5.0 deg and propagating the uncertainty on the cross section. 
 
 
 
@@ -397,295 +396,7 @@ $[E^{kin}_{\text{MIN}}, E^{kin}_{\text{MAX}}]$ & $\sigma_{\text{TOT}}$ & Stat $\
 
 
 
-\begin{comment}
-This sample document demonstrates proper use of REV\TeX~4 (and
-\LaTeXe) in mansucripts prepared for submission to APS
-journals. Further information can be found in the REV\TeX~4
-documentation included in the distribution or available at
-\url{http://publish.aps.org/revtex4/}.
-
-When commands are referred to in this example file, they are always
-shown with their required arguments, using normal \TeX{} format. In
-this format, \verb+#1+, \verb+#2+, etc. stand for required
-author-supplied arguments to commands. For example, in
-\verb+\section{#1}+ the \verb+#1+ stands for the title text of the
-author's section heading, and in \verb+\title{#1}+ the \verb+#1+
-stands for the title text of the paper.
-
-Line breaks in section headings at all levels can be introduced using
-\textbackslash\textbackslash. A blank input line tells \TeX\ that the
-paragraph has ended. Note that top-level section headings are
-automatically uppercased. If a specific letter or word should appear in
-lowercase instead, you must escape it using \verb+\lowercase{#1}+ as
-in the word ``via'' above.
-
-%\subsection{\label{sec:level2}Second-level heading: Formatting}
-% subsections are not used for PRL papers
-
-This file may be formatted in both the \texttt{preprint} and
-\texttt{twocolumn} styles. \texttt{twocolumn} format may be used to
-mimic final journal output. Either format may be used for submission
-purposes; however, for peer review and production, APS will format the
-article using the \texttt{preprint} class option. Hence, it is
-essential that authors check that their manuscripts format acceptably
-under \texttt{preprint}. Manuscripts submitted to APS that do not
-format correctly under the \texttt{preprint} option may be delayed in
-both the editorial and production processes.
-
-The \texttt{widetext} environment will make the text the width of the
-full page.  The width-changing commands only take effect in \texttt{twocolumn}
-formatting. It has no effect if \texttt{preprint} formatting is chosen
-instead.
-
-To cite bibliography entries, use the \verb+\cite{#1}+ command. Most
-journal styles will display the corresponding number(s) in square
-brackets: \cite{d0det}. To avoid the square brackets, use
-\verb+\onlinecite{#1}+: Refs.~\onlinecite{d0det} and
-\onlinecite{geant,pythia}. REV\TeX\ ``collapses'' lists of
-consecutive reference numbers where possible. We now cite everyone
-together \cite{geant, pythia, cteq}, and once again
-(Refs.~\onlinecite{geant, pythia, cteq}). Note that the references
-were also sorted into the correct numerical order as well.
-
-Footnotes are produced using the \verb+\footnote{#1}+ command. Most
-APS journal styles put footnotes into the bibliography. REV\TeX~4 does
-this as well, but instead of interleaving the footnotes with the
-references, they are listed at the end of the references. Because the correct
-numbering of the footnotes must occur after the numbering of the
-references, an extra pass of \LaTeX\ is required in order to get the
-numbering correct.
-
-
-Inline math may be typeset using the \verb+$+ delimiters. Bold math
-symbols may be achieved using the \verb+bm+ package and the
-\verb+\bm{#1}+ command it supplies. For instance, a bold $\alpha$ can
-be typeset as \verb+$\bm{\alpha}$+ giving $\bm{\alpha}$. Fraktur and
-Blackboard (or open face or double struck) characters should be
-typeset using the \verb+\mathfrak{#1}+ and \verb+\mathbb{#1}+ commands
-respectively. Both are supplied by the \texttt{amssymb} package. For
-example, \verb+$\mathbb{R}$+ gives $\mathbb{R}$ and
-\verb+$\mathfrak{G}$+ gives $\mathfrak{G}$
-
-In \LaTeX\ there are many different ways to display equations, and a
-few preferred ways are noted below. Displayed math will center by
-default. Use the class option \verb+fleqn+ to flush equations left.
-
-Below we have numbered single-line equations; this is the most common
-type of equation in \textit{Physical Review}:
-\begin{eqnarray}
-\chi_+(p)\alt{\bf [}2|{\bf p}|(|{\bf p}|+p_z){\bf ]}^{-1/2}
-\left(
-\begin{array}{c}
-|{\bf p}|+p_z\\
-px+ip_y
-\end{array}\right)\;,
-\\
-\left\{%
- \openone234567890abc123\alpha\beta\gamma\delta1234556\alpha\beta
- \frac{1\sum^{a}_{b}}{A^2}%
-\right\}%
-\label{eq:one}.
-\end{eqnarray}
-Note the open one in Eq.~(\ref{eq:one}).
-
-Not all numbered equations will fit within a narrow column this
-way. The equation number will move down automatically if it cannot fit
-on the same line with a one-line equation:
-\begin{equation}
-\left\{
- ab12345678abc123456abcdef\alpha\beta\gamma\delta1234556\alpha\beta
- \frac{1\sum^{a}_{b}}{A^2}%
-\right\}.
-\end{equation}
-
-When the \verb+\label{#1}+ command is used [cf. input for
-Eq.~(\ref{eq:one})], the equation can be referred to in text without
-knowing the equation number that \TeX\ will assign to it. Just
-use \verb+\ref{#1}+, where \verb+#1+ is the same name that used in
-the \verb+\label{#1}+ command.
-
-Unnumbered single-line equations can be typeset
-using the \verb+\[+, \verb+\]+ format:
-\[g^+g^+ \rightarrow g^+g^+g^+g^+ \dots ~,~~q^+q^+\rightarrow
-q^+g^+g^+ \dots ~. \]
-
-
-Figures may be inserted by using either the \texttt{graphics} or
-\texttt{graphicx} packages. These packages both define the
-\verb+\includegraphics{#1}+ command, but they differ in how optional
-arguments for specifying the orientation, scaling, and translation of the
-figure. Fig.~\ref{fig:epsart} shows a figure that is small enough to
-fit in a single column. It is embedded using the \texttt{figure}
-environment which provides both the caption and the imports the figure
-file.
-
-\begin{figure}
-\includegraphics[scale=0.8]{TheRealMoneyPlot.ps}
-\caption{\label{fig:epsart} A figure caption. The figure captions are
-automatically numbered.}
-\end{figure}
-
-Fig.~\ref{fig:wide} is a figure that is too wide for a single column,
-so instead the \texttt{figure*} environment has been used.
-\begin{figure*}
-%\includegraphics{fig_2.ps}% Here is how to import EPS art
-\caption{\label{fig:wide}Use the figure* environment to get a wide
-figure that spans the page in \texttt{twocolumn} formatting.}
-\end{figure*}
-
-
-The heart of any table is the \texttt{tabular} environment which gives
-the rows of the tables. Each row consists of column entries separated
-by \verb+&+'s and terminates with \textbackslash\textbackslash. The
-required argument for the \texttt{tabular} environment
-specifies how data are displayed in the columns. For instance, entries
-may be centered, left-justified, right-justified, aligned on a decimal
-point. Extra column-spacing may be be specified as well, although
-REV\TeX~4 sets this spacing so that the columns fill the width of the
-table. Horizontal rules are typeset using the \verb+\hline+
-command. The doubled (or Scotch) rules that appear at the top and
-bottom of a table can be achieved enclosing the \texttt{tabular}
-environment within a \texttt{ruledtabular} environment. Rows whose
-columns span multiple columns can be typeset using the
-\verb+\multicolumn{#1}{#2}{#3}+ command (for example, see the first
-row of Table~\ref{tab:table3}).
-
-Tables~\ref{tab:table1}-\ref{tab:table4} show various effects. Tables
-that fit in a narrow column are contained in a \texttt{table}
-environment. Table~\ref{tab:table3} is a wide table set with the
-\texttt{table*} environment. Long tables may need to break across
-pages. The most straightforward way to accomplish this is to specify
-the \verb+[H]+ float placement on the \texttt{table} or
-\texttt{table*} environment. However, the standard \LaTeXe\ package
-\texttt{longtable} will give more control over how tables break and
-will allow headers and footers to be specified for each page of the
-table. A simple example of the use of \texttt{longtable} can be found
-in the file \texttt{summary.tex} that is included with the REV\TeX~4
-distribution.
-
-There are two methods for setting footnotes within a table (these
-footnotes will be displayed directly below the table rather than at
-the bottom of the page or in the bibliography). The easiest
-and preferred method is just to use the \verb+\footnote{#1}+
-command. This will automatically enumerate the footnotes with
-lowercase roman letters. However, it is sometimes necessary to have
-multiple entries in the table share the same footnote. In this case,
-there is no choice but to manually create the footnotes using
-\verb+\footnotemark[#1]+ and \verb+\footnotetext[#1]{#2}+.
-\texttt{\#1} is a numeric value. Each time the same value for
-\texttt{\#1} is used, the same mark is produced in the table. The
-\verb+\footnotetext[#1]{#2}+ commands are placed after the \texttt{tabular}
-environment. Examine the \LaTeX\ source and output for
-Tables~\ref{tab:table1} and \ref{tab:table2} for examples.
-
-\begin{table}
-\caption{\label{tab:table1}This is a narrow table which fits into a
-narrow column when using \texttt{twocolumn} formatting. Note that
-REV\TeX~4 adjusts the intercolumn spacing so that the table fills the
-entire width of the column. Table captions are numbered
-automatically. This table illustrates left-aligned, centered, and
-right-aligned columns.  }
-\begin{ruledtabular}
-\begin{tabular}{lcr}
-Left\footnote{Note a.}&Centered\footnote{Note b.}&Right\\
-\hline
-1 & 2 & 3\\
-10 & 20 & 30\\
-100 & 200 & 300\\
-\end{tabular}
-\end{ruledtabular}
-\end{table}
-
-\begin{table}
-\caption{\label{tab:table2}A table with more columns still fits
-properly in a column. Note that several entries share the same
-footnote. Inspect the \LaTeX\ input for this table to see
-exactly how it is done.}
-\begin{ruledtabular}
-\begin{tabular}{cccccccc}
- &$r_c$ (\AA)&$r_0$ (\AA)&$\kappa r_0$&
- &$r_c$ (\AA) &$r_0$ (\AA)&$\kappa r_0$\\
-\hline
-Cu& 0.800 & 14.10 & 2.550 &Sn\footnotemark[1]
-& 0.680 & 1.870 & 3.700 \\
-Ag& 0.990 & 15.90 & 2.710 &Pb\footnotemark[2]
-& 0.450 & 1.930 & 3.760 \\
-Au& 1.150 & 15.90 & 2.710 &Ca\footnotemark[3]
-& 0.750 & 2.170 & 3.560 \\
-Mg& 0.490 & 17.60 & 3.200 &Sr\footnotemark[4]
-& 0.900 & 2.370 & 3.720 \\
-Zn& 0.300 & 15.20 & 2.970 &Li\footnotemark[2]
-& 0.380 & 1.730 & 2.830 \\
-Cd& 0.530 & 17.10 & 3.160 &Na\footnotemark[5]
-& 0.760 & 2.110 & 3.120 \\
-Hg& 0.550 & 17.80 & 3.220 &K\footnotemark[5]
-&  1.120 & 2.620 & 3.480 \\
-Al& 0.230 & 15.80 & 3.240 &Rb\footnotemark[3]
-& 1.330 & 2.800 & 3.590 \\
-Ga& 0.310 & 16.70 & 3.330 &Cs\footnotemark[4]
-& 1.420 & 3.030 & 3.740 \\
-In& 0.460 & 18.40 & 3.500 &Ba\footnotemark[5]
-& 0.960 & 2.460 & 3.780 \\
-Tl& 0.480 & 18.90 & 3.550 & & & & \\
-\end{tabular}
-\end{ruledtabular}
-\footnotetext[1]{Here's the first, from Ref.~\onlinecite{pdg}.}
-\footnotetext[2]{Here's the second.}
-\footnotetext[3]{Here's the third.}
-\footnotetext[4]{Here's the fourth.}
-\footnotetext[5]{And etc.}
-\end{table}
-
-\begin{table*}
-\caption{\label{tab:table3}This is a wide table that spans the page
-width in \texttt{twocolumn} mode. It is formatted using the
-\texttt{table*} environment. It also demonstates the use of
-\textbackslash\texttt{multicolumn} in rows with entries that span
-more than one column.}
-\begin{ruledtabular}
-\begin{tabular}{ccccc}
- &\multicolumn{2}{c}{$D_{4h}^1$}&\multicolumn{2}{c}{$D_{4h}^5$}\\
- Ion&1st alternative&2nd alternative&lst alternative
-&2nd alternative\\ \hline
- K&$(2e)+(2f)$&$(4i)$ &$(2c)+(2d)$&$(4f)$ \\
- Mn&$(2g)$\footnote{The $z$ parameter of these positions is $z\sim\frac{1}{4}$.}
- &$(a)+(b)+(c)+(d)$&$(4e)$&$(2a)+(2b)$\\
- Cl&$(a)+(b)+(c)+(d)$&$(2g)$\footnotemark[1]
- &$(4e)^{\text{a}}$\\
- He&$(8r)^{\text{a}}$&$(4j)^{\text{a}}$&$(4g)^{\text{a}}$\\
- Ag& &$(4k)^{\text{a}}$& &$(4h)^{\text{a}}$\\
-\end{tabular}
-\end{ruledtabular}
-\end{table*}
-
-\begin{table}
-\caption{\label{tab:table4}Numbers in columns Three--Five have been
-aligned by using the ``d'' column specifier (requires the
-\texttt{dcolumn} package). Non-numeric entries (those entries without
-a ``.'') in a ``d'' column are aligned on the decimal point. Use the
-``D'' specifier for more complex layouts. }
-\begin{ruledtabular}
-\begin{tabular}{ccddd}
-One&Two&\mbox{Three}&\mbox{Four}&\mbox{Five}\\
-\hline
-one&two&\mbox{three}&\mbox{four}&\mbox{five}\\
-He&2& 2.77234 & 45672. & 0.69 \\
-C\footnote{Some tables require footnotes.}
-  &C\footnote{Some tables need more than one footnote.}
-  & 12537.64 & 37.66345 & 86.37 \\
-\end{tabular}
-\end{ruledtabular}
-\end{table}
-
-
-
-\textit{Physical Review} style requires that the initial citation of
-figures or tables be in numerical order in text, so don't cite
-Fig.~\ref{fig:wide} until Fig.~\ref{fig:epsart} has been cited.
-
 %%%%%%%%%%%%%%
-
-
 %Historic measurements of hadronic cross sections are performed on thin targets [\textcolor{red}{A CIT is needed here}]. At their core, these experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux, under the assumption that the target centers are uniformly distributed in the material and that no center of interaction sits in front of another. 
 
 
@@ -712,8 +423,6 @@ Fig.~\ref{fig:wide} until Fig.~\ref{fig:epsart} has been cited.
 %\label{fig:TPCGran}
 %\end{figure}
 
-
-\end{comment}
 
 \input acknowledgement.tex   % input acknowledgement
 

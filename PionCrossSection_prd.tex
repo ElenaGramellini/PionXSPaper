@@ -63,21 +63,25 @@
 \begin{abstract}
 We present the measurement of the negative pion total hadronic cross section on Argon in the 100-1050 MeV kinetic energy range as performed at the LArIAT experiment.   Deploying a Liquid Argon Time Projection Chamber (LArTPC) in a dedicated calibration test beam line at Fermilab, LArIAT (Liquid Argon In A Testbeam) aims to experimentally calibrate this technology in a controlled environment. We use LArIAT's beamline detectors to identify candidate pions and measure their kinetic energy prior to entering the LArTPC. Once the pool of pion candidates is identified in the LAr active volume, we apply the ``thin slice method", a new technique to measure hadron-argon cross sections based on the combination of tracking and calorimetric capability of the LArTPC technology. 
 Albeit our measurement of the  ($\pi^-$-Ar) total hadronic cross section is in general agreement with the predictions by the Geant4 Bertini Cascade model derived from historic measurements on lighter and heavier nuclei, a hint to a shape difference is present.
-The ($\pi^-$, Ar) total cross-section has never been measured before; the outcome of this measurement will enable to quantify and reduce the systematic associated with the hadronic interaction models in neutrino-argon interactions in current and future LAr experiments such as the Short Baseline Neutrino Program and DUNE.
- 
+The ($\pi^-$, Ar) total cross-section has never been measured before; the outcome of this measurement will enable to quantify and reduce the systematic associated with the hadronic interaction models in neutrino-argon interactions in current and future LAr experiments such as the Short Baseline Neutrino Program and DUNE.\\
 
-
-
-\end{abstract}
+ \end{abstract}
 
 \pacs{13.15.+g Neutrino interactions, 14.40.-n	Mesons,  14.40.Be	Light mesons (S=C=B=0), 13.75.-n	Hadron-induced low- and intermediate-energy reactions and scattering (energy $le$ 10 GeV)}
 \maketitle
 
+\newpage
 \section{\label{sec:Motivations}Motivations}
-\textcolor{red}{Need to define signal}
-Motivations: existing measurements + interpolation between heavier and lighter nuclei
-Methods used in other measurements (concise)
-Historic measurements of hadronic cross sections are performed on thin targets [\textcolor{red}{A CIT is needed here}]. At their core, these experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux, under the assumption that the target centers are uniformly distributed in the material and that no center of interaction sits in front of another. 
+\textcolor{red}{List of topics needed here:
+\begin{itemize}
+\item[-] Define signal
+\item[-] Existing measurements on pions: interpolation between heavier and lighter nuclei
+\item[-] Methods used in other measurements (concise) and how this ties to our method. I'd like to have version of the sentence below, to introduce the concept of "flux".
+\end{itemize}
+}
+
+
+Historic measurements of hadronic cross sections are performed on thin targets. At their core, these experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux. 
 
 
 \section{\label{sec:ExperimentalSetup}Experimental Setup}
@@ -312,7 +316,7 @@ The interacting flux depends on the efficiency of the tracking of finding the pi
  \epsilon^{\text{Int}}_i  =  \frac{N^{\text{ Reco MC $\pi$}}_{\text{Int,i}}}{ N^{\text{ True MC  $\pi$}}_{\text{Int,i}}  } \hspace{0.5cm}\text{and}\hspace{0.5cm}  \epsilon^{\text{Inc}}_i  =  \frac{N^{\text{ Reco MC $\pi$}}_{\text{Inc,i}}}{ N^{\text{ True MC  $\pi$}}_{\text{Inc,i}}  },
 \end{equation}
 
-where $N^{\text{ True MC  $\pi$}}_{\text{Int,i}}$ is the expected number of interacting pions at the kinetic energy $E^{kin}_i$ according to the \textcolor{red}{ cross check these} Geant4 10.03.p1 FTFP\_BERT interaction model and  $N^{\text{ Reco MC $\pi$}}_{\text{Int,i}}$ is the number of reconstructed interacting pions at the same kinetic energy; analogous definitions apply to the correction on the incident flux. \\
+where $N^{\text{ True MC  $\pi$}}_{\text{Int,i}}$ is the expected number of interacting pions at the kinetic energy $E^{kin}_i$ according to the Geant4 10.03.p1 FTFP\_BERT interaction model and  $N^{\text{ Reco MC $\pi$}}_{\text{Int,i}}$ is the number of reconstructed interacting pions at the same kinetic energy; analogous definitions apply to the correction on the incident flux. \\
 
 
 
@@ -362,8 +366,8 @@ The uncertainty on the kinetic energy of a pion candidate at the j$^{th}$ slab o
 %&=& \sqrt{(2\% \text{ }p_{Beam})^2 +  ( 6 \text{ [MeV]})^2 +  (j-1)^2 (\sim0.08\text{ [MeV]})^2}.
 \end{eqnarray}
 
-where $\delta p_{\text{Beam}} = 2\%$ $p_{\text{Beam}}$, $\delta E_{\text{Loss}}$ is the width of the distribution in Figure \ref{fig:ELoss100A}, $\delta \Big(\sum_{i < j} E_{\text{Dep},i}\Big)$  is the uncertainty associated to energy deposited by the pion from the TPC front face to the $j^{th}$ slice; we calculate this last uncertainty as  the sum of $\delta E_{\text{Dep},i}$, that is the width  of the  distribution of energy deposited in a single slice, see Figure \ref{fig:enDep}. We propagate the uncertainty on the kinetic energy to the cross section by varying the energy measurement $E^{kin}_{j}$ at each argon slab. We measure $N_{\text{Inc,i}}$,  $N_{\text{Int,i}}$, hence the cross section  in three cases: first assigning the measured $E^{kin}_{j}$ at each kinetic energy sampling, then assigning $E^{kin}_{j} + \delta E^{kin}_{j}$, and finally assigning $E^{kin}_{j} - \delta E^{kin}_{j}$. The difference between the cross section values obtained using the $E^{kin}_{j}$ sampling and the maximum and minimum values in each kinetic energy bin determines the systematic uncertainty.
-In absence of additional data constraints,  we take a 100\% systematic uncertainty on the muon and electron content, $w_\mu$ and $w_e$.  We propagate this uncertainty  to the cross section by varying the beam composition (+/- 100\% on $w_\mu$ and $w_e$) and evaluating the variation of the obtained  data cross sections in each bin.  The systematics on the correction for reconstruction is estimated by varying the value of $\alpha_{res}$ between 0 deg and 5.0 deg and propagating the uncertainty on the cross section. 
+where $\delta p_{\text{Beam}} = 2\%$ $p_{\text{Beam}}$, $\delta E_{\text{Loss}}$ is the width of the distribution in Figure \ref{fig:ELoss100A}, $\delta \Big(\sum_{i < j} E_{\text{Dep},i}\Big)$  is the uncertainty associated to energy deposited by the pion from the TPC front face to the $j^{th}$ slice; we calculate this last uncertainty as  the sum of $\delta E_{\text{Dep},i}$, that is the width  of the  distribution of energy deposited in a single slice, see Figure \ref{fig:enDep}. We propagate the uncertainty on the kinetic energy to the cross section by varying the energy measurement $E^{kin}_{j}$ at each argon slab and measuring the cross section: first we assign the measured $E^{kin}_{j}$, then  $E^{kin}_{j} + \delta E^{kin}_{j}$, and finally  $E^{kin}_{j} - \delta E^{kin}_{j}$. The difference between the cross section values using the $E^{kin}_{j}$ sampling and the maximum and minimum values in each bin determines the systematic uncertainty.
+In absence of additional data constraints,  we take a 100\% systematic uncertainty on the muon and electron content, $w_\mu$ and $w_e$.  We propagate this uncertainty  to the cross section by varying the beam composition (+/- 100\% on $w_\mu$ and $w_e$) and evaluating the variation of the obtained  data cross sections in each bin.  The systematics on the correction for reconstruction effects is estimated by varying the value of the minimum angle visible for the reconstruction 0 deg and 5.0 deg. 
 
 
 

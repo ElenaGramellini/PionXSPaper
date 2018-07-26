@@ -81,11 +81,13 @@ The ($\pi^-$, Ar) total cross-section has never been measured before; the outcom
 }
 
 
-Historic measurements of hadronic cross sections are performed on thin targets. At their core, these experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux. 
+Most historic measurements of pion hadronic cross sections are performed on thin targets [\textcolor{red}{cit experiments}]. At their core, these experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux. Our approach to the cross section measurement is complementary: we record the incident and the interacting flux, since our target (the LArTPC) coincides with the sensitive volume.  
 
 
 \section{\label{sec:ExperimentalSetup}Experimental Setup}
-We briefly describe here the features and use of the LArIAT beamline detectors and LArTPC  relevant to the cross section measurement; we refer the reader to \cite{LArIATDet} for a detailed description of LArIAT's experimental setup.
+To its bare bones, the LArIAT experiments consist in a LArTPC deployed on a beam of charge particles at the Fermilab FTBF facility. The experimental setup changed significantly during LArIAT's three seasons of data taking regarding both the beamline and TPC components. We acquired the data used in this work  during the 24-weeks of data taking of the second season, which we refers as to Run II.  
+
+We briefly describe here only the features and use of the LArIAT Run II beamline detectors and LArTPC  relevant to the cross section measurement; we refer the reader to \cite{LArIATDet} for a detailed and complete description of LArIAT's experimental setup.
 
 \subsection{\label{sec:Beamline}Beamline} 
 \begin{figure*}
@@ -101,7 +103,9 @@ We briefly describe here the features and use of the LArIAT beamline detectors a
 %\end{overpic}
 
 
-Scope of the LArIAT beamline instrumentation is to identify the particle type and measure the momentum of the particles entering the LArIAT TPC. Figure \ref{fig:beamlinebird} shows a bird's eye view of the LArIAT tertiary beamline where we highlighted the key components for the cross section measurement:  two bending electromagnets (yellow), a set of four wire chambers (red) and two time-of-flight scintillating paddles (blue).  The magnets' polarity determines the charge of the particles selected in the tertiary beam: running the magnets in negative polarity selects negatively charged particles. The strength for the magnetic field is set by the amplitude of the current in the magnets. For this work,  the current settings explored were -60A (B $\sim$0.21 T) and -100A (B $\sim$0.35 T).  The combination of magnets and wire chambers forms the LArIAT spectrometer which measures the particles' momentum at the fourth wire chamber, $p_{\text{Beam}}$, with a relative uncertainty of 2\%. Figure \ref{fig:momentum} shows the distribution of  $p_{\text{Beam}}$ for the Run II negative polarity data used in this work, which spans from $\sim200$ to $\sim1200$ MeV/c. 
+Scope of the LArIAT beamline instrumentation is to identify the particle type and measure the momentum of the beam's particles entering the LArTPC. Figure \ref{fig:beamlinebird} shows a bird's eye view of the LArIAT tertiary beamline where we highlighted the key components for the cross section measurement:  two bending electromagnets (yellow), a set of four wire chambers (red) and two time-of-flight scintillating paddles (blue).  The magnets' polarity determines the charge of the particles selected in the tertiary beam: running the magnets in negative polarity selects negatively charged particles. The strength for the magnetic field is set by the amplitude of the current in the magnets. For this work,  the current settings employed were -60A %(B $\sim$0.21 T) 
+and -100A. %(B $\sim$0.35 T)  
+The combination of magnets and wire chambers forms the LArIAT spectrometer which measures the particles' momentum at the fourth wire chamber, $p_{\text{Beam}}$, with a relative uncertainty of 2\%. Figure \ref{fig:momentum} shows the distribution of  $p_{\text{Beam}}$ for the Run II negative polarity data used in this work, which spans from $\sim200$ to $\sim1200$ MeV/c. 
 %\begin{comment}     
 \begin{figure}
   \centering  
@@ -112,9 +116,9 @@ Scope of the LArIAT beamline instrumentation is to identify the particle type an
 
 
 
-We leverage the measurement of the momentum in conjunction with the measurement of the time of flight to calculate the particle's invariant mass $m_{\text{Beam}}$ as 
+We leverage the measurement of the momentum in conjunction with the measurement of the time of flight (TOF) to calculate the particle's invariant mass $m_{\text{Beam}}$ as 
 \begin{equation}
-m_{\text{Beam}} = \frac{p_{\text{Beam}}}{c}\sqrt{\biggl(\frac{TOF*c}{l}\biggr)^2 -1},
+m_{\text{Beam}} = \frac{p_{\text{Beam}}}{c}\sqrt{\biggl(\frac{\text{TOF}*c}{l}\biggr)^2 -1},
 \label{eq:mass}
 \end{equation}
  where $c$ is the speed of light and $l$ is the length of the particle's trajectory between the time of flight paddles. 
@@ -140,7 +144,7 @@ Figure \ref{fig:mass} shows the distribution of the invariant mass for the Run I
 %\item[-] antiproton: 650~MeV $<m_{\text{Beam}}<$ 3000~MeV/c$^2$.
 %\end{itemize}
 
-It should be noted that pions are the main component of the LArIAT beam of charged particle and that the sole use of the aforementioned beamline instrumentation does not allow to discriminated between electrons, muons and pions. We make use of the topological difference in the LArTPC between track and electromagnetic shower to mitigate the presence of electrons in the pion sample. A small contamination of electrons and muons still remains, which we account for as beamline background in the cross section measurement.
+It should be noted that pions are the main component of the LArIAT beam of negatively charged particle and that the sole use of the aforementioned beamline instrumentation does not allow to discriminated between electrons, muons and pions. We make use of the topological difference in the LArTPC between tracks and electromagnetic showers to mitigate the presence of electrons in the pion sample. A small contamination of electrons and muons still remains, which we account for as beamline background in the cross section measurement.
 
 %\begin{comment}     
 \begin{figure}
@@ -153,7 +157,7 @@ It should be noted that pions are the main component of the LArIAT beam of charg
 
 \subsection{\label{sec:LArTPC}LArTPC}
 
-The LArIAT LArTPC is a box of dimensions 47 cm (drift) by 40 cm (height) by 90 cm (depth) equipped with an  electric field of 490 V/cm. LArIAT induction and collection planes consist of 240 wires each at 4 mm spacing. The wires are oriented at +/- $60^{\circ}$ from the vertical direction, while the beam direction is oriented 3 degrees off the $z$ axis in the $XZ$ plane.   Beamline particles enter the TPC roughly at the center of the front face leaving traces of ionization the in TPC. The ionization signals on the wires are then recorded by the LArIAT DAQ, stored and processed offline. LArIAT makes use of the LArSoft toolkit \cite{LArSoft} for data acquisition, signal processing, event reconstruction and TPC simulation. 
+The LArIAT LArTPC is a box of dimensions 47 cm (drift) by 40 cm (height) by 90 cm (depth) equipped with an  electric field of 490 V/cm. Two read-out planes (induction and collection) and a shield, un-instrumented plane form the LArIAT's anode. LArIAT induction and collection planes consist of 240 wires each at 4 mm spacing. The wires are oriented at +/- $60^{\circ}$ from the vertical direction, while the beam direction is oriented 3 degrees off the TPC's central axis in the drift-depth  plane.   Beamline particles enter the TPC roughly at the center of the front face leaving traces of ionization the in TPC. The ionization signals on the wires are then recorded by the LArIAT DAQ, stored and processed offline. LArIAT employes the LArSoft toolkit \cite{LArSoft} for data acquisition, signal processing, event reconstruction and TPC simulation. 
 
 The processing and reconstruction chain of the TPC signals, from the pulses on the sense wire to the construction of three dimensional objects with associated calorimetry can be summarized in the following categories: \emph{Deconvolution}, \emph{Hit Reconstruction}, \emph{2D Clustering}, \emph{3D Tracking}, \emph{Calorimetry Reconstruction}. \\ %A visualization of the signal processing workflow is shown in figure \ref{fig:SignalProc}.\\
 
@@ -164,9 +168,9 @@ The processing and reconstruction chain of the TPC signals, from the pulses on t
 %\label{fig:SignalProc}
 %\end{figure*}
 
-\textbf{Deconvolution.} Induction and collection planes have different field responses, given the different nature of the signals on these planes: the wires on the induction planes see the inductive signal of the drifting charge, while the wires on the collection planes see the current derived from the charge entering the conductor. Thus, signals on the induction plane are bipolar pulses and signal on the collection plane are unipolar pulses. %, see Figure \ref{fig:SignalProc} panel a). 
+\textbf{Deconvolution.} Induction and collection planes have different field responses, given the different nature of the signals on these planes: the wires on the induction planes see the inductive signal of the drifting charge, while the wires on the collection planes see the current derived from the charge entering the conductor material. Thus, signals on the induction plane are bipolar pulses and signals on the collection plane are unipolar pulses. %, see Figure \ref{fig:SignalProc} panel a). 
 The first step in signal processing is deconvolution, that is a series of off-line algorithms geared towards undoing the detector effects. The result of the deconvolution step is  the production of  a comparable set waveforms on all planes presenting unipolar, approximately gaussian-like pulses. % (Figure \ref{fig:SignalProc} panel b). 
-Signal from all planes are treated on equal footage beyond this point.\\
+Signals from all planes are treated on equal footage beyond this point.\\
 
 
 \textbf{Hit Reconstruction.} The second stage of the signal processing is the reconstruction of hits, indicating an energy deposition in the detector.  A peak finder scans the deconvolved TPC waveforms for each wire on the whole readout time looking for spikes  above  the waveform's baseline. It then fits these peaks with gaussian shapes and stores the fit parameters such as the quality of the fit, the peak time, height and area under the gaussian fit. The information resulting from this process on a single spike form a single reconstructed ``hit". %, see Figure \ref{fig:SignalProc} panel c).
@@ -175,25 +179,26 @@ The height of the hits and their integral is proportional to the charge collecte
 The event reconstruction chain uses collections of hits to form more complex objects associated with the particles in the detector. The development of different approaches to accomplish this task is an extremely hot topic in LArTPC event reconstruction which spans from more traditional approaches such as line-clustering  \cite{Barker2011} to the use of machine learning tools \cite{1748-0221-12-03-P03011}. Generally speaking, the scope of hit clustering and event reconstruction is to provide shower-like or track like-objects with an associated energy reconstruction. This is because different particles have different topology in the detector -- electrons and photon create electromagnetic showers,  resulting in shower-like topologies, while muons and hadrons  leave track-like signals.  For the scope of this work, we will describe only LArIAT's approach to track reconstruction even if we recognize that the breath of LArTPC event reconstruction is much wider. We are interested in the reconstruction of pions in the active volume, whose topology is track-like.\\
 
 \textbf{2D Clustering Reconstruction.} 
-The LArIAT reconstruction of track-like objects starts by clustering hits on the collection and induction planes separately with the use of the TrajCluster clustering package\cite{Baller2016}. 
+The LArIAT reconstruction of track-like objects starts by clustering hits on the collection and induction planes separately with the use of the TrajCluster clustering package \cite{Baller2016}. 
 TrajCluster looks for a collection of hits in the wire-time 2D space which can be described with a line-like 2D trajectory. TrajCluster reconstructs trajectories by adding trajectory points to the leading edge of the trajectory while stepping through the 2D space of hits. Several factors determine whether a hit is added to the trajectory, including but not limited to the goodness of the fit of the single hit, the charge of the hit compared to the average charge and RMS of the hits already forming the trajectory, the goodness of trajectory fit with and without the hit addition, the angle between the two lines formed by the collection of hits before and after the considered hit in the trajectory.
 The final product of this reconstruction stage is the collection of bidimensional clusters on each wire plane.\\%, see Figure \ref{fig:SignalProc} panel d).\\
 
-\textbf{3D Tracking.} The 3D tracking set of algorithms uses clusters close in time on the induction and collection planes as starting point to form a 3D track. Firstly, it constructs a tentative 3D trajectory using the edges of the clusters. Then, it  projects back the tentative trajectory on to the planes and adjusts the parameters of the 3D track fit such that they minimize the distance between the fit projections and the track hits in all wire planes simultaneously.  Tridimensional tracking can use multiple clusters in one plane, but it can never break them into smaller groups of hits. This algorithm was first developed for the ICARUS collaboration\cite{Antonello2013}. The final product of this reconstruction stage is the formation of  tridimensional objects in the TPC active volume.\\%, see Figure \ref{fig:SignalProc} panel e).\\
+\textbf{3D Tracking.} The 3D tracking set of algorithms uses clusters close in time on the induction and collection planes as starting point to form a 3D track. Firstly, it constructs a tentative 3D trajectory using the edges of the clusters. Then, it  projects back the tentative trajectory onto the planes and adjusts the parameters of the 3D track fit such that they minimize the distance between the fit projections and the track hits in all wire planes simultaneously.  Tridimensional tracking can use multiple clusters in one plane, but it can never break them into smaller groups of hits. This set of algorithms was first developed for the ICARUS collaboration \cite{Antonello2013}. The final product of this reconstruction stage is the formation of  tridimensional objects in the TPC active volume.\\%, see Figure \ref{fig:SignalProc} panel e).\\
 
 \textbf{Calorimetry.} The last step in the event reconstruction chain is to assign calorimetric information to the track objects. Calorimetry is performed separately on the different planes. A multi-step procedure is needed to retrieve the energy deposited in the TPC  from the charge seen by the wires.
-For each hit associated with the track object, the calorimetry set of algorithms calculates the charge seen on every wire integrating the area underneath the gaussian fit; then, it corrects this raw charge by the electron life time, the electronic noise on the considered wire and the recombination effect. Lastly an overall calibration of the energy is applied and the calorimetric information for the given track is assigned. \\
+For each hit associated with the track object, the calorimetry reconstruction calculates the charge seen on every wire integrating the area underneath the gaussian fit; then, it corrects this raw charge by the electron life time, the electronic noise on the considered wire and the recombination effect. Lastly an overall calibration of the energy is applied and the calorimetric information for the given track is assigned. \\
 
-Signal processing and event reconstruction provide the collection of TPC tracks per event and their associated tracking and calorimetric information. We use the reconstructed track direction and position at the front face of the TPC to match one TPC track to the beamline candidate. We reject events with either zero or multiple matches. In an effort to reduce electron contamination, we filter events based on their topology in the TPC: if more than 5 short tracks (track length $<$ 10 cm) are present in the proximity of the matched TPC track, the event is classified as electron and rejected. The calorimetry information entails the measurement of the energy deposited $E_{\text{Dep},i}$ along the pion's path at every ``track pitch", i.e. at every segment between two 3D points of the trajectory. The track pitch distribution is shown in Figure \ref{fig:pitch}; for both data and simulation, the track pitch averages at $\delta {\emph{X}}$ = 4 mm/(sin($60^{\circ}$)cos($3^{\circ}$)) $\approx$ 4.7~mm. 
-The energy deposited $E_{\text{Dep},i}$, whose distribution is shown in \ref{fig:enDep}, is obtained from the signals on the collection plane.  This information is leveraged together with the measurement of the beamline momentum to assess the kinetic energy of the matched pion candidate at each point of the pion reconstructed track. We start by estimating the pion's  kinetic energy at the TPC front face, $ E^{kin}_{\text{Front Face}}$, as 
+Signal processing and event reconstruction provide the collection of TPC tracks per event and their associated tracking and calorimetric information. We use the reconstructed track direction and position at the front face of the TPC to match one TPC track to the beamline candidate. We reject events with either zero or multiple matches. In an effort to reduce electron contamination, we filter events based on their topology in the TPC: if more than 5  tracks shorter than 10 cm are present in the proximity of the matched TPC track, the event is classified as electron and rejected. 
+
+The calorimetry information entails the measurement of the energy deposited $E_{\text{Dep},n}$ along the pion's path at every ``track pitch", i.e. at every segment between two 3D points of the trajectory. The track pitch distribution (shown in Figure \ref{fig:pitch}) averages at $\delta {\emph{X}} \approx$ 4.7~mm for both data and simulation;  the energy deposited $E_{\text{Dep},n}$ in an argon slab of the length of the track pitch (Figure \ref{fig:enDep}) is obtained from the signals on the collection plane.  This information is leveraged together with the measurement of the beamline momentum to assess the kinetic energy of the matched pion candidate at each point of the pion reconstructed track. We start by estimating the pion's  kinetic energy at the TPC front face, $ E^{kin}_{\text{Front Face}}$, as 
 \begin{equation}
  E^{kin}_{\text{Front Face}}  =  \sqrt{p^2_{\text{Beam}} - m^2_{\text{Beam}}} - m_{\text{Beam}} - E_{\text{Loss}},
 \label{eq:enFF}
 \end{equation}
-where $p_{\text{Beam}}$ is the momentum measured by the LArIAT spectrometer, $m_{\text{Beam}} = 139.57018\pm0.00035$ MeV is the pion mass [\textcolor{red}{cite pdg}], $E_{\text{Loss}}$ is a correction for the kinetic energy lost in the un-instrumented material between the beamline and the TPC front face. Figure \ref{fig:ELoss100A} shows the $E_{\text{Loss}}$ distribution for the simulation of the -100A Run II data. To obtain the kinetic energy at each point of the pion reconstructed track, we iteratively subtract the measurement of the energy deposited $E_{\text{Dep},i}$ from $ E^{kin}_{\text{Front Face}}$; in formulae, the kinetic energy at the $j^{th}$ point of the track  $E_{j}^{kin}$ is given by
+where $p_{\text{Beam}}$ is the momentum measured by the LArIAT spectrometer, $m_{\text{Beam}} = 139.57018\pm0.00035$ MeV is the pion mass [\textcolor{red}{cite pdg}], $E_{\text{Loss}}$ is a correction for the kinetic energy lost in the un-instrumented material between the beamline and the TPC front face. Figure \ref{fig:ELoss100A} shows the $E_{\text{Loss}}$ distribution for the simulation of the -100A Run II data. To obtain the kinetic energy at each point of the pion reconstructed track, we iteratively subtract the measurement of the energy deposited $E_{\text{Dep},n}$ from $ E^{kin}_{\text{Front Face}}$; in formulae, the kinetic energy at the $j^{th}$ point of the track  $E_{j}^{kin}$ is given by
 \begin{equation}
 \begin{split}
- E_{j}^{kin}  & = E^{kin}_{Front Face} -  \sum_{i < j} E_{\text{Dep},i}.
+ E_{j}^{kin}  & = E^{kin}_{Front Face} -  \sum_{n < j} E_{\text{Dep},n}.
 \end{split}
 \label{eq:KEj}
 \end{equation}
@@ -212,7 +217,7 @@ The finely grained measurement of the kinetic energy, possible only thanks to th
 \begin{figure}
 \centering
 \includegraphics[width=0.45\textwidth]{E_loss100A.png}
-\caption{\label{fig:ELoss100A}  True energy loss between WC4 and the TPC front face according to the MC simulation of negative polarity data at -100A. Two populations are visible, depending on the uninstrumented material seen by the beamline pion: the distribution for the pions missing the halo scintillation material is shown in red, and the distribution for the pions hitting the halo is shown in green, the distribution for the whole data sample is shown in blue.  }
+\caption{\label{fig:ELoss100A}  True energy loss between the fourth wire chamber and the TPC front face according to the MC simulation of negative polarity data at -100A. Two populations are visible, depending on the amount of uninstrumented material seen by the beamline pion: the distribution for the pions missing the halo scintillation material is shown in red, and the distribution for the pions hitting the halo is shown in green, the distribution for the whole data sample is shown in blue.  }
 \end{figure}
 
 
@@ -362,11 +367,11 @@ The evaluation of the systematic uncertainty results from the propagation to the
 The uncertainty on the kinetic energy of a pion candidate at the j$^{th}$ slab of argon  is given by
 
 \begin{eqnarray}
-\delta E^{kin}_{j} &=& \sqrt{\delta p_{\text{Beam}}^2 + \delta E_{\text{Loss}}^2 +  \delta \Big(\sum_{i < j} E_{\text{Dep},i}\Big)^2}, 
+\delta E^{kin}_{j} &=& \sqrt{\delta p_{\text{Beam}}^2 + \delta E_{\text{Loss}}^2 +  \delta \Big(\sum_{n < j} E_{\text{Dep},n}\Big)^2}, 
 %&=& \sqrt{(2\% \text{ }p_{Beam})^2 +  ( 6 \text{ [MeV]})^2 +  (j-1)^2 (\sim0.08\text{ [MeV]})^2}.
 \end{eqnarray}
 
-where $\delta p_{\text{Beam}} = 2\%$ $p_{\text{Beam}}$, $\delta E_{\text{Loss}}$ is the width of the distribution in Figure \ref{fig:ELoss100A}, $\delta \Big(\sum_{i < j} E_{\text{Dep},i}\Big)$  is the uncertainty associated to energy deposited by the pion from the TPC front face to the $j^{th}$ slice; we calculate this last uncertainty as  the sum of $\delta E_{\text{Dep},i}$, that is the width  of the  distribution of energy deposited in a single slice, see Figure \ref{fig:enDep}. We propagate the uncertainty on the kinetic energy to the cross section by varying the energy measurement $E^{kin}_{j}$ at each argon slab and measuring the cross section: first we assign the measured $E^{kin}_{j}$, then  $E^{kin}_{j} + \delta E^{kin}_{j}$, and finally  $E^{kin}_{j} - \delta E^{kin}_{j}$. The difference between the cross section values using the $E^{kin}_{j}$ sampling and the maximum and minimum values in each bin determines the systematic uncertainty.
+where $\delta p_{\text{Beam}} = 2\%$ $p_{\text{Beam}}$, $\delta E_{\text{Loss}}$ is the width of the distribution in Figure \ref{fig:ELoss100A}, $\delta \Big(\sum_{n < j} E_{\text{Dep},n}\Big)$  is the uncertainty associated to energy deposited by the pion from the TPC front face to the $j^{th}$ slice; we calculate this last uncertainty as  the sum of $\delta E_{\text{Dep},n}$, that is the width  of the  distribution of energy deposited in a single slice, see Figure \ref{fig:enDep}. We propagate the uncertainty on the kinetic energy to the cross section by varying the energy measurement $E^{kin}_{j}$ at each argon slab and measuring the cross section: first we assign the measured $E^{kin}_{j}$, then  $E^{kin}_{j} + \delta E^{kin}_{j}$, and finally  $E^{kin}_{j} - \delta E^{kin}_{j}$. The difference between the cross section values using the $E^{kin}_{j}$ sampling and the maximum and minimum values in each bin determines the systematic uncertainty.
 In absence of additional data constraints,  we take a 100\% systematic uncertainty on the muon and electron content, $w_\mu$ and $w_e$.  We propagate this uncertainty  to the cross section by varying the beam composition (+/- 100\% on $w_\mu$ and $w_e$) and evaluating the variation of the obtained  data cross sections in each bin.  The systematics on the correction for reconstruction effects is estimated by varying the value of the minimum angle visible for the reconstruction 0 deg and 5.0 deg. 
 
 

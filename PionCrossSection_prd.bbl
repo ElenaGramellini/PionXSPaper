@@ -1,4 +1,4 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{7}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -43,5 +43,11 @@
   \bibinfo{journal}{Advances in High Energy Physics}
   \textbf{\bibinfo{volume}{2013}}, \bibinfo{pages}{1} (\bibinfo{year}{2013}),
   \urlprefix\url{https://doi.org/10.1155/2013/260820}.
+
+\bibitem[{\citenamefont{Patrignani et~al.}(2016)}]{Patrignani:2016xqp}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Patrignani}}
+  \bibnamefont{et~al.} (\bibinfo{collaboration}{Particle Data Group}),
+  \bibinfo{journal}{Chin. Phys.} \textbf{\bibinfo{volume}{C40}},
+  \bibinfo{pages}{100001} (\bibinfo{year}{2016}).
 
 \end{thebibliography}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -11,6 +11,24 @@
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 \providecommand{\bibinfo}[2]{#2}
 \providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Carroll}(1976)}]{PhysRevC.14.635}
+\bibinfo{author}{\bibfnamefont{A.~S. e.~a.} \bibnamefont{Carroll}},
+  \bibinfo{journal}{Phys. Rev. C} \textbf{\bibinfo{volume}{14}},
+  \bibinfo{pages}{635} (\bibinfo{year}{1976}),
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevC.14.635}.
+
+\bibitem[{\citenamefont{Ericson and Weise}(1988)}]{9780198520085}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Ericson}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{Weise}},
+  \emph{\bibinfo{title}{Pions and Nuclei (The International Series of
+  Monographs on Physics)}} (\bibinfo{publisher}{Oxford University Press},
+  \bibinfo{year}{1988}), ISBN \bibinfo{isbn}{0198520085}.
+
+\bibitem[{\citenamefont{G.L. Shaw~(Editor)}(1969)}]{9780471779957}
+\bibinfo{author}{\bibfnamefont{D.~W.~e.} \bibnamefont{G.L. Shaw~(Editor)}},
+  \emph{\bibinfo{title}{Pion-nucleon Scattering}} (\bibinfo{publisher}{John
+  Wiley \& Sons Inc}, \bibinfo{year}{1969}), ISBN \bibinfo{isbn}{0471779954}.
 
 \bibitem[{\citenamefont{Collaboration}(2018)}]{LArIATDet}
 \bibinfo{author}{\bibfnamefont{T.~L.} \bibnamefont{Collaboration}},

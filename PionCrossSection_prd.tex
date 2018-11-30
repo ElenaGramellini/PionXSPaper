@@ -73,16 +73,51 @@ The ($\pi^-$, Ar) total cross-section has never been measured before; the outcom
 
 \newpage
 \section{\label{sec:Motivations}Motivations}
-\textcolor{red}{List of topics needed here:
-\begin{itemize}
-\item[-] Define signal
-\item[-] Existing measurements on pions: interpolation between heavier and lighter nuclei
-\item[-] Methods used in other measurements (concise) and how this ties to our method. I'd like to have version of the sentence below, to introduce the concept of "flux".
-\end{itemize}
-}
+In this work, we measured  for the first time the total hadronic cross section of negative pions on argon in the energy region between 100 and 1050 MeV. We briefly review here the findings on pion hadronic cross sections from historic measurements on lighter and heavier nuclei performed in the seventies \textcolor{red}{(check paper's dates)}.  Now, a renewed interest for hadronic cross sections -- particularly cross sections on argon -- arises in light of the modern neutrino experiments landscape. Compared to the historic measurements, LArIAT developed a new  methodology to measure cross sections on argon which has the potential to meet this renewed interest. 
+
+\subsection{Historic Measurements of Pion Hadronic Cross Sections: Lighter and Heavier Nuclei}
+Many experiments with pion beams have studied the hadronic interaction of pions on light and heavy nuclei, such as  He, Li, C, Fe, Pb \cite{PhysRevC.14.635} \textcolor{red}{(dig thesis for references)}, albeit never on argon.  Most historic measurements of pion hadronic cross sections are performed on thin targets. At their core, these experiments consists in shooting a beam of pions with a known flux on a thin slab of material and recording the outgoing flux; flux conservation allows to retrieve the interacting flux and to calculate the cross section at the beam energy.
+In this work, we developed a complementary approach called ``the thin slice method". Contrary to thin target experiments, we shoot pions on a thick but fully sensitive target  -- the LArTPC -- and we directly record the interacting flux. 
+
+Regardless of the nuclear medium, the shape of the pion-nucleus interaction cross section in the energy range accessible to our measurement shows the distinct features indicating the presence of a resonance. In fact, the mean free path of a pion of kinetic energy between 100 and 400 MeV is much shorter than the average distance between nucleons (which is of the order of a
+ 1 fm),   enhancing the pion interaction probability with surface nucleons. A delta resonance is often produced in the interaction, which subsequently decays inside the nucleus.
+Historical experimental results show a dependency of the delta resonance shape as a function of the nuclear mass number. The delta resonance shape becomes less pronounced  
+and its peak shifts to lower energies when the nuclear mass number increases; this effect is due to kinematic considerations and to the difference in propagation of the delta inside the nucleus. Multiple scattering effects modify the resonance width, which is larger than the natural-decay width.
 
 
-Most historic measurements of pion hadronic cross sections are performed on thin targets [\textcolor{red}{cit experiments}]. At their core, these experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux. Our approach to the cross section measurement is complementary: we record the incident and the interacting flux, since our target (the LArTPC) coincides with the sensitive volume.  
+\subsection{\label{sec:Sign} $\pi^{-}$Ar Hadronic Interactions: Signal Signatures}
+Strong hadronic interaction models \cite{9780198520085,9780471779957} predict the pion interaction processes with argon in the hundreds of MeVs energy range. 
+The total hadronic ($\pi^{-}$,Ar) interaction cross section defines the probability of a single hadronic process on argon.  In measuring the total cross section, we include both the elastic interactions with interaction angle greater than 5 deg and  the reaction channel, 
+\begin{equation}
+\sigma_{Tot} = \sigma_{Elastic}+ \sigma_{Reaction}; 
+\end{equation}
+the limit on the interaction angle is driven by the resolution of the LArIAT tracking.
+The reaction channel can be further characterized by several exclusive channels with defined topologies,
+\begin{equation}
+\sigma_{Reaction} = \sigma_{Inelastic} + \sigma_{abs} + \sigma_{chex}+ \sigma_{\pi prod};
+\end{equation}
+in this work, we account for all reaction channels, regardless of their final state; upcoming measurements from LArIAT will focus on the reaction exclusive channels.
+Figure \ref{fig:PionsEvd} shows examples of topologies for pion-argon hadronic interactions as they appear in the  LArIAT data: elastic and inelastic scattering, pion absorption with emission of protons, charge exchange and production of pions.
+
+
+\begin{figure}
+  \centering  
+\includegraphics[width =0.4\textwidth]{face-smile-big.png}
+\caption{Pion-Argon interaction topologies due to elastic scattering, inelastic scattering, pion absorption with emission of protons, charge exchange and production of pions as seen in the LArIAT data. The event displays show the raw signals in the wire vs time space for the collection plane only. \textcolor{red}{(uniform evds)}}
+\label{fig:PionsEvd}
+\end{figure}
+
+
+
+
+\subsection{$\pi^{-}$Ar Cross Section in the Context of Neutrino Searches}
+Experiments based on neutrino detection relay on the products of the neutrino interaction to identify the interaction type and to reconstruct  the neutrino flavor and energy.  Pions are a common product of neutrino interactions, especially in interactions such as resonant scattering, DIS and coherent pion production.  In today's neutrino physics landscape, argon detectors are a very popular technology choice due to their ability to record extremely detailed events with high statistics. Yet, the literature on particles' interaction on argon for energies relevant to the neutrino products, namely below  1 GeV, is scarce. There are two main reasons why understanding pion hadronic interactions is important for neutrino experiments: to model the behavior of the pion inside the complex nuclear matter  and to model the behavior of the pion during its propagation inside the detector medium.  Neutrino event generators and detector simulation packages base their pion transportation for argon on the interpolations of the historical cross section measurements for lighter and heavier nuclei: the goal of LArIAT's dedicated measurement is to bridge this gap in data, thus reducing the uncertainties related to pion interactions on argon.
+Assumptions on the nuclear modeling and on the interaction of hadrons inside the nucleus performed at the level of the neutrino event generator bridge the measurement of the products of a neutrino interaction to the reconstruction of the neutrino energy and flavor. In particular, hadron cross sections on argon are used in the modeling of final state interaction to determine if the hadron escapes the nuclear medium.
+Once the pion has left the target nucleus, the pion-argon hadronic cross section also plays an important role in the pion transportation inside the argon medium: processes such as pion absorption or pion charge exchange can greatly modify the topology of a neutrino interaction	 in the detector and lead to significant modifications in the event classification.
+Being able to reconstruct the details of pions inside the detector is an imperative for modern argon neutrino experiments to achieve the design resolution for their key physics measurements.
+
+
+
 
 
 \section{\label{sec:ExperimentalSetup}Measurement Setup}

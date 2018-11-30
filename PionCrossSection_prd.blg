@@ -16,45 +16,45 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--missing institution in LArIATDet
 Warning--missing institution in Baller2016
-You've used 7 entries,
+You've used 10 entries,
             3411 wiz_defined-function locations,
-            1206 strings with 11180 characters,
-and the built_in function-call counts, 3472 in all, are:
-= -- 221
-> -- 58
-< -- 14
-+ -- 38
-- -- 16
-* -- 403
-:= -- 446
-add.period$ -- 7
-call.type$ -- 7
-change.case$ -- 30
-chr.to.int$ -- 7
-cite$ -- 9
-duplicate$ -- 321
-empty$ -- 316
-format.name$ -- 42
-if$ -- 654
+            1228 strings with 11645 characters,
+and the built_in function-call counts, 5006 in all, are:
+= -- 309
+> -- 89
+< -- 21
++ -- 58
+- -- 24
+* -- 603
+:= -- 628
+add.period$ -- 10
+call.type$ -- 10
+change.case$ -- 42
+chr.to.int$ -- 10
+cite$ -- 12
+duplicate$ -- 469
+empty$ -- 468
+format.name$ -- 65
+if$ -- 947
 int.to.chr$ -- 1
-int.to.str$ -- 8
-missing$ -- 52
-newline$ -- 36
-num.names$ -- 21
-pop$ -- 91
+int.to.str$ -- 11
+missing$ -- 77
+newline$ -- 45
+num.names$ -- 30
+pop$ -- 130
 preamble$ -- 1
-purify$ -- 28
+purify$ -- 40
 quote$ -- 0
-skip$ -- 136
+skip$ -- 191
 stack$ -- 0
-substring$ -- 140
-swap$ -- 215
-text.length$ -- 7
+substring$ -- 183
+swap$ -- 322
+text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 42
+type$ -- 56
 warning$ -- 2
-while$ -- 18
+while$ -- 25
 width$ -- 0
-write$ -- 85
+write$ -- 116
 (There were 2 error messages)

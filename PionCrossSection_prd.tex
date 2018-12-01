@@ -121,7 +121,7 @@ Being able to reconstruct the details of pions inside the detector is an imperat
 
 
 \section{\label{sec:ExperimentalSetup}Measurement Setup}
-To its bare bones, the LArIAT experiment consists in a LArTPC deployed on a beam of charge particles at the Fermilab Test Beam Facility (FTBF) on the  Meson Center beam line. The experimental setup changed significantly during LArIAT's three seasons of data taking in both its beamline and LArTPC components. We acquired the data used in this work  during the 24-weeks of data taking of the second season, which we refer as to Run II.  
+The LArIAT experiment consists in a LArTPC deployed on a beam of charge particles at the Fermilab Test Beam Facility (FTBF) on the  Meson Center beam line. The experimental setup changed significantly during LArIAT's three seasons of data taking in both its beamline and LArTPC components. We acquired the data used in this work  during the 24-weeks of data taking of the second season, which we refer as to Run II.  
 
 We briefly describe here only the features and use of the LArIAT Run II  detectors  relevant to the cross section measurement; we also describe here the TPC event reconstruction, simulation packages and beamline event selection used in this analysis.  We refer the reader to \cite{LArIATDet} for a detailed description of LArIAT's experimental setup.
 
@@ -141,15 +141,15 @@ We briefly describe here only the features and use of the LArIAT Run II  detecto
 %The strength for the magnetic field is set by the amplitude of the current in the magnets. For this work,  the current settings employed were -60A %(B $\sim$0.21 T) 
 %and -100A. %(B $\sim$0.35 T)  
 
-LArIAT takes advantage of the Fermilab accelerator infrastructure to create its beam of charge particles.  The Fermilab accelerator complex  delivers a  primary beam of 120~GeV protons with variable intensity to the Meson Center beam line in supercycles of 60 seconds. This primary beam is focused onto a tungsten target to create a secondary beam. The secondary beamline is tuned such that the composition of the secondary particle beam is mainly positive pions. For the data considered in this work, the momentum peak of the secondary beam was fixed at 64~GeV/c, although the secondary  beam is tunable in momentum between 8-80\,GeV/c; this configuration assures a stable beam delivery at the LArIAT experimental hall (MC7).
+LArIAT takes advantage of the Fermilab accelerator infrastructure to create its beam of charge particles.  The Fermilab accelerator complex  delivers a  primary beam of 120~GeV protons with variable intensity to the Meson Center beam line in supercycles of 60 seconds. This primary beam is focused onto a tungsten target to create a secondary beam. The secondary beamline is tuned such that the composition of the secondary particle beam is mainly positive pions. For the data considered in this work, the tunable momentum peak of the secondary beam was fixed at 64~GeV/c; this configuration assures a stable beam delivery at the LArIAT experimental hall (MC7).
 
-At MC7, the secondary beam impinges  on a copper target within a steel collimator to create the LArIAT tertiary beam. Scope of the LArIAT tertiary beamline instrumentation is to identify the particle type and measure the momentum of the beam's particles entering the LArTPC. Figure \ref{fig:beamlinebird} shows a bird's eye view of the LArIAT tertiary beamline where we highlighted the components relevant for the cross section measurement:  two bending electromagnets (yellow), a set of four wire chambers (red) and two time-of-flight scintillating paddles (blue).  The magnets' polarity determines the charge of the particles selected in the tertiary beam: running the magnets in negative polarity selects negatively charged particles. The tunable magnetic field strength determines the range of momentum of the beamline particles steered towards the TPC. For this work, we selected a low energy and high energy tune. 
+At MC7, the secondary beam impinges  on a copper target within a steel collimator to create the LArIAT tertiary beam. Scope of the LArIAT tertiary beamline instrumentation is to identify the particle type and measure the momentum of the beam's particles entering the LArTPC. Figure \ref{fig:beamlinebird} shows a bird's eye view of the LArIAT tertiary beamline:  two bending electromagnets (yellow), a set of four wire chambers (red) and two time-of-flight scintillating paddles (blue).  The magnets' polarity determines the charge of the particles selected in the tertiary beam: running the magnets in negative polarity selects negatively charged particles. The tunable magnetic field strength determines the range of momentum of the beamline particles steered towards the TPC. For this work, we selected a low energy and high energy tune. 
 The combination of magnets and wire chambers forms the LArIAT spectrometer which measures the particles' momentum at the fourth wire chamber, $p_{\text{Beam}}$, with a relative uncertainty of 2\%. Figure \ref{fig:momentum} shows the distribution of  $p_{\text{Beam}}$ for the Run II negative polarity data used in this work, low energy tune on the left, high energy tune on the right. The momentum range of the two datasets combined spans from $\sim200$ to $\sim1200$ MeV/c. 
 %\begin{comment}     
 \begin{figure}
   \centering  
 \includegraphics[width =0.4\textwidth]{momentumPiMuE.png}
-\caption{Momentum spectrum in the LArIAT beamline  for Run II negative polarity data.}
+\caption{Momentum spectrum in the LArIAT beamline  for Run II negative polarity data, low energy tune on the right, high energy tune on the left. \textcolor{red}{(change this figure to 2 for the low and high energy, prettyfy)}}
 \label{fig:momentum}
 \end{figure}
 
@@ -189,7 +189,7 @@ It should be noted that pions are the main component of the LArIAT beam of negat
 \begin{figure}
   \centering  
 \includegraphics[width =0.4\textwidth]{massRunII.png}
-\caption{Distribution of the beamline mass as calculated according to Equation \ref{eq:mass} for the Run-II events reconstructed in the beamline, negative polarity runs. The classification of the events into $\pi^-/ \mu^-/e^-$, K$^-$, or antiproton is based on these distributions, whose selection values are represented by the vertical colored lines.}
+\caption{Distribution of the beamline mass as calculated according to Equation \ref{eq:mass} for the Run-II events reconstructed in the beamline, negative polarity runs. The classification of the events into $\pi^-/ \mu^-/e^-$, K$^-$, or antiproton is based on these distributions, whose selection values are represented by the vertical colored lines.\textcolor{red}{(prettyfy)}}
 \label{fig:mass}
 \end{figure}
 
@@ -200,7 +200,7 @@ The LArIAT LArTPC is a box of dimensions 47 cm (drift) by 40 cm (height) by 90 c
 
 Processing and reconstructing TPC signals is an extremely hot topic which spans from more traditional approaches \cite{Barker2011} to the use of machine learning tools \cite{1748-0221-12-03-P03011}. Generally speaking, the scope of event reconstruction is to provide a collection of shower-like or track like-objects with an associated energy reconstruction and particle hypothesis; different particles have different topology in the detector -- electrons and photon create electromagnetic showers,  resulting in shower-like topologies, while muons and hadrons  leave track-like signals.  In what follows, we will describe only LArIAT's approach to track reconstruction used in this work, recognizing  that the breath of LArTPC event reconstruction is much wider. We are interested in the reconstruction of pions in the active volume, whose topology is track-like.
 
-The processing and reconstruction chain of the TPC signals, from the pulses on the sense wire to the construction of three dimensional objects with associated calorimetry can be summarized in the following steps: \emph{Deconvolution}, \emph{Hit Reconstruction}, \emph{2D Clustering}, \emph{3D Tracking}, \emph{Calorimetry Reconstruction}. \\ %A visualization of the signal processing workflow is shown in figure \ref{fig:SignalProc}.\\
+We summarize the processing and reconstruction chain of the TPC signals, from the pulses on the sense wires to the construction of three dimensional objects with associated calorimetry,  in the following steps: \emph{Deconvolution}, \emph{Hit Reconstruction}, \emph{2D Clustering}, \emph{3D Tracking}, \emph{Calorimetry Reconstruction}. \\ %A visualization of the signal processing workflow is shown in figure \ref{fig:SignalProc}.\\
 
 %\begin{figure*}[hbpt]
 %\centering
@@ -235,10 +235,10 @@ Signal processing and event reconstruction provide the collection of TPC tracks 
 
 The calorimetry information entails the measurement of the energy deposited $E_{\text{Dep},n}$ along the pion's path at every ``track pitch", i.e. at every segment between two 3D points of the trajectory. The track pitch distribution (shown in Figure \ref{fig:pitch}) averages at $\delta {\emph{X}} \approx$ 4.7~mm for both data and simulation;  the energy deposited $E_{\text{Dep},n}$ in an argon slab of the length of the track pitch (Figure \ref{fig:enDep}) is obtained from the signals on the collection plane.  This information is leveraged together with the measurement of the beamline momentum to assess the kinetic energy of the matched pion candidate at each point of the pion reconstructed track. We start by estimating the pion's  kinetic energy at the TPC front face, $ E^{kin}_{\text{Front Face}}$, as 
 \begin{equation}
- E^{kin}_{\text{Front Face}}  =  \sqrt{p^2_{\text{Beam}} - m^2_{\text{Beam}}} - m_{\text{Beam}} - E_{\text{Loss}},
+ E^{kin}_{\text{Front Face}}  =  \sqrt{p^2_{\text{Beam}} + m^2_{\text{Beam}}} - m_{\text{Beam}} - E_{\text{Loss}},
 \label{eq:enFF}
 \end{equation}
-where $p_{\text{Beam}}$ is the momentum measured by the LArIAT spectrometer, $m_{\text{Beam}} = 139.57018\pm0.00035$ MeV is the pion mass \cite{Patrignani:2016xqp}, $E_{\text{Loss}}$ is a correction for the kinetic energy lost in the un-instrumented material between the beamline and the TPC front face. Figure \ref{fig:ELoss100A} shows the $E_{\text{Loss}}$ distribution for the simulation of the -100A Run II data. To obtain the kinetic energy at each point of the pion reconstructed track, we iteratively subtract the measurement of the energy deposited $E_{\text{Dep},n}$ from $ E^{kin}_{\text{Front Face}}$; in formulae, the kinetic energy at the $j^{th}$ point of the track  $E_{j}^{kin}$ is given by
+where $p_{\text{Beam}}$ is the momentum measured by the LArIAT spectrometer, $m_{\text{Beam}} = 139.57018\pm0.00035$ MeV is the pion mass \cite{Patrignani:2016xqp}, $E_{\text{Loss}}$ is a correction for the kinetic energy lost in the un-instrumented material between the beamline and the TPC front face. Figure \ref{fig:ELoss100A} shows the $E_{\text{Loss}}$ distribution for the simulation of the high energy tune Run II data. To obtain the kinetic energy at each point of the pion reconstructed track, we iteratively subtract the measurement of the energy deposited $E_{\text{Dep},n}$ from $ E^{kin}_{\text{Front Face}}$; in formulae, the kinetic energy at the $j^{th}$ point of the track  $E_{j}^{kin}$ is given by
 \begin{equation}
 \begin{split}
  E_{j}^{kin}  & = E^{kin}_{\text{Front Face}} -  \sum_{n < j} E_{\text{Dep},n}.
@@ -254,27 +254,27 @@ The finely grained measurement of the kinetic energy, possible only thanks to th
 \end{figure}
 \begin{figure}
 \includegraphics[width =0.4\textwidth ]{DepEnergy_Fit_v4100A.png}
-\caption{\label{fig:enDep}  Energy deposition distribution in a single slice for Run II negative polarity data at -100A magnet configuration displayed in black, MC in red.}
+\caption{\label{fig:enDep}  Energy deposition distribution in a single slice for Run II negative polarity data for the high energy tune displayed in black, MC in red. \textcolor{red}{(prettyfy)}}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.45\textwidth]{E_loss100A.png}
-\caption{\label{fig:ELoss100A}  True energy loss between the fourth wire chamber and the TPC front face according to the MC simulation of negative polarity data at -100A. Two populations are visible, depending on the amount of uninstrumented material seen by the beamline pion: the distribution for the pions missing the halo scintillation material is shown in red, and the distribution for the pions hitting the halo is shown in green, the distribution for the whole data sample is shown in blue.  }
+\caption{\label{fig:ELoss100A}  True energy loss between the fourth wire chamber and the TPC front face according to the MC simulation of negative polarity data for the high energy tune. Two populations are visible, depending on the amount of un-instrumented material seen by the beamline pion. A scintillation paddle not used in this analysis (the halo paddle) sat between the DSTOF and the cryostat during Run II. The distribution for the pions missing the halo scintillation material is shown in red, and the distribution for the pions hitting the halo is shown in green, the distribution for the whole data sample is shown in blue. \textcolor{red}{(prettyfy)} }
 \end{figure}
 
 
 
 \subsection{\label{sec:Simulation}Simulation}
-The LArIAT simulation toolkit used in this work is a combination of two Monte Carlo simulations: the G4Beamline Monte Carlo  [\textcolor{red}{cit needed}] and the Data Driven single particle Monte Carlo (DDMC).  G4Beamline simulates the beam collisions at the LArIAT target, the energy deposited by the particles in the beamline detectors, and the action of the magnets, effectively accounting for particle transportation through the beamline from the LArIAT target until the LArTPC. G4Beamline accounts for the beamline trigger and simulates the particle's composition in the beam. G4Beamline provides the relative percentages of particle species which the DDMC simulates downstream from the fourth wire chamber into the cryostat and into the LArTPC.  The measurement of the beamline particles' momentum and position at the fourth wire chamber performed on data serves as a basis for the DDMC event generation: the DDMC simulation samples from the joint distribution of the momentum and position measurements in data using a 5-dimensional hit-or-miss sampling procedure. This sampling generates MC events  with the same momentum and position distributions as data, with the additional benefit of accounting for the correlations between them. A LArSoft simulation module launches single particle MC from the location of the fourth wire chamber (100 cm upstream to the LArTPC) using the generated events. The particles are free to decay and interact in their path to the LArTPC according to the Geant4 simulation. We use the DDMC samples in several occasions: to propagate the estimated beamline background to the pion cross section, to calibrate the energy loss upstream of the LArTPC,  and to study the tracking and the calorimetric performance  in the LArTPC. 
+The LArIAT simulation toolkit used in this work is a combination of two Monte Carlo simulations: the G4Beamline Monte Carlo  [\textcolor{red}{cit needed}] and the Data Driven single particle Monte Carlo (DDMC).  G4Beamline simulates the beam collisions at the LArIAT target, the energy deposited by the particles in the beamline detectors, and the action of the magnets, effectively accounting for particle transportation through the beamline from the LArIAT target until the LArTPC. G4Beamline accounts for the beamline trigger and simulates the particle's composition in the beam. G4Beamline provides the relative percentages of particle species which the DDMC simulates downstream from the fourth wire chamber into the cryostat and into the LArTPC.  The measurement of the beamline particles' momentum and position at the fourth wire chamber performed on data serves as a basis for the DDMC event generation: the DDMC simulation samples from the joint distribution of the momentum and position measurements in data using a 5-dimensional hit-or-miss sampling procedure. This sampling generates MC events  with the same momentum and position distributions as data, with the additional benefit of accounting for the correlations among the considered variables. A LArSoft simulation module launches single particle MC from the location of the fourth wire chamber (100 cm upstream to the LArTPC) using the generated events. The particles are free to decay and interact in their path to the LArTPC according to the Geant4 simulation. We use the DDMC samples in several occasions: to propagate the estimated beamline background to the pion cross section, to calibrate the energy loss upstream of the LArTPC,  and to study the tracking and the calorimetric performance  in the LArTPC. 
 
 
 \subsection{\label{sec:EventSelection}Beamline Event Selection}
 \begin{table}
-\caption{\label{tab:MCafterCutContaminants}Expected beamline composition for events selected in.}
+\caption{\label{tab:MCafterCutContaminants}Expected beamline composition for the selected events in the two energy tunes. \textcolor{red}{(update numbers)}}
 \begin{ruledtabular}
 \begin{tabular}{ l | l | l | l | l | l | l  |}
- &  \multicolumn{3}{c|}{I$_{\text{Magnets}} =$ -60A} & \multicolumn{3}{c|}{I$_{\text{Magnets}} =$ -100 A }\\
+ &  \multicolumn{3}{c|}{Low Energy Tune} & \multicolumn{3}{c|}{High Energy Tune }\\
 & MC $\pi$   & MC  $ \mu$ & MC  $e$ & MC  $\pi$ & MC  $\mu$ & MC  $e$  \\
 \hline
 &  &  &  & & &\\  
@@ -287,7 +287,7 @@ in XS sample               &                      &                       &     
 \end{table}
 
 In data, the selection of beamline events proceeds as follows; we first reconstruct the beamline event, checking that the particle trajectory is plausible, which means rejecting events whose trajectory would seemingly  cross impenetrable material in the beamline, such that the magnets' steel. We minimize the occurrence of a pion capturing or decaying inside the chamber by a selection on the measured  beamline momentum; since pion capture and decay occur mainly at rest,  we select pions with momentum greater than 420 MeV/c, that is pions which are unlikely to stop inside the LArTPC.
-For each the negative polarity Run II events classified as $\pi/\mu/e$, we check the number of TPC tracks in the front portion of the TPC: in case more than four tracks are present in the first 14 cm we reject the event,  since the pile up of beam particles would affect the precision of the track reconstruction. The events that are matched to a TPC track and that survive the shower filter form the pool of beamline events for the cross section analysis. This pool is made of 40841 beamline pion candidates in data. 
+For each of the negative polarity Run II events classified as $\pi/\mu/e$, we check the number of TPC tracks in the front portion of the TPC: in case more than four tracks are present in the first 14 cm we reject the event,  since the pile up of beam particles would affect the precision of the track reconstruction. The events that are matched to a TPC track and that survive the shower filter form the pool of beamline events for the cross section analysis. This pool is made of 40841 beamline pion candidates in data. 
 
 In simulation, G4Beamline estimates the beam composition at the fourth wire chamber used to weight the number of electrons, muons and pions simulated with the DDMC. The simulated beamline events undergo the same selection flow as data: Table \ref{tab:MCafterCutContaminants} shows the predicted percentage of pion, muons and electrons in the pion beamline candidates selection. We feed beamline candidates to the ``thin slice method" machinery discussed in the next section in order to measure the negative pion total hadronic cross section. 
 

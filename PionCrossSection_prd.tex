@@ -289,7 +289,7 @@ in XS sample               &                      &                       &     
 In data, the selection of beamline events proceeds as follows; we first reconstruct the beamline event, checking that the particle trajectory is plausible, which means rejecting events whose trajectory would seemingly  cross impenetrable material in the beamline, such that the magnets' steel. We minimize the occurrence of a pion capturing or decaying inside the chamber by a selection on the measured  beamline momentum; since pion capture and decay occur mainly at rest,  we select pions with momentum greater than 420 MeV/c, that is pions which are unlikely to stop inside the LArTPC.
 For each of the negative polarity Run II events classified as $\pi/\mu/e$, we check the number of TPC tracks in the front portion of the TPC: in case more than four tracks are present in the first 14 cm we reject the event,  since the pile up of beam particles would affect the precision of the track reconstruction. The events that are matched to a TPC track and that survive the shower filter form the pool of beamline events for the cross section analysis. This pool is made of 40841 beamline pion candidates in data. 
 
-In simulation, G4Beamline estimates the beam composition at the fourth wire chamber used to weight the number of electrons, muons and pions simulated with the DDMC. The simulated beamline events undergo the same selection flow as data: Table \ref{tab:MCafterCutContaminants} shows the predicted percentage of pion, muons and electrons in the pion beamline candidates selection. We feed beamline candidates to the ``thin slice method" machinery discussed in the next section in order to measure the negative pion total hadronic cross section. 
+In simulation, G4Beamline estimates the beam composition at the fourth wire chamber used to weight the number of electrons, muons and pions simulated with the DDMC. The simulated beamline events undergo the same selection flow as data: Table \ref{tab:MCafterCutContaminants} shows the predicted percentage of pions, muons and electrons in the pion beamline candidates selection. We feed beamline candidates to the ``thin slice method" machinery discussed in the next section in order to measure the negative pion total hadronic cross section. 
 
 
 
@@ -316,7 +316,7 @@ The pion interaction probability $P_{\text{Int}}$ in an argon target of thicknes
 P_{\text{Int}} = 1- e^{-\sigma_{\text{TOT}}\text{ } n \text{ }\delta X}
 \label{eq:thinTargetXS}
 \end{equation}
-where $n$ is the density of the target centers. The density of target centers relates to the argon density $\rho$, the Avogadro number  $ N_{A} $ and the argon molar mass $m_A$ as $n=\frac{\rho N_{A} }{m_A}$. In an experiment where a beam of pions is incident on the target, the interaction probability $P_{\text{Int}}$ can be statistically estimated as the ratio between the number of pions interacting in the thin target $N_{\text{Int}}$ (interacting flux) and the number of incident pions $N_{\text{Inc}}$ (incident flux). 
+where $n$ is the density of the target centers. The density of target centers relates to the argon density $\rho$, the Avogadro number  $ N_{A} $ and the argon molar mass $m_A$ as $n=\frac{\rho N_{A} }{m_A}$.  The interaction probability $P_{\text{Int}}$ of pions on target can be statistically estimated as the ratio between the number of pions interacting in the thin target $N_{\text{Int}}$ (interacting flux) and the number of incident pions $N_{\text{Inc}}$ (incident flux). 
 If the interaction length is significantly longer than the width of the target, i.e $\lambda_{\text{Int}} \gg \delta X$, we can assume that the target centers are uniformly distributed in the material and that no center of interaction sits in front of another -- the thin target approximation. In this case, it is possible to find a simple proportionality relationship between the cross section and the interaction probability by a Taylor expansion of the exponential function:
  \begin{equation}
  \sigma_{\text{TOT}}  = \frac{1}{n \text{ }\delta X}\frac{N_{\text{Int}}}{N_{\text{Inc}}}.
@@ -324,13 +324,12 @@ If the interaction length is significantly longer than the width of the target, 
 \end{equation}
 
 
+Since the interaction length of pions in liquid argon is  expected  to be of the order of $\lambda_{\text{Int}} \sim 50$ cm, the LArIAT TPC and its 90 cm of depth do not represent a thin target. However, the granularity of the LArIAT LArTPC allows to assess the presence of a pion and measure its kinetic energy approximately every 4.7~mm along its trajectory in the detector's active volume. We can thus treat the argon volume as a sequence of many adjacent thin targets, recovering the thin target approximation in each argon slice. 
 
 
-Since the expected interaction length of pions in liquid argon is of the order of $\lambda_{\text{Int}} \sim 50$ cm, the LArIAT TPC and its 90 cm of depth are not a thin target. However, the granularity of the LArIAT LArTPC allows to assess the presence of a pion and measure its kinetic energy approximately every 4.7~mm along its trajectory in the detector's active volume. We can thus treat the argon volume as a sequence of many adjacent thin targets, recovering the thin target approximation in each argon slice. 
-
-
-We consider each slice of argon {\emph{j}} as an independent thin target experiment for which the incoming pion has a kinetic energy of  $E^{kin}_j$, measured according to Equation \ref{eq:KEj}. It should be noticed that each beamline pion candidate is likely to traverse multiple slices, thus participating in multiple independent thin target experiments.   We apply the cross section calculation from Equation~\ref{eq:thinTargetXSSolved} in bins of kinetic energy: if a pion of kinetic energy $E^{kin}_j$ enters a slice, it contributes to the incident flux at the energy bin corresponding to $E^{kin}_j$.  Within the slice, the pion may or may not interact. If it does, it also contributes to the interacting flux at the same energy bin. If the pion does not interact,  it will enter the next slice and the evaluation of the fluxes is repeated for the new kinetic energy $E^{kin}_{j+1}$. The pion decreases its kinetic energy in its path within the TPC due to ionization and excitation of the argon; thus, for the same beamline pion candidate, slices close to the TPC front face correspond to higher $E^{kin}_j$ compared to slices close to the TPC back face. We evaluate the incident and interacting fluxes for all the beamline pion candidates in the selected sample.  %The cross section as a function of kinetic energy, $\sigma_{TOT}( E^{kin})$ is then evaluated to be proportional to the ratio $\frac{N_{\text{Int}}( E^{kin})}{N_{\text{Inc}}( E^{kin})}$ -- bin by bin ratio. 
-
+Each slice of argon {\emph{j}} represents an independent thin target experiment for which the incoming pion has a kinetic energy of  $E^{kin}_j$, measured according to Equation \ref{eq:KEj}. It should be noticed that each beamline pion candidate is likely to traverse multiple slices, thus participating in multiple independent thin target experiments at different kinetic energies. 
+We apply the cross section calculation from Equation~\ref{eq:thinTargetXSSolved} in bins of kinetic energy: if a pion of kinetic energy $E^{kin}_j$ enters a slice, it contributes to the incident flux at the energy bin corresponding to $E^{kin}_j$.  Within the slice, the pion may or may not interact. If it does, it also contributes to the interacting flux at the same energy bin. If the pion does not interact,  it will enter the next slice and the evaluation of the fluxes is repeated for the new kinetic energy $E^{kin}_{j+1}$.   The kinetic energy   $E^{kin}_j$ is always greater than $E^{kin}_{j+1}$: while traveling in the TPC, the pion decreases its kinetic energy by ionizing and exciting the  argon. Thus, the same beamline pion will contribute to subsequent independent thin target experiments at progressively decreasing energies the further it travels downstream. 
+We sum the contributions to the incident and interacting fluxes of all the beamline pion candidates in the selected sample to obtain $N_{\text{Int}}$ and  $N_{\text{Inc}}$ in bins of kinetic energy.\\
 Since our goal is to measure the total interaction cross section independently  from the topology of the interaction, we determine that a pion interacted simply by requiring that the last point TPC track lies within the fiducial volume (FV), i.e. the volume contained within 1 cm from the TPC walls in the drift and vertical directions, 1 cm from the TPC front face and 4 cm from the TPC back face.
 If the TPC track crosses the boundaries of the FV, the track is considered ``through going", no interaction point is found and no point external to the FV is consider for the evaluation of the fluxes. 
 
@@ -345,20 +344,19 @@ If the TPC track crosses the boundaries of the FV, the track is considered ``thr
 %\subsection{\label{sec:RawXS}Raw Cross Section}
 \subsection{\label{sec:Corrections}Flux Corrections}
 In the evaluation of the interacting and incident fluxes as a function of the pion kinetic energy,  two caveats are in place: a) residual muons and electrons are present in the beamline pion sample, b) TPC event reconstruction affects the evaluation of  $N_{\text{Int}}$ and $N_{\text{Inc}}$.
-We then need to repackage Equation~\ref{eq:thinTargetXSSolved} at kinetic energy $E^{kin}_i$, as a function of the measured fluxes in data $N^{\text{Data}}_{\text{Int}}$ and $N^{\text{Data}}_{\text{Inc}}$, the corresponding beamline background $B^{ \text{Int}}$ and $B^{ \text{Inc}}$ and corrections for reconstruction effects $\epsilon^{\text{Int}}$ and $\epsilon^{\text{Inc}}$ as follows
+We then need to repackage Equation~\ref{eq:thinTargetXSSolved} at kinetic energy $E^{kin}_i$, as a function of the measured fluxes in data $N^{\text{Data}}_{\text{Int}}$ and $N^{\text{Data}}_{\text{Inc}}$, the corresponding corrections for beamline background contaminations $C^{\pi \text{MC}}_{\text{Int}}$ and $C^{\pi \text{MC}}_{\text{Int}}$ and corrections for reconstruction effects $\epsilon^{\text{Int}}$ and $\epsilon^{\text{Inc}}$ as follows
 
 \begin{equation}
- \sigma^{\pi^-}_{TOT}(E^{kin}_i) = \frac{1}{n \text{ }\delta X}\frac{ \epsilon^{\text{Inc}}_i [ N^{ \text{Data}}_{ \text{Int,i}} - B^{ \text{Int}}_i] }{   \epsilon^{\text{Int}}_i [N^{ \text{Data}}_{ \text{Inc,i}} - B^{ \text{Inc}} _i]},
-\label{eq:True}
+      \sigma^{\pi^-}_{TOT}(E^{kin}_{i})  = \frac{1}{n\text{ } \delta X}\frac{ \epsilon^{\text{Inc}}_i  \hspace{0.2cm} C^{\pi \text{MC}}_{\text{Int,i}}  \hspace{0.2cm} N^{\text{Data}}_{\text{Int,i}}  }{   \epsilon^{\text{Int}}_i \hspace{0.2cm} C^{\pi \text{MC}}_{\text{Inc,i}}  \hspace{0.2cm}  N^{\text{Data}}_{\text{Inc,i}} }.
+\label{eq:C}
 \end{equation}
+
 where the subscript $i$ highlights that the quantities are evaluated separately in each kinetic energy bin.\\
-
-
 
 \textbf{Corrections for Reconstruction Effects.}
 We rely on the capacity of the tracking algorithm to identify the incoming pion in the TPC and to stop the tracking at the interaction point, evaluating whether or not the pion interacted.  The tracking algorithm has an intrinsic limitation in resolving shallow scattering angles, effectively determining a selection on the distribution of the scattering angle of hadronic interaction entering the cross section measurement.  We assess interaction angles smaller than 5$^\circ$ to be indistinguishable for the reconstruction; thus, we limit our ability to measure the cross section for interaction angles greater than 5.0 deg. 
 
-The interacting flux depends both on the efficiency of the tracking of finding the pion in the TPC and of finding the interaction point. It should be noted that the incident flux also depends on the same tracking efficiencies, albeit in a different way. If the tracking does not stop at an interaction point but keeps adding subsequent points to the pion trajectory, the missed interaction constitutes an inefficiency for the interaction flux and the slices corresponding to the extra trajectory points result in a background for the incident flux. On the contrary, if the tracking stops before an interaction point,  that flagged interaction point constitues a background for the interaction flux and the missed subsequent slices represent an inefficiency for the incident flux. We encode both the inefficiency and background due to the reconstruction of the pion track in the flux corrections $\epsilon^{\text{Int}}_i$ and $\epsilon^{\text{Inc}}_i$. We use a sample of DDMC pions to evaluate the flux corrections as follows,
+The interacting and incident fluxes both depend on the efficiency of the tracking of finding the pion in the TPC and of finding the interaction point, albeit in a different way. If the tracking does not stop at an interaction point but keeps adding subsequent points to the pion trajectory, the missed interaction constitutes an inefficiency for the interaction flux and the slices corresponding to the extra trajectory points result in overcounts for the incident flux. On the contrary, if the tracking stops before an interaction point,  that flagged interaction point constitutes an overcount for the interaction flux and the missed subsequent slices represent an inefficiency for the incident flux. We encode both the inefficiency and overcount due to the reconstruction of the pion track in the flux corrections $\epsilon^{\text{Int}}_i$ and $\epsilon^{\text{Inc}}_i$. We use a sample of DDMC pions to evaluate the flux corrections as follows,
 
 \begin{equation}
  \epsilon^{\text{Int}}_i  =  \frac{N^{\text{ Reco MC $\pi$}}_{\text{Int,i}}}{ N^{\text{ True MC  $\pi$}}_{\text{Int,i}}  } \hspace{0.5cm}\text{and}\hspace{0.5cm}  \epsilon^{\text{Inc}}_i  =  \frac{N^{\text{ Reco MC $\pi$}}_{\text{Inc,i}}}{ N^{\text{ True MC  $\pi$}}_{\text{Inc,i}}  },
@@ -370,7 +368,31 @@ where $N^{\text{ True MC  $\pi$}}_{\text{Int,i}}$ is the expected number of inte
 
 
 \textbf{Corrections for Beamline Background.}
-Even if pions are by far the biggest beam component in selected beamline candidates, residual muons and electrons are present in the sample. We estimate the muon and electron contributions to the incident and interacting flux in data through MC. Our goal is to estimate  $B^{ \text{Int}}_i$ and  $B^{ \text{Inc}}_i$, i.e. the number of non-pion entries in the interacting and incident flux at each kinetic energy bin $E^{kin}_i$ in the range of the cross section measurement. The estimated percentages of muons, $w_\mu$,  and electrons, $w_e$,  in the sample of pion beamline candidates are reported in Table \ref{tab:MCafterCutContaminants}. We estimate 
+Even if pions are by far the biggest beam component in the selected beamline candidates, residual muons and electrons are present in the sample. We estimate %the muon and electron contributions to the incident and interacting flux in data through MC. Our goal is to estimate  
+the pion content $C^{\pi \text{MC}}_{\text{Int}}$ and  $C^{\pi \text{MC}}_{\text{Inc}}$, i.e. the number of pion entries in the interacting and incident flux at each kinetic energy bin $E^{kin}_i$ on Monte Carlo.  We simulate pions, muons and electrons with the DDMC, using a the relative weights found by the beamline simulation.  
+We evaluate the beamline background contribution to the cross section by producing the interacting and incident histograms for the pions and beamline background events and staggering the contributions for each particle species in  each bin of the interacting and incident histograms separately and obtain the relative pion content. The relative pion content in each bin for the interacting and incident histograms represents the correction applied to data. We take here the interacting histogram as example, noting that the derivation of the correction for the incident histogram is identical. The number of entries in each bin of the interacting histogram (Figure \ref{fig:stag60A} left) is  $N^{\text{TOT}}_{\text{Int}} (E_{i})$, equal to the sum of the pions and beamline backgrounds flagged as interacting in that bin, namely
+
+\begin{equation}
+N^{\text{TOT}}_{\text{Int}} (E_{i}) =  N^\pi_{\text{Int}} (E_{i}) + \underbrace{ N^\mu_{\text{Int}} (E_{i}) + N^e_{\text{Int}} (E_{i}) + N^{Secondary}_{\text{Int}} (E_{i}) }_{B_{\text{Int}} (E_i)}.
+\end{equation}
+Thus, the relative pion content to each bin in MC can be calculated as follows
+\begin{equation}
+C^{\pi MC}_{\text{Int}} (E_{i}) =  \frac{N^{\pi MC}_{\text{Int}}}{ N^{TOT MC}_{\text{Int}} (E_{i}) } =    \frac{N^{TOT MC}_{\text{Int}} (E_{i}) - B^ {MC}_{\text{Int}} (E_i)}{ N^{TOT MC}_{\text{Int}} (E_{i})}.
+\end{equation}
+
+
+In order to evaluate the pion content of each bin in data, we scale the measured bin by the corresponding relative pion content found in MC, as follows
+\begin{equation}
+N^{\pi Reco Data}_{\text{Int}} = N^{TOT Data}_{\text{Int}} (E_{i}) - B^{Data}_{\text{Int}} (E_i)  =  C^{\pi MC}_{\text{Int}} (E_{i}) N^{TOT Data}_{\text{Int}} (E_{i}).
+\end{equation}
+
+The pion content is evaluated separately in the interacting and incident histograms. Their ratio determines a correction to the measured raw cross section. 
+For example, the measured raw  cross section of a sample with enhanced muons content will tend to be lower than the raw cross section of a muon free sample. This is because most of the muons will cross the TPC without stopping, thus contributing almost exclusively to the incident histogram, forcing the pion content to be lower in the incident histogram than in the interacting; thus, the correction will tend to enhance the cross section. We present the estimation of $C^{\pi MC}_{\text{Int}} (E_{i})$ and $C^{\pi MC}_{\text{Inc}} (E_{i})$ and their associated systematic uncertainty in chapter discussing the pion cross section measurement (Figure \ref{fig:CorrectionsBeam}).
+
+
+
+\begin{comment}
+We estimate 
 $B^{ \text{Int}}_i$ to be
 
 \begin{equation} \label{eq:Contaminants}
@@ -383,6 +405,7 @@ B^{ \text{Int}}_i & = M^{ \text{Int}}_i + E^{ \text{Int}}_i \\
 
 where $M^{ \text{Int}}_i$ and $E^{ \text{Int}}_i$ are the estimated muon and electron contributions to the the interacting flux at the kinetic energy bin $E^{kin}_i$, $P^{Data}$ is the total number of beamline pion candidates in data, $P^{MC}_\mu$ and $P^{MC}_e$ are the number of MC beamline muons and electrons, $M^{MC}_{ \text{Int,i}}$ and $E^{MC}_{ \text{Int,i}} $ are  the MC muons and electrons reconstructed contributions to the interacting flux in MC at kinetic energy bin $E^{kin}_i$.
 Analogous definitions hold true for the incident flux. We estimate $M^{MC}_{ \text{Int,i}}$, $M^{MC}_{ \text{Inc,i}}$  $E^{MC}_{ \text{Int,i}} $, and $E^{MC}_{ \text{Inc,i}} $ by shooting  DDMC samples of muons and electrons in the TPC and applying the thin slice method to the selected MC beamline candidates.
+\end{comment}
 
 
 \subsection{\label{sec:Corrections}Treatment of the uncertainties}

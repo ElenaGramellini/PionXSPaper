@@ -61,9 +61,8 @@
 
 
 \begin{abstract}
-We present the first measurement of the negative pion total hadronic cross section on Argon in the 100-1050 MeV kinetic energy range as performed at the LArIAT experiment. LArIAT (Liquid Argon In A Testbeam) aims to experimentally calibrate the Liquid Argon Time Projection Chamber (LArTPC) technology in a controlled environment by deploying a LArTPC in a dedicated test beam line at Fermilab. 
-We use LArIAT's beamline detectors to identify pions and measure their kinetic energy prior to entering the LArTPC. Once the pool of beamline pion candidates is identified in the LAr active volume, we apply the ``thin slice method", a new technique to measure cross sections on argon based on the key features of LArTPCs: the combination of precise tracking and excellent calorimetry information. 
-Our measurement of the  ($\pi^-$,Ar) total hadronic cross section is in agreement with the predictions by the Geant4 Bertini Cascade model derived from historic measurements on lighter and heavier nuclei in the 350-1050 MeV region, while a shape difference arises at lower energies where the cross section is boosted by the presence of the delta resonance.
+We present the first measurement of the negative pion total hadronic cross section on argon in the 100-1050 MeV kinetic energy range as performed at the Liquid Argon In A Testbeam (LArIAT)  experiment. LArIAT deploys a Liquid Argon Time Projection (LArTPC) on a beam of charged particles at the Fermilab Test Beam Facility (FTBF). 
+For this measurement, we select and measure the pions from the beam and we develop the ``thin slice method" --  a new technique to measure cross sections at LArTPC experiments.  Our measurement of the  ($\pi^-$,Ar) total hadronic cross section is in agreement with the predictions by the Geant4  model in the 350-1050 MeV region, while a shape difference arises at lower energies.
 The ($\pi^-$, Ar) total cross-section has never been measured before; the outcome of this measurement will enable to quantify and reduce the systematic associated with the hadronic interaction models in neutrino-argon interactions in current and future LAr experiments such as the Short Baseline Neutrino Program and DUNE.\\
 
  \end{abstract}
@@ -121,7 +120,7 @@ Being able to reconstruct the details of pions inside the detector is an imperat
 
 
 \section{\label{sec:ExperimentalSetup}Measurement Setup}
-The LArIAT experiment consists in a LArTPC deployed on a beam of charge particles at the Fermilab Test Beam Facility (FTBF) on the  Meson Center beam line. The experimental setup changed significantly during LArIAT's three seasons of data taking in both its beamline and LArTPC components. We acquired the data used in this work  during the 24-weeks of data taking of the second season, which we refer as to Run II.  
+The LArIAT experiment consists in a LArTPC deployed on a beam of charged particles at the Fermilab Test Beam Facility (FTBF) on the  Meson Center beam line. The experimental setup changed significantly during LArIAT's three seasons of data taking in both its beamline and LArTPC components. We acquired the data used in this work  during the 24-weeks of data taking of the second season, which we refer as to Run II.  
 
 We briefly describe here only the features and use of the LArIAT Run II  detectors  relevant to the cross section measurement; we also describe here the TPC event reconstruction, simulation packages and beamline event selection used in this analysis.  We refer the reader to \cite{LArIATDet} for a detailed description of LArIAT's experimental setup.
 
@@ -141,7 +140,7 @@ We briefly describe here only the features and use of the LArIAT Run II  detecto
 %The strength for the magnetic field is set by the amplitude of the current in the magnets. For this work,  the current settings employed were -60A %(B $\sim$0.21 T) 
 %and -100A. %(B $\sim$0.35 T)  
 
-LArIAT takes advantage of the Fermilab accelerator infrastructure to create its beam of charge particles.  The Fermilab accelerator complex  delivers a  primary beam of 120~GeV protons with variable intensity to the Meson Center beam line in supercycles of 60 seconds. This primary beam is focused onto a tungsten target to create a secondary beam. The secondary beamline is tuned such that the composition of the secondary particle beam is mainly positive pions. For the data considered in this work, the tunable momentum peak of the secondary beam was fixed at 64~GeV/c; this configuration assures a stable beam delivery at the LArIAT experimental hall (MC7).
+LArIAT takes advantage of the Fermilab accelerator infrastructure to create its beam of charged particles.  The Fermilab accelerator complex  delivers a  primary beam of 120~GeV protons with variable intensity to the Meson Center beam line in supercycles of 60 seconds. This primary beam is focused onto a tungsten target to create a secondary beam. The secondary beamline is tuned such that the composition of the secondary particle beam is mainly positive pions. For the data considered in this work, the tunable momentum peak of the secondary beam was fixed at 64~GeV/c; this configuration assures a stable beam delivery at the LArIAT experimental hall (MC7).
 
 At MC7, the secondary beam impinges  on a copper target within a steel collimator to create the LArIAT tertiary beam. Scope of the LArIAT tertiary beamline instrumentation is to identify the particle type and measure the momentum of the beam's particles entering the LArTPC. Figure \ref{fig:beamlinebird} shows a bird's eye view of the LArIAT tertiary beamline:  two bending electromagnets (yellow), a set of four wire chambers (red) and two time-of-flight scintillating paddles (blue).  The magnets' polarity determines the charge of the particles selected in the tertiary beam: running the magnets in negative polarity selects negatively charged particles. The tunable magnetic field strength determines the range of momentum of the beamline particles steered towards the TPC. For this work, we selected a low energy and high energy tune. 
 The combination of magnets and wire chambers forms the LArIAT spectrometer which measures the particles' momentum at the fourth wire chamber, $p_{\text{Beam}}$, with a relative uncertainty of 2\%. Figure \ref{fig:momentum} shows the distribution of  $p_{\text{Beam}}$ for the Run II negative polarity data used in this work, low energy tune on the left, high energy tune on the right. The momentum range of the two datasets combined spans from $\sim200$ to $\sim1200$ MeV/c. 
@@ -369,43 +368,22 @@ where $N^{\text{ True MC  $\pi$}}_{\text{Int,i}}$ is the expected number of inte
 
 \textbf{Corrections for Beamline Background.}
 Even if pions are by far the biggest beam component in the selected beamline candidates, residual muons and electrons are present in the sample. We estimate %the muon and electron contributions to the incident and interacting flux in data through MC. Our goal is to estimate  
-the pion content $C^{\pi \text{MC}}_{\text{Int}}$ and  $C^{\pi \text{MC}}_{\text{Inc}}$, i.e. the number of pion entries in the interacting and incident flux at each kinetic energy bin $E^{kin}_i$ on Monte Carlo.  We simulate pions, muons and electrons with the DDMC, using a the relative weights found by the beamline simulation.  
-We evaluate the beamline background contribution to the cross section by producing the interacting and incident histograms for the pions and beamline background events and staggering the contributions for each particle species in  each bin of the interacting and incident histograms separately and obtain the relative pion content. The relative pion content in each bin for the interacting and incident histograms represents the correction applied to data. We take here the interacting histogram as example, noting that the derivation of the correction for the incident histogram is identical. The number of entries in each bin of the interacting histogram (Figure \ref{fig:stag60A} left) is  $N^{\text{TOT}}_{\text{Int}} (E_{i})$, equal to the sum of the pions and beamline backgrounds flagged as interacting in that bin, namely
+the pion content $C^{\pi \text{MC}}_{\text{Int,i}}$ and  $C^{\pi \text{MC}}_{\text{Inc,i}}$, i.e. the percentage of pion entries in the interacting and incident flux at each kinetic energy bin $E^{kin}_i$ on Monte Carlo; we then apply these corrections to the corresponding kinetic energy bin in data.  
 
+We simulate pions, muons and electrons with the DDMC, using the relative abundance predicted by the beamline simulation.  We feed pions, muons and electrons to the thin slice method machinery, measuring the interacting and incident fluxes for each particle species.
+
+We calculate the relative pion content for the interacting and incident flux  as
 \begin{equation}
-N^{\text{TOT}}_{\text{Int}} (E_{i}) =  N^\pi_{\text{Int}} (E_{i}) + \underbrace{ N^\mu_{\text{Int}} (E_{i}) + N^e_{\text{Int}} (E_{i}) + N^{Secondary}_{\text{Int}} (E_{i}) }_{B_{\text{Int}} (E_i)}.
+C^{\pi \text{MC}}_{\text{Int,i}}  =  \frac{N^{\pi \text{MC}}_{\text{Int,i}}}{ N^{\text{TOT MC}}_{\text{Int,i}} } 
 \end{equation}
-Thus, the relative pion content to each bin in MC can be calculated as follows
+and 
 \begin{equation}
-C^{\pi MC}_{\text{Int}} (E_{i}) =  \frac{N^{\pi MC}_{\text{Int}}}{ N^{TOT MC}_{\text{Int}} (E_{i}) } =    \frac{N^{TOT MC}_{\text{Int}} (E_{i}) - B^ {MC}_{\text{Int}} (E_i)}{ N^{TOT MC}_{\text{Int}} (E_{i})}.
+C^{\pi \text{MC}}_{\text{Inc,i}}  =  \frac{N^{\pi \text{MC}}_{\text{Inc,i}}}{ N^{\text{TOT MC}}_{\text{Inc,i}} } 
 \end{equation}
 
+where 
+$N^{\text{TOT MC}}_{\text{Int,i}}$ and $N^{\text{TOT MC}}_{\text{Inc,i}}$ are the the sum of the MC pion, muon and electron contributions to the interacting and incident flux respectively, while $N^{\pi}_{\text{Int,i}}$ and $N^{\pi}_{\text{Inc,i}}$ represent the sole MC pion contribution. Once we evaluate the $C^{\pi \text{MC}}_{\text{Int,i}}$ and  $C^{\pi \text{MC}}_{\text{Inc,i}}$ separately, we use their ratio to correct the measured raw cross section. Muons represent the biggest contribution to beamline backgrounds. The muon presence in the sample tends to lower the measured raw cross section; this is because most of the muons will cross the TPC without stopping, contributing almost exclusively to the incident flux. 
 
-In order to evaluate the pion content of each bin in data, we scale the measured bin by the corresponding relative pion content found in MC, as follows
-\begin{equation}
-N^{\pi Reco Data}_{\text{Int}} = N^{TOT Data}_{\text{Int}} (E_{i}) - B^{Data}_{\text{Int}} (E_i)  =  C^{\pi MC}_{\text{Int}} (E_{i}) N^{TOT Data}_{\text{Int}} (E_{i}).
-\end{equation}
-
-The pion content is evaluated separately in the interacting and incident histograms. Their ratio determines a correction to the measured raw cross section. 
-For example, the measured raw  cross section of a sample with enhanced muons content will tend to be lower than the raw cross section of a muon free sample. This is because most of the muons will cross the TPC without stopping, thus contributing almost exclusively to the incident histogram, forcing the pion content to be lower in the incident histogram than in the interacting; thus, the correction will tend to enhance the cross section. We present the estimation of $C^{\pi MC}_{\text{Int}} (E_{i})$ and $C^{\pi MC}_{\text{Inc}} (E_{i})$ and their associated systematic uncertainty in chapter discussing the pion cross section measurement (Figure \ref{fig:CorrectionsBeam}).
-
-
-
-\begin{comment}
-We estimate 
-$B^{ \text{Int}}_i$ to be
-
-\begin{equation} \label{eq:Contaminants}
-\begin{split}
-B^{ \text{Int}}_i & = M^{ \text{Int}}_i + E^{ \text{Int}}_i \\
-                         & =  \frac{w_\mu P^{Data}}{P^{MC}_\mu} M^{MC}_{ \text{Int,i}} + \frac{w_e P^{Data}}{P^{MC}_e}E^{MC}_{ \text{Int,i}},
-\end{split}
-\end{equation}
-
-
-where $M^{ \text{Int}}_i$ and $E^{ \text{Int}}_i$ are the estimated muon and electron contributions to the the interacting flux at the kinetic energy bin $E^{kin}_i$, $P^{Data}$ is the total number of beamline pion candidates in data, $P^{MC}_\mu$ and $P^{MC}_e$ are the number of MC beamline muons and electrons, $M^{MC}_{ \text{Int,i}}$ and $E^{MC}_{ \text{Int,i}} $ are  the MC muons and electrons reconstructed contributions to the interacting flux in MC at kinetic energy bin $E^{kin}_i$.
-Analogous definitions hold true for the incident flux. We estimate $M^{MC}_{ \text{Int,i}}$, $M^{MC}_{ \text{Inc,i}}$  $E^{MC}_{ \text{Int,i}} $, and $E^{MC}_{ \text{Inc,i}} $ by shooting  DDMC samples of muons and electrons in the TPC and applying the thin slice method to the selected MC beamline candidates.
-\end{comment}
 
 
 \subsection{\label{sec:Corrections}Treatment of the uncertainties}

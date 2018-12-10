@@ -62,7 +62,7 @@
 
 \begin{abstract}
 We present the first measurement of the negative pion total hadronic cross section on argon in the 100-1050 MeV kinetic energy range as performed at the Liquid Argon In A Testbeam (LArIAT)  experiment. LArIAT deploys a Liquid Argon Time Projection (LArTPC) on a beam of charged particles at the Fermilab Test Beam Facility (FTBF). 
-For this measurement, we select and measure the pions from the beam and we develop the ``thin slice method" --  a new technique to measure cross sections at LArTPC experiments.  Our measurement of the  ($\pi^-$,Ar) total hadronic cross section is in agreement with the predictions by the Geant4  model in the 350-1050 MeV region, while a shape difference arises at lower energies.
+For this measurement, we select and measure the pions from the beam and we develop the ``thin slice method" --  a new technique to measure cross sections at LArTPCs.  Our measurement of the  ($\pi^-$,Ar) total hadronic cross section is in agreement with the predictions by the Geant4  model in the 350-1050 MeV region, while a shape difference arises at lower energies.
 The ($\pi^-$, Ar) total cross-section has never been measured before; the outcome of this measurement will enable to quantify and reduce the systematic associated with the hadronic interaction models in neutrino-argon interactions in current and future LAr experiments such as the Short Baseline Neutrino Program and DUNE.\\
 
  \end{abstract}
@@ -72,15 +72,15 @@ The ($\pi^-$, Ar) total cross-section has never been measured before; the outcom
 
 \newpage
 \section{\label{sec:Motivations}Motivations}
-In this work, we measured  for the first time the total hadronic cross section of negative pions on argon in the energy region between 100 and 1050 MeV. We briefly review here the findings on pion hadronic cross sections from historic measurements on lighter and heavier nuclei performed in the seventies \textcolor{red}{(check paper's dates)}.  Now, a renewed interest for hadronic cross sections -- particularly cross sections on argon -- arises in light of the modern neutrino experiments landscape. Compared to the historic measurements, LArIAT developed a new  methodology to measure cross sections on argon which has the potential to meet this renewed interest. 
+In this work, we measured  for the first time the total hadronic cross section of negative pions on argon in the energy region between 100 and 1050 MeV. We briefly review here the findings on pion hadronic cross sections from historic measurements on lighter and heavier nuclei performed in the seventies.  Now, a renewed interest for hadronic cross sections -- particularly cross sections on argon -- arises in light of the modern neutrino experiments landscape. Compared to the historic measurements, LArIAT developed a new  methodology to measure cross sections on argon which has the potential to meet this renewed interest. 
 
 \subsection{Historic Measurements of Pion Hadronic Cross Sections: Lighter and Heavier Nuclei}
-Many experiments with pion beams have studied the hadronic interaction of pions on light and heavy nuclei, such as  He, Li, C, Fe, Pb \cite{PhysRevC.14.635} \textcolor{red}{(dig thesis for references)}, albeit never on argon.  Most historic measurements of pion hadronic cross sections are performed on thin targets. At their core, these experiments consists in shooting a beam of pions with a known flux on a thin slab of material and recording the outgoing flux; flux conservation allows to retrieve the interacting flux and to calculate the cross section at the beam energy.
+Many experiments with pion beams have studied the hadronic interaction of pions on light and heavy nuclei, such as  He, Li, C, Fe, Pb \cite{Wilkin:1973xd, Clough1974,PhysRevC.14.635} \textcolor{red}{(cross check when available)}, albeit never on argon.  Most historic measurements of pion hadronic cross sections are performed on thin targets. At their core, these experiments consists in shooting a beam of pions with a known flux on a thin slab of material and recording the outgoing flux; flux conservation allows to retrieve the interacting flux and to calculate the cross section at the beam energy.
 In this work, we developed a complementary approach called ``the thin slice method". Contrary to thin target experiments, we shoot pions on a thick but fully sensitive target  -- the LArTPC -- and we directly record the interacting flux. 
 
 Regardless of the nuclear medium, the shape of the pion-nucleus interaction cross section in the energy range accessible to our measurement shows the distinct features indicating the presence of a resonance. In fact, the mean free path of a pion of kinetic energy between 100 and 400 MeV is much shorter than the average distance between nucleons (which is of the order of a
  1 fm),   enhancing the pion interaction probability with surface nucleons. A delta resonance is often produced in the interaction, which subsequently decays inside the nucleus.
-Historical experimental results show a dependency of the delta resonance shape as a function of the nuclear mass number. The delta resonance shape becomes less pronounced  
+Historical experimental results show a dependency of the delta resonance shape as a function of the nuclear mass number \cite{PhysRevC.14.635}. The delta resonance shape becomes less pronounced  
 and its peak shifts to lower energies when the nuclear mass number increases; this effect is due to kinematic considerations and to the difference in propagation of the delta inside the nucleus. Multiple scattering effects modify the resonance width, which is larger than the natural-decay width.
 
 
@@ -95,7 +95,7 @@ The reaction channel can be further characterized by several exclusive channels 
 \begin{equation}
 \sigma_{Reaction} = \sigma_{Inelastic} + \sigma_{abs} + \sigma_{chex}+ \sigma_{\pi prod};
 \end{equation}
-in this work, we account for all reaction channels, regardless of their final state; upcoming measurements from LArIAT will focus on the reaction exclusive channels.
+in this work, we account for all reaction channels, regardless of their final state. Upcoming measurements from LArIAT will focus on the reaction exclusive channels.
 Figure \ref{fig:PionsEvd} shows examples of topologies for pion-argon hadronic interactions as they appear in the  LArIAT data: elastic and inelastic scattering, pion absorption with emission of protons, charge exchange and production of pions.
 
 
@@ -370,7 +370,7 @@ where $N^{\text{ True MC  $\pi$}}_{\text{Int,i}}$ is the expected number of inte
 Even if pions are by far the biggest beam component in the selected beamline candidates, residual muons and electrons are present in the sample. We estimate %the muon and electron contributions to the incident and interacting flux in data through MC. Our goal is to estimate  
 the pion content $C^{\pi \text{MC}}_{\text{Int,i}}$ and  $C^{\pi \text{MC}}_{\text{Inc,i}}$, i.e. the percentage of pion entries in the interacting and incident flux at each kinetic energy bin $E^{kin}_i$ on Monte Carlo; we then apply these corrections to the corresponding kinetic energy bin in data.  
 
-We simulate pions, muons and electrons with the DDMC, using the relative abundance predicted by the beamline simulation.  We feed pions, muons and electrons to the thin slice method machinery, measuring the interacting and incident fluxes for each particle species.
+We simulate pions, muons and electrons with the DDMC, using the relative abundance predicted by the beamline simulation.  We feed pions, muons and electrons to the thin slice method machinery, estimating the interacting and incident fluxes for each particle species.
 
 We calculate the relative pion content for the interacting and incident flux  as
 \begin{equation}
@@ -415,68 +415,38 @@ The uncertainty on the kinetic energy of a pion candidate at the j$^{th}$ slab o
 %&=& \sqrt{(2\% \text{ }p_{Beam})^2 +  ( 6 \text{ [MeV]})^2 +  (j-1)^2 (\sim0.08\text{ [MeV]})^2}.
 \end{eqnarray}
 
-where $\delta p_{\text{Beam}} = 2\%$ $p_{\text{Beam}}$, $\delta E_{\text{Loss}}$ is the width of the distribution in Figure \ref{fig:ELoss100A}, $\delta \Big(\sum_{n < j} E_{\text{Dep},n}\Big)$  is the uncertainty associated to energy deposited by the pion from the TPC front face to the $j^{th}$ slice; we calculate this last uncertainty as  the sum of $\delta E_{\text{Dep},n}$, that is the width  of the  distribution of energy deposited in a single slice, see Figure \ref{fig:enDep}. We propagate the uncertainty on the kinetic energy to the cross section by varying the energy measurement $E^{kin}_{j}$ at each argon slab and measuring the cross section: first we assign the measured $E^{kin}_{j}$, then  $E^{kin}_{j} + \delta E^{kin}_{j}$, and finally  $E^{kin}_{j} - \delta E^{kin}_{j}$. The difference between the cross section values using the $E^{kin}_{j}$ sampling and the maximum and minimum values in each bin determines the systematic uncertainty.
-In absence of additional data constraints,  we take a 100\% systematic uncertainty on the muon and electron content, $w_\mu$ and $w_e$.  We propagate this uncertainty  to the cross section by varying the beam composition (+/- 100\% on $w_\mu$ and $w_e$) and evaluating the variation of the obtained  data cross sections in each bin.  The systematics on the correction for reconstruction effects is estimated by varying the value of the minimum angle visible for the reconstruction 0$^\circ$ deg and 5$^\circ$. 
+where $\delta p_{\text{Beam}} = 2\%$ $p_{\text{Beam}}$, $\delta E_{\text{Loss}}$ is the width of the distribution in Figure \ref{fig:ELoss100A}, $\delta \Big(\sum_{n < j} E_{\text{Dep},n}\Big)$  is the uncertainty associated to energy deposited by the pion from the TPC front face to the $j^{th}$ slice; we calculate this last uncertainty as  the sum of $\delta E_{\text{Dep},n}$, that is the width  of the  distribution of energy deposited in a single slice, see Figure \ref{fig:enDep}. We propagate the uncertainty on the kinetic energy to the cross section by varying the energy measurement $E^{kin}_{j}$ at each argon slab and evaluating the cross section in three cases: first we assign the measured $E^{kin}_{j}$, then  $E^{kin}_{j} + \delta E^{kin}_{j}$, and finally  $E^{kin}_{j} - \delta E^{kin}_{j}$. The difference between the cross section values using the $E^{kin}_{j}$ sampling and the maximum and minimum values in each bin determines the systematic uncertainty. We asses the systematic uncertainty on the beam composition in a similar fashion; we vary beamline muon and electron content by 20\% and evaluate the subsequent cross section variation.  The systematics on the correction for reconstruction effects is estimated by varying Geant4 cascade model from our default (FTFP\_BERT) to QGSP\_BERT.  \textcolor{red}{we should come up with something better}. 
 
 
 
 \section{\label{sec:Results}Result}
 % sections are not used for PRL papers
-The top plot of Figure \ref{fig:epsart} shows the measurement of the ($\pi^-$-Ar) total hadronic cross section,  for  scattering angles greater than 5$^\circ$, as the result of the fluxes' corrections and combination of the 60A and 100A data sets. The statistical uncertainty and the sum in quadrature of statistical and systematic uncertainty are shown in black;  the FTFP\_BERT Geant4 prediction for the total hadronic cross section for angle scattering greater than 5$^\circ$ is displayed in green. 
-With the exception of the highest energy bins (energy greater than 800 MeV), the systematic uncertainties are the dominant uncertainties; the lion's share of the systematic uncertainty results from our uncertainty on the beam composition. The bottom panel of Figure  \ref{fig:epsart} shows the relative deviation between the measured cross section and the FTFP\_BERT  Geant4 predicted cross section.
-\textcolor{red}{Considerations about agreement and disagreements}
+The top plot of Figure \ref{fig:epsart} shows the measurement of the ($\pi^-$-Ar) total hadronic cross section,  for  scattering angles greater than 5$^\circ$, as the result of the fluxes' corrections and combination of the low and high energy tune data sets. The statistical uncertainty and the sum in quadrature of statistical and systematic uncertainty are shown in black; for reference, the green line represents the Geant4 prediction based on the FTFP\_BERT cascade model  for angle scattering greater than 5$^\circ$. 
+With the exception of the highest energy bins (energy greater than 800 MeV), the systematic uncertainties are the dominant uncertainties; the lion's share of the systematic uncertainty results from our uncertainty on the beam composition \textcolor{red}{[cross check needed]}. The bottom panel of Figure  \ref{fig:epsart} shows the relative deviation between the measured cross section and  Geant4 predicted cross section.
+Our measurement is in agreement with the Geant4 predictions derived from historic measurements on lighter and heavier nuclei in the 350-1050 MeV region, while a shape difference arises at lower energies where the cross section is boosted by the presence of the delta resonance.
 
-Table \ref{tab:XSsummary} summarizes the cross section as a function of kinetic energy and  the associated total uncertainty; it also reports the fluxes corrected by the beamline background for the 60A and 100A sample and the corresponding corrections due to the reconstruction of the pion track.\\
+Table \ref{tab:XSsummary} summarizes the cross section as a function of kinetic energy and  the associated total uncertainty; it also reports the recorded fluxes,  beamline background corrections and the  corrections due to the reconstruction of the pion track.\\
 
 
 \begin{figure}
 \includegraphics[width =0.4\textwidth ]{TheRealMoneyPlot}
-\caption{\label{fig:epsart} Top: ($\pi^-$-Ar) total hadronic cross section for  scattering angles greater than 5$^\circ$ measured in the combined sample, statistical uncertainty and systematic uncertainty in black. The Geant4 prediction for the total hadronic cross section for angle scattering greater than 5$^\circ$ is displayed in green. Bottom: Relative difference between the measured cross section and the Geant4 prediction. }
+\caption{\label{fig:epsart} Top: ($\pi^-$-Ar) total hadronic cross section for  scattering angles greater than 5$^\circ$ measured in the combined sample, statistical uncertainty and systematic uncertainty in black. The Geant4 prediction for the total hadronic cross section for angle scattering greater than 5$^\circ$ is displayed in green. Bottom: relative difference between the measured cross section and the Geant4 prediction. }
 \end{figure}
 
 \begin{table*}
 \caption{\label{tab:XSsummary} Results summary. }
 \begin{ruledtabular}
-\begin{tabular}{ccccccc}
-$[E^{kin}_{\text{MIN}}, E^{kin}_{\text{MAX}}]$ & $\sigma_{\text{TOT}}$ & Stat $\bigoplus$ Syst  & $N^{ \text{Data}}_{ \text{Int}} - B^{ \text{Int}}$
-& $N^{ \text{Data}}_{ \text{Inc}} - B^{ \text{Inc}}$ & $ \epsilon^{\text{Int}} $ & $\epsilon^{\text{Inc}}$ \\ 
-(MeV)& (Barn)& Uncertainty (Barn) & & & \\\hline
-& & & & & \\
- $[100,150]$ &1&+20/-10 & & & & \\
+\begin{tabular}{ccccccccc}
+$[E^{kin}_{\text{MIN}}, E^{kin}_{\text{MAX}}]$ & $\sigma_{\text{TOT}}$ & Stat $\bigoplus$ Syst  & $N^{ \text{Data}}_{ \text{Int}}$
+& $N^{ \text{Data}}_{ \text{Inc}}$ & $C^{\pi \text{MC}}_{\text{Int}}$  & $C^{\pi \text{MC}}_{\text{Inc}}$ & $ \epsilon^{\text{Int}} $ & $\epsilon^{\text{Inc}}$ \\ 
+(MeV)& (Barn)& Uncertainty (Barn) & & & & & \\\hline
+& & & & & & &\\
+ $[100,150]$ &1&+20/-10 & & & & & &\\
 \end{tabular}
 \end{ruledtabular}
 \end{table*}
 
-
-
-%%%%%%%%%%%%%%
-%Historic measurements of hadronic cross sections are performed on thin targets [\textcolor{red}{A CIT is needed here}]. At their core, these experiments consists in shooting a beam of particles with a known flux on a thin slab of material and recording the outgoing flux, under the assumption that the target centers are uniformly distributed in the material and that no center of interaction sits in front of another. 
-
-
-%The thin target approximation is valid if the interaction length of the considered process is significantly longer than the width of the target, i.e $\lambda_{\text{Int}} \gg \delta X$.
-
-%Equation \ref{eq:thinTargetXS},
-%\begin{equation}
-%P_{\text{Surv}} = e^{-\sigma_{\text{TOT}}\text{ } n \text{ }\delta X} = 1- P_{\text{Int}}  = 1 - \frac{N_{\text{Int}}}{N_{\text{Inc}}} 
-%\label{eq:thinTargetXS}
-%\end{equation}
-% relates the probability that a particle survives a target to the total hadronic cross section, $\sigma_{\text{TOT}}$, the density of the target centers, $n$,  and  the thickness of the target  along the incident hadron direction, $\delta X$. The survival probability can be expressed in terms of the interaction probability $P_{\text{Int}}$, represented by ratio between the number of particles interacting in the thin target $N_{\text{Int}}$ and the number of incident particles $N_{\text{Inc}}$. In the thin target approximation,  a simple proportionality relationship between the cross section and the interaction probability is found by Taylor expanding the exponential function:
-% \begin{equation}
-% \sigma_{\text{TOT}}  = \frac{1}{n \text{ }\delta X}\frac{N_{\text{Int}}}{N_{\text{Inc}}}.
-%\label{eq:thinTargetXSSolved}
-%\end{equation}
-
-%Since the expected interaction length of pions in liquid argon is of the order of $\lambda_{\text{Int}} \sim 50$ cm [\textcolor{red}{A CIT is needed here}], we cannot treat the LArIAT TPC, with its 90 cm of length,  as a thin target. However, the granularity of the LArIAT LArTPC allows us to assess the presence of a pion and to measure its kinetic energy approximately every 4.7~mm along its trajectory in the detector's active volume. We can thus treat the argon volume as a sequence of many adjacent thin targets, recovering the thin target approximation in each slice of argon. 
-
-
-%\begin{figure}
-%  \centering  
-%\includegraphics[width=0.8\textwidth]{PitchPi}
-%\caption{Representation of sliced LAr Volume.}
-%\label{fig:TPCGran}
-%\end{figure}
-
-
+\clearpage
 \input acknowledgement.tex   % input acknowledgement
 \bibliography{bib.bib}
 

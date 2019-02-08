@@ -146,8 +146,8 @@ The combination of magnets and wire chambers forms the LArIAT spectrometer which
 %\begin{comment}     
 \begin{figure}
   \centering  
-\includegraphics[width =0.4\textwidth]{momentumPiMuE.png}
-\caption{Momentum spectrum in the LArIAT beamline  for Run II negative polarity data, low energy tune on the right, high energy tune on the left. \textcolor{red}{(change this figure to 2 for the low and high energy, prettyfy)}}
+\includegraphics[width =0.4\textwidth]{momentumPiMuE.pdf}
+\caption{Momentum spectrum in the LArIAT beamline  for Run II negative polarity data, low energy tune on the right, high energy tune on the left. \textcolor{red}{(should we change this figure to 2 for the low and high energy?)}}
 \label{fig:momentum}
 \end{figure}
 
@@ -247,7 +247,7 @@ The finely grained measurement of the kinetic energy, possible only thanks to th
 \caption{\label{fig:pitch}  Pitch distribution for the Run II negative polarity data displayed in black, MC in red.}
 \end{figure}
 \begin{figure}
-\includegraphics[width =0.4\textwidth ]{DepEnergy_Fit_v4100A.png}
+\includegraphics[width =0.4\textwidth ]{dE.pdf}
 \caption{\label{fig:enDep}  Energy deposition distribution in a single slice for Run II negative polarity data for the high energy tune displayed in black, MC in red. \textcolor{red}{(prettyfy)}}
 \end{figure}
 
@@ -260,7 +260,7 @@ The finely grained measurement of the kinetic energy, possible only thanks to th
 
 
 \subsection{\label{sec:Simulation}Simulation}
-The LArIAT simulation toolkit used in this work is a combination of two Monte Carlo simulations: the G4Beamline Monte Carlo  [\textcolor{red}{cit needed}] and the Data Driven single particle Monte Carlo (DDMC).  G4Beamline simulates the beam collisions at the LArIAT target, the energy deposited by the particles in the beamline detectors, and the action of the magnets, effectively accounting for particle transportation through the beamline from the LArIAT target until the LArTPC. G4Beamline accounts for the beamline trigger and simulates the particle's composition in the beam. G4Beamline provides the relative percentages of particle species which the DDMC simulates downstream from the fourth wire chamber into the cryostat and into the LArTPC.  The measurement of the beamline particles' momentum and position at the fourth wire chamber performed on data serves as a basis for the DDMC event generation: the DDMC simulation samples from the joint distribution of the momentum and position measurements in data using a 5-dimensional hit-or-miss sampling procedure. This sampling generates MC events  with the same momentum and position distributions as data, with the additional benefit of accounting for the correlations among the considered variables. A LArSoft simulation module launches single particle MC from the location of the fourth wire chamber (100 cm upstream to the LArTPC) using the generated events. The particles are free to decay and interact in their path to the LArTPC according to the Geant4 simulation. We use the DDMC samples in several occasions: to propagate the estimated beamline background to the pion cross section, to calibrate the energy loss upstream of the LArTPC,  and to study the tracking and the calorimetric performance  in the LArTPC. 
+The LArIAT simulation toolkit used in this work is a combination of two Monte Carlo simulations: the G4Beamline Monte Carlo  \cite{G4Beamline} and the Data Driven single particle Monte Carlo (DDMC).  G4Beamline simulates the beam collisions at the LArIAT target, the energy deposited by the particles in the beamline detectors, and the action of the magnets, effectively accounting for particle transportation through the beamline from the LArIAT target until the LArTPC. G4Beamline accounts for the beamline trigger and simulates the particle's composition in the beam. G4Beamline provides the relative percentages of particle species which the DDMC simulates downstream from the fourth wire chamber into the cryostat and into the LArTPC.  The measurement of the beamline particles' momentum and position at the fourth wire chamber performed on data serves as a basis for the DDMC event generation: the DDMC simulation samples from the joint distribution of the momentum and position measurements in data using a 5-dimensional hit-or-miss sampling procedure. This sampling generates MC events  with the same momentum and position distributions as data, with the additional benefit of accounting for the correlations among the considered variables. A LArSoft simulation module launches single particle MC from the location of the fourth wire chamber (100 cm upstream to the LArTPC) using the generated events. The particles are free to decay and interact in their path to the LArTPC according to the Geant4 simulation. We use the DDMC samples in several occasions: to propagate the estimated beamline background to the pion cross section, to calibrate the energy loss upstream of the LArTPC,  and to study the tracking and the calorimetric performance  in the LArTPC. 
 
 
 \subsection{\label{sec:EventSelection}Beamline Event Selection}
